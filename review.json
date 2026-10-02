@@ -802,10 +802,37 @@
       "item": "画像・3Dモデル・音声",
       "reason": "公開用の画像、3Dモデル、音声ファイルは含めていない。",
       "source_refs": [],
-      "handling": "images/ には作図した模式図のみ。models/ と audio/ は空。読み上げは端末の音声合成を使う"
+      "handling": "images/ には作図した模式図のみ。models/ と audio/ は空。金堂の柱の立体は、数値から画面の上で作っている（3Dモデルのファイルはない）。読み上げは端末の音声合成を使う"
     },
     {
       "id": "missing_07",
+      "item": "金堂の柱の高さ",
+      "reason": "報告書には、柱の位置・間隔（23頁）と、礎石から推測できる柱の直径（23頁）はあるが、柱の高さの記載はない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        }
+      ],
+      "media_ids": [
+        "media_kondo_columns_3d"
+      ],
+      "fact_ids": [
+        "fact_kondo_plan",
+        "fact_kondo_bay",
+        "fact_kondo_column_diameter"
+      ],
+      "handling": "柱の立体表示では、外側の柱を3.0ｍの仮の高さで描き、画面のスライダーで2～6ｍに変えられるようにした。画面に「報告書に書かれていません」と表示している",
+      "suggested_action": "建物の復元案がある場合は、その高さを media.json の model.column.height に入れる"
+    },
+    {
+      "id": "missing_08",
       "item": "既往調査（第1～21次）の詳細",
       "reason": "本報告書は第22・24・28・29・31次調査の報告。第11次など既往調査は要約だけで、詳細は東大阪市教育委員会2007ほかによる。",
       "source_refs": [
@@ -908,7 +935,7 @@
     {
       "id": "copyright_04",
       "item": "本アプリで作図した模式図",
-      "reason": "伽藍配置の模式図と金堂の柱配置図は、報告書の数値と図（第2・5図）を参考に新たに作図した。位置関係は概略。",
+      "reason": "伽藍配置の模式図、金堂の柱配置図、金堂の柱の立体は、報告書の数値と図（第2・5図）を参考に新たに作った。位置関係は概略。",
       "source_refs": [
         {
           "source_id": "source_report_2022",
@@ -928,7 +955,8 @@
       ],
       "media_ids": [
         "media_plan_schematic",
-        "media_kondo_columns"
+        "media_kondo_columns",
+        "media_kondo_columns_3d"
       ],
       "suggested_action": "報告書の図の翻案にあたるかどうかを含め、発行者に確認する"
     }
@@ -1036,9 +1064,45 @@
     {
       "id": "human_10",
       "item": "カメラ機能の実機確認",
-      "reason": "記念フレーム撮影と柱配置の重ね表示は、iPhone Safari と Android Chrome の実機では未確認（https 上でのみ動く）。",
+      "reason": "記念フレーム撮影と、柱の立体の重ね表示は、iPhone Safari と Android Chrome の実機では未確認（https 上でのみ動く）。立体は利用者が手で回して合わせる方式で、端末の位置や向きから自動で合わせることはしていない。",
       "source_refs": [],
-      "suggested_action": "GitHub Pages に置いてから実機で確認する"
+      "suggested_action": "GitHub Pages に置いてから実機で確認する。現地で合わせやすい最初の見え方（見る方角・距離）が決まれば、media.json の model.view に入れる"
+    },
+    {
+      "id": "human_11",
+      "item": "柱の立体表示での設定",
+      "reason": "報告書の数値でないものを、表示のために次のように決めた。(1) 身舎の柱（Ｂ～Ｅ列・②～④列の10本）を外側の柱の1.2倍の高さにする（作成者の指定。見分けるための設定で、復元の根拠はない）。(2) 柱の太さは、報告書が推測する45cm～60cmの範囲から0.5ｍとした。(3) 建物を基壇の中央に置いた（基壇の規模は中軸線で折り返して求められているが、建物と基壇の中心が一致するとは書かれていない）。(4) 柱の根元を高さ0とし、基壇の範囲と建物の範囲を同じ高さの平らな面で示した（基壇の高さ約1.5ｍと階段は立体にしていない）。(5) 建物の範囲は外側の柱の中心を結んだ範囲（東西9.75ｍ・南北7.8ｍ。柱間1.95ｍからの計算値）で、軒や壁の位置ではない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 17,
+          "pdf_page": 31
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        }
+      ],
+      "media_ids": [
+        "media_kondo_columns_3d"
+      ],
+      "fact_ids": [
+        "fact_kondo_plan",
+        "fact_kondo_bay",
+        "fact_kondo_column_diameter",
+        "fact_kondo_kidan_ew",
+        "fact_kondo_kidan_ns",
+        "fact_kondo_kidan_height",
+        "fact_c3d3_no_soseki"
+      ],
+      "handling": "画面の「この表示のもとになっているもの」で、報告書によるものと、このアプリでの設定を分けて示している",
+      "suggested_action": "設定を変えるときは media.json の model を書き換える"
     }
   ]
 }
