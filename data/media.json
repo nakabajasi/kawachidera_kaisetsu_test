@@ -480,9 +480,12 @@
         "column": {
           "diameter": 0.5,
           "height": 3,
-          "height_min": 2,
-          "height_max": 6,
           "height_note": "柱の高さは報告書に書かれていません。仮の高さで表しています（内側の身舎の柱は、その1.2倍）。"
+        },
+        "photo": {
+          "caption": "河内寺廃寺跡　創建時の金堂の柱（模式）",
+          "note": "柱の位置は発掘調査報告書による。柱の高さは仮の値",
+          "file_prefix": "kawachidera_kondo"
         },
         "planes": [
           {
@@ -609,7 +612,7 @@
           {
             "item": "柱の高さ",
             "from": "assumed",
-            "text": "報告書に書かれていない。外側の柱を3.0ｍとして描いており、スライダーで変えられる。",
+            "text": "報告書に書かれていない。外側の柱を3.0ｍとして描いている。",
             "fact_ids": [],
             "source_refs": []
           },

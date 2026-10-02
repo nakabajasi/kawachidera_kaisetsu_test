@@ -120,6 +120,8 @@ section("立体の柱");
       ok(data.factMap.fact_kondo_kidan_ew.object.startsWith(String(k.w) + "ｍ") && data.factMap.fact_kondo_kidan_ns.object.startsWith(String(k.d) + "ｍ"), `${m.id}: 基壇の大きさが facts と違う`);
       ok(model.column.diameter >= 0.45 && model.column.diameter <= 0.6, `${m.id}: 柱の太さが報告書の推定（45cm～60cm）の外`);
       ok(model.basis.some((x) => x.item === "柱の高さ" && x.from === "assumed") && model.basis.some((x) => x.item === "身舎の柱の高さ" && x.from === "assumed"), `${m.id}: 柱の高さが「このアプリでの設定」と書かれていない`);
+      ok(!!model.photo && /仮/.test(model.photo.note || "") && /報告書に書かれていません/.test(model.column.height_note || ""), `${m.id}: 撮影した画像と画面に、柱の高さが仮の値であることを書く文がない`);
+      ok(/^[a-z0-9_]+$/.test((model.photo || {}).file_prefix || ""), `${m.id}: photo.file_prefix は半角の英数字と _ だけにする`);
     }
     // 見え方：南から真横に見ると、東が右・上が上。身舎の柱の頭は外側の柱の1.2倍の高さに来る
     const v = Object.assign(C.defaultView(model), { az: 0, el: 0 });

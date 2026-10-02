@@ -8,58 +8,58 @@
   <link rel="stylesheet" href="../ar.css">
 </head>
 <body class="ar3d">
-  <header class="bar">
-    <h1 id="title">柱を立体でカメラに重ねる</h1>
-    <a href="../../index.html#/experience" id="back">戻る</a>
-  </header>
-
   <div class="stage" id="stage">
     <video id="video" playsinline muted></video>
-    <canvas class="view3d" id="view" hidden role="img" aria-label="柱を立体で並べた図"></canvas>
+    <canvas class="view3d" id="view" hidden tabindex="0" role="img" aria-label="柱を立体で並べた図"></canvas>
+
+    <div class="hud hud--top">
+      <a class="chip" href="../../index.html#/experience" id="back">戻る</a>
+      <button type="button" class="chip" id="info" hidden>この表示について</button>
+    </div>
+    <pre class="debug" id="debug" hidden></pre>
+
+    <p class="hint3d" id="hint" hidden>1本の指でなぞると回ります。<br>2本の指でなぞると動き、つまむと大きさが変わります。</p>
+
+    <div class="hud hud--bottom" id="controls" hidden>
+      <button type="button" class="chip" id="planes" aria-pressed="true">範囲を隠す</button>
+      <button type="button" class="shutter" id="shoot" aria-label="撮影する"></button>
+      <button type="button" class="chip" id="reset">最初に戻す</button>
+    </div>
+
+    <!-- 撮影した画像。保存ボタンか、画像の長押しで保存する -->
+    <div class="result" id="result" hidden>
+      <img id="shot" alt="柱の立体を重ねて撮影した画像">
+      <div class="result__bar">
+        <p class="cap">「保存する」を押すか、画像を長押しすると、この端末に保存できます。</p>
+        <div class="row">
+          <a class="btn" id="save" download="heritage_ar.jpg">保存する</a>
+          <button type="button" class="btn btn--line" id="share" hidden>共有する</button>
+          <button type="button" class="btn btn--line" id="retry">撮り直す</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet3d" id="about" hidden role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+      <div class="sheet3d__in">
+        <h2 id="aboutTitle"></h2>
+        <p class="note" id="heightNote"></p>
+        <h3>動かし方</h3>
+        <p class="cap">1本の指でなぞる：見る位置が建物のまわりを回る。2本の指でなぞる：画面の中で動く。2本の指でつまむ・広げる：建物までの距離が変わる（大きさが変わる）。丸いボタン：柱を重ねたまま撮影する。</p>
+        <h3>もとになっているもの</h3>
+        <ul class="basis" id="basis"></ul>
+        <p class="cap" id="caption"></p>
+        <button type="button" class="btn" id="aboutClose">閉じる</button>
+      </div>
+    </div>
+
     <div class="intro" id="intro">
-      <p id="lead">柱を円柱の立体で並べ、カメラの映像に重ねて表示します。画面を指でなぞって回し、いま見ている位置からの見え方に合わせます。</p>
+      <h1 id="title">柱を立体でカメラに重ねる</h1>
+      <p id="lead">柱を円柱の立体で並べ、カメラの映像に重ねて表示します。画面を指でなぞって、いま立っている位置からの見え方に合わせ、そのまま撮影して保存できます。</p>
+      <p class="note" id="introNote"></p>
       <button type="button" class="btn" id="start">カメラを使う</button>
       <button type="button" class="btn btn--line" id="nocam">カメラを使わずに立体だけ見る</button>
       <p class="err" id="err" role="alert"></p>
     </div>
-  </div>
-
-  <div class="panel" id="panel" hidden>
-    <p class="readout" id="readout" aria-live="polite"></p>
-    <div class="row">
-      <div class="seg" role="group" aria-label="画面を指でなぞったときの動き">
-        <span>なぞると</span>
-        <button type="button" id="modeRotate" aria-pressed="true">回す</button>
-        <button type="button" id="modeMove" aria-pressed="false">ずらす</button>
-      </div>
-      <button type="button" class="btn btn--line" id="reset">最初に戻す</button>
-    </div>
-    <label>見る方角<input type="range" id="az" min="0" max="359" step="1"><output id="azOut" for="az"></output></label>
-    <label>見下ろす角度<input type="range" id="el" min="-15" max="89" step="1"><output id="elOut" for="el"></output></label>
-    <label>距離<input type="range" id="dist" min="4" max="80" step="0.5"><output id="distOut" for="dist"></output></label>
-    <label>柱の高さ<input type="range" id="height" min="2" max="6" step="0.1"><output id="heightOut" for="height"></output></label>
-    <p class="note" id="heightNote"></p>
-    <details id="more">
-      <summary>こまかい調整</summary>
-      <div class="in">
-        <label>写る範囲<input type="range" id="fov" min="30" max="100" step="1"><output id="fovOut" for="fov"></output></label>
-        <label>画面の傾き<input type="range" id="roll" min="-30" max="30" step="1"><output id="rollOut" for="roll"></output></label>
-        <label>濃さ<input type="range" id="opacity" min="20" max="100" step="5" value="90"><output id="opacityOut" for="opacity"></output></label>
-        <div class="row">
-          <button type="button" class="btn btn--line" id="tone">柱の色を切り替える</button>
-          <button type="button" class="btn btn--line" id="planes" aria-pressed="true">基壇と建物の範囲</button>
-        </div>
-        <p class="cap">2本の指でつまむと距離が、2本の指でなぞると位置が変わります。「写る範囲」は端末のカメラによって違うので、柱の間隔が合わないときに動かしてください。</p>
-      </div>
-    </details>
-    <details id="about">
-      <summary>この表示のもとになっているもの</summary>
-      <div class="in">
-        <ul class="basis" id="basis"></ul>
-        <p class="cap" id="caption"></p>
-      </div>
-    </details>
-    <pre class="debug" id="debug" hidden></pre>
   </div>
 
   <script src="../ar-common.js"></script>
@@ -87,37 +87,49 @@
     }
     const model = item.model;
     const scene = C.buildScene(model);
-    const canvas = $("view"), stage = $("stage");
+    const canvas = $("view"), stage = $("stage"), video = $("video");
     const STORE = "heritage.columns3d." + item.id;
-    const TONES = Object.keys(C.TONES);
+    const KEEP = ["az", "el", "dist", "pan", "tilt"]; // 端末に残すのは、指で合わせた見え方だけ
 
-    let view = C.defaultView(model);
-    const ui = { tone: "tan", planes: true, opacity: 90, mode: "rotate" };
+    // 最初の見え方。画面が縦長でも建物の範囲がおさまるように、必要なら距離を広げる
+    function initialView() {
+      const v = C.defaultView(model);
+      const cw = stage.clientWidth, ch = stage.clientHeight;
+      if (cw > 0 && ch > 0) {
+        const focal = (Math.max(cw, ch) / 2) / Math.tan((v.fov * Math.PI) / 360);
+        const half = Math.atan((Math.min(cw, ch) / 2) / focal);
+        const reach = Math.hypot(scene.width, scene.depth) / 2 + scene.radius;
+        v.dist = Math.max(v.dist, Math.round((reach / Math.sin(half)) * 1.1 * 2) / 2);
+      }
+      return v;
+    }
+    let view = initialView();
+    const ui = { planes: true, plain: false };
 
     // 前に合わせた見え方があれば、そこから始める（端末の中にだけ保存する）
     try {
       const saved = JSON.parse(localStorage.getItem(STORE) || "null");
       if (saved && saved.view) {
-        Object.keys(view).forEach((k) => { if (typeof saved.view[k] === "number" && isFinite(saved.view[k])) view[k] = saved.view[k]; });
-        if (TONES.includes(saved.tone)) ui.tone = saved.tone;
+        KEEP.forEach((k) => { if (typeof saved.view[k] === "number" && isFinite(saved.view[k])) view[k] = saved.view[k]; });
         if (typeof saved.planes === "boolean") ui.planes = saved.planes;
-        if (saved.opacity >= 20 && saved.opacity <= 100) ui.opacity = saved.opacity;
       }
     } catch (e) { /* 保存できない端末では、毎回最初の見え方から始める */ }
     let saveTimer = 0;
     function save() {
       clearTimeout(saveTimer);
       saveTimer = setTimeout(() => {
-        try { localStorage.setItem(STORE, JSON.stringify({ view, tone: ui.tone, planes: ui.planes, opacity: ui.opacity })); } catch (e) { /* 保存しない */ }
+        const v = {}; KEEP.forEach((k) => { v[k] = view[k]; });
+        try { localStorage.setItem(STORE, JSON.stringify({ view: v, planes: ui.planes })); } catch (e) { /* 保存しない */ }
       }, 400);
     }
 
     // ───────── 題名と、もとになっているものの説明 ─────────
     $("title").textContent = item.title;
+    $("aboutTitle").textContent = item.title;
     document.title = item.title + "｜カメラに重ねる";
-    canvas.setAttribute("aria-label", item.title);
-    $("height").min = model.column.height_min; $("height").max = model.column.height_max;
+    canvas.setAttribute("aria-label", item.title + "。矢印キーで回し、＋と－で距離を変えられます");
     $("heightNote").textContent = model.column.height_note || "";
+    $("introNote").textContent = model.column.height_note || "";
     const TAG = { report: ["報告書", ""], assumed: ["このアプリでの設定", " tag--assumed"] };
     $("basis").innerHTML =
       model.planes.map((p) => `<li><span class="sw sw--${esc(p.id)}"></span><b>${esc(p.label)}</b>　東西${esc(p.w)}ｍ × 南北${esc(p.d)}ｍ。柱の根元の高さに置いた平らな面</li>`).join("") +
@@ -138,72 +150,51 @@
       if (canvas.hidden) return;
       resize();
       C.normalize(view, model);
-      C.render(canvas, scene, view, { tone: ui.tone, planes: ui.planes, scale: Number(canvas.dataset.dpr) });
-      canvas.style.opacity = ui.opacity / 100;
+      C.render(canvas, scene, view, { tone: "tan", planes: ui.planes, scale: Number(canvas.dataset.dpr) });
       sync();
       save();
     }
     function schedule() { if (!frame) frame = requestAnimationFrame(draw); }
 
     function sync() {
-      const eye = C.eyeHeight(view);
-      const dir = C.directionName(view.az);
-      $("readout").textContent = `${dir}から／中心まで${num(view.dist)}ｍ／目の高さ${num(eye)}ｍ` + (eye < 0 ? "（柱の根元より下）" : "");
-      const set = (id, v, text) => { $(id).value = v; $(id + "Out").textContent = text; };
-      set("az", Math.round(view.az) % 360, `${dir}から`);
-      set("el", Math.round(view.el), `${Math.round(view.el)}°`);
-      set("dist", view.dist, `${num(view.dist)} ｍ`);
-      set("height", view.height, `${num(view.height)} ｍ`);
-      set("fov", Math.round(view.fov), `${Math.round(view.fov)}°`);
-      set("roll", Math.round(view.roll), `${Math.round(view.roll)}°`);
-      set("opacity", ui.opacity, `${ui.opacity}%`);
       $("planes").setAttribute("aria-pressed", String(ui.planes));
-      $("planes").textContent = ui.planes ? "基壇と建物の範囲を隠す" : "基壇と建物の範囲を出す";
-      $("modeRotate").setAttribute("aria-pressed", String(ui.mode === "rotate"));
-      $("modeMove").setAttribute("aria-pressed", String(ui.mode === "move"));
-      if (DEBUG) {
+      $("planes").textContent = ui.planes ? "範囲を隠す" : "範囲を出す";
+      if (DEBUG) { // 現地で合わせた値を media.json の model.view に写すときに使う
         $("debug").hidden = false;
-        $("debug").textContent = `media: ${item.id}\n柱 ${scene.columns.length}本（内側 ${scene.columns.filter((c) => c.inner).length}本 × ${scene.innerRatio}）\n` +
-          `az ${num(view.az)} / el ${num(view.el)} / dist ${num(view.dist)} / pan ${num(view.pan)} / tilt ${num(view.tilt)} / roll ${num(view.roll)} / fov ${num(view.fov)} / height ${num(view.height)}\n` +
+        $("debug").textContent = `${item.id}／柱 ${scene.columns.length}本（内側 ${scene.columns.filter((c) => c.inner).length}本 × ${scene.innerRatio}）\n` +
+          `${C.directionName(view.az)}から／目の高さ ${num(C.eyeHeight(view))}ｍ\n` +
+          `az ${num(view.az)} / el ${num(view.el)} / dist ${num(view.dist)} / pan ${num(view.pan)} / tilt ${num(view.tilt)} / fov ${num(view.fov)} / height ${num(view.height)}\n` +
           `source: ${(item.source_refs || []).map((r) => r.source_id + " p." + r.page).join(", ")}`;
       }
     }
 
     // ───────── 始める ─────────
+    let hintTimer = 0;
+    function hideHint() { clearTimeout(hintTimer); $("hint").classList.add("is-off"); }
     function show(plain) {
-      $("intro").hidden = true; canvas.hidden = false; $("panel").hidden = false;
-      document.body.classList.add("is-ready");
-      stage.classList.toggle("is-plain", !!plain);
+      ui.plain = !!plain;
+      $("intro").hidden = true; canvas.hidden = false; $("controls").hidden = false; $("info").hidden = false; $("hint").hidden = false;
+      stage.classList.toggle("is-plain", ui.plain);
+      hintTimer = setTimeout(hideHint, 7000);
       schedule();
     }
     $("start").addEventListener("click", async () => {
       $("err").textContent = "";
-      try { await HeritageAR.startCamera($("video"), "environment"); show(false); }
+      try { await HeritageAR.startCamera(video, "environment"); show(false); }
       catch (e) { $("err").textContent = e.message; }
     });
     $("nocam").addEventListener("click", () => show(true));
 
-    // ───────── スライダーとボタン ─────────
-    const bind = (id, fn) => $(id).addEventListener("input", (e) => { fn(Number(e.target.value)); schedule(); });
-    bind("az", (v) => { view.az = v; });
-    bind("el", (v) => { view.el = v; });
-    bind("dist", (v) => { view.dist = v; });
-    bind("height", (v) => { view.height = v; });
-    bind("fov", (v) => { view.fov = v; });
-    bind("roll", (v) => { view.roll = v; });
-    bind("opacity", (v) => { ui.opacity = v; });
-    $("tone").addEventListener("click", () => { ui.tone = TONES[(TONES.indexOf(ui.tone) + 1) % TONES.length]; schedule(); });
+    // ───────── ボタン ─────────
     $("planes").addEventListener("click", () => { ui.planes = !ui.planes; schedule(); });
-    $("modeRotate").addEventListener("click", () => { ui.mode = "rotate"; schedule(); });
-    $("modeMove").addEventListener("click", () => { ui.mode = "move"; schedule(); });
-    $("reset").addEventListener("click", () => {
-      view = C.defaultView(model); ui.tone = "tan"; ui.planes = true; ui.opacity = 90;
-      schedule();
-    });
+    $("reset").addEventListener("click", () => { view = initialView(); ui.planes = true; schedule(); });
+    $("info").addEventListener("click", () => { $("about").hidden = false; $("aboutClose").focus(); });
+    $("aboutClose").addEventListener("click", () => { $("about").hidden = true; $("info").focus(); });
+    $("about").addEventListener("click", (e) => { if (e.target === $("about")) $("about").hidden = true; });
 
     // ───────── 指やマウスで動かす ─────────
-    // 1本の指：「回す」のときは見る位置が建物のまわりを回り、「ずらす」のときは絵が画面の中で動く。
-    // 2本の指：つまむと距離、なぞると位置。マウスは、ホイールで距離、Shift を押しながらなぞると「ずらす」。
+    // 1本の指：見る位置が建物のまわりを回る。2本の指：なぞると画面の中で動き、つまむと距離が変わる。
+    // マウス：なぞると回る。Shift を押しながら（または右ボタンで）なぞると動く。ホイールで距離。
     const pts = new Map();
     let pinch = null;
     const degPerPx = () => {
@@ -219,6 +210,7 @@
       try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* 取れなくても動かせる */ }
       pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
       pinch = pts.size === 2 ? twoState() : null;
+      hideHint();
     });
     canvas.addEventListener("pointermove", (e) => {
       const p = pts.get(e.pointerId);
@@ -226,8 +218,8 @@
       const dx = e.clientX - p.x, dy = e.clientY - p.y;
       p.x = e.clientX; p.y = e.clientY;
       if (pts.size === 1) {
-        if (ui.mode === "rotate" && !e.shiftKey) { view.az -= dx * 0.4; view.el += dy * 0.3; }
-        else moveBy(dx, dy);
+        if (e.shiftKey || (e.buttons & 2)) moveBy(dx, dy);
+        else { view.az -= dx * 0.4; view.el += dy * 0.3; }
       } else if (pts.size === 2 && pinch) {
         const now = twoState();
         if (now.d > 8 && pinch.d > 8) view.dist *= pinch.d / now.d;
@@ -239,11 +231,82 @@
     const end = (e) => { pts.delete(e.pointerId); pinch = pts.size === 2 ? twoState() : null; };
     canvas.addEventListener("pointerup", end);
     canvas.addEventListener("pointercancel", end);
-    canvas.addEventListener("wheel", (e) => { e.preventDefault(); view.dist *= Math.exp(e.deltaY * 0.0015); schedule(); }, { passive: false });
+    canvas.addEventListener("contextmenu", (e) => e.preventDefault()); // 右ボタンでなぞるため（撮影した画像の長押しには関係しない）
+    canvas.addEventListener("wheel", (e) => { e.preventDefault(); view.dist *= Math.exp(e.deltaY * 0.0015); hideHint(); schedule(); }, { passive: false });
+    canvas.addEventListener("keydown", (e) => {
+      const step = { ArrowLeft: () => { view.az += 3; }, ArrowRight: () => { view.az -= 3; }, ArrowUp: () => { view.el += 2; }, ArrowDown: () => { view.el -= 2; },
+        "+": () => { view.dist *= 0.93; }, ";": () => { view.dist *= 0.93; }, "=": () => { view.dist *= 0.93; }, "-": () => { view.dist /= 0.93; } }[e.key];
+      if (!step) return;
+      e.preventDefault(); step(); hideHint(); schedule();
+    });
 
     if (window.ResizeObserver) new ResizeObserver(schedule).observe(stage);
     window.addEventListener("resize", schedule);
     window.addEventListener("orientationchange", schedule);
+
+    // ───────── 撮影して保存する ─────────
+    // 画面に見えている範囲のカメラ映像に、柱の立体を透かさずに重ねて1枚の画像にする。画像は端末の中だけで作り、送信しない。
+    let shotFile = null;
+    function shoot() {
+      const cw = stage.clientWidth, ch = stage.clientHeight, aspect = cw / ch;
+      const vw = video.videoWidth, vh = video.videoHeight;
+      const useVideo = !ui.plain && vw > 0 && vh > 0;
+      let sw = cw, sh = ch, sx = 0, sy = 0;
+      if (useVideo) { // 映像は画面いっぱいに切り抜いて表示しているので、同じ範囲を切り出す
+        sw = vw; sh = vh;
+        if (vw / vh > aspect) { sw = vh * aspect; sx = (vw - sw) / 2; } else { sh = vw / aspect; sy = (vh - sh) / 2; }
+      }
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const long = Math.min(1600, Math.max(sw, sh, Math.max(cw, ch) * dpr));
+      const k = long / Math.max(cw, ch);
+      const w = Math.round(cw * k), h = Math.round(ch * k);
+      const c = document.createElement("canvas");
+      c.width = w; c.height = h;
+      const g = c.getContext("2d");
+      if (useVideo) g.drawImage(video, sx, sy, sw, sh, 0, 0, w, h);
+      else { const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, "#27343a"); bg.addColorStop(0.55, "#1b2428"); bg.addColorStop(1, "#141b1e"); g.fillStyle = bg; g.fillRect(0, 0, w, h); }
+      C.render(c, scene, C.normalize(Object.assign({}, view), model), { tone: "tan", planes: ui.planes, scale: w / cw, keep: true });
+
+      // 何の画像かを、すみに小さく書き込む（高さが仮の値であることを含む）
+      const now = new Date(), p2 = (n) => String(n).padStart(2, "0");
+      const date = now.getFullYear() + "." + p2(now.getMonth() + 1) + "." + p2(now.getDate());
+      const photo = model.photo || {};
+      const lines = [photo.caption || item.title, (photo.note ? photo.note + "　" : "") + date].filter(Boolean);
+      const u = Math.min(w, h) / 100, margin = u * 4;
+      g.setTransform(1, 0, 0, 1, 0, 0);
+      g.textAlign = "left"; g.textBaseline = "alphabetic"; g.lineJoin = "round";
+      let y = h - margin;
+      lines.slice().reverse().forEach((text, i) => {
+        let fs = (i === lines.length - 1 ? 3.1 : 2.5) * u;
+        g.font = (i === lines.length - 1 ? "600 " : "") + fs + "px sans-serif";
+        const tw = g.measureText(text).width;
+        if (tw > w - margin * 2) { fs *= (w - margin * 2) / tw; g.font = (i === lines.length - 1 ? "600 " : "") + fs + "px sans-serif"; }
+        g.lineWidth = fs * 0.28; g.strokeStyle = "rgba(0,0,0,0.72)"; g.strokeText(text, margin, y);
+        g.fillStyle = "#fff"; g.fillText(text, margin, y);
+        y -= fs * 1.5;
+      });
+
+      const url = c.toDataURL("image/jpeg", 0.92);
+      const name = (photo.file_prefix || "heritage_ar") + "_" + date.replace(/\./g, "") + "_" + p2(now.getHours()) + p2(now.getMinutes()) + p2(now.getSeconds()) + ".jpg";
+      $("shot").src = url;
+      $("save").href = url; $("save").download = name;
+      $("result").hidden = false;
+      // 共有（iPhone では「画像を保存」で写真に入る）が使える端末にだけ、ボタンを出す
+      shotFile = null; $("share").hidden = true;
+      if (c.toBlob && navigator.canShare) {
+        c.toBlob((blob) => {
+          if (!blob) return;
+          try {
+            const file = new File([blob], name, { type: "image/jpeg" });
+            if (navigator.canShare({ files: [file] })) { shotFile = file; $("share").hidden = false; }
+          } catch (e) { /* 共有は出さない */ }
+        }, "image/jpeg", 0.92);
+      }
+      $("save").focus();
+    }
+    $("shoot").addEventListener("click", shoot);
+    $("retry").addEventListener("click", () => { $("result").hidden = true; $("shot").removeAttribute("src"); shotFile = null; $("shoot").focus(); });
+    $("share").addEventListener("click", () => { if (shotFile) navigator.share({ files: [shotFile] }).catch(() => { /* 取り消したとき */ }); });
 
     // 動作確認用（tools/browser_test.mjs から使う）
     window.__columns3d = { get view() { return view; }, scene, model, ui, draw };

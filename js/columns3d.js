@@ -77,7 +77,7 @@
     view.roll = clamp(view.roll, LIMIT.roll[0], LIMIT.roll[1]);
     view.pan = clamp(view.pan, -80, 80);
     view.tilt = clamp(view.tilt, -80, 80);
-    if (model) view.height = clamp(view.height, model.column.height_min, model.column.height_max);
+    if (model && !(view.height > 0)) view.height = model.column.height;
     return view;
   }
 
@@ -212,7 +212,9 @@
 
   /**
    * canvas に描く。
-   * opts: { tone: "tan" | "white" | "green", planes: true/false, background: 色（省くと透明） }
+   * opts: { tone: "tan" | "white" | "green", planes: true/false, background: 色（省くと透明）,
+   *         keep: true にすると、canvas にすでに描いてあるもの（カメラの映像など）を消さずに上から描く,
+   *         scale: 線と文字の太さの倍率 }
    */
   function render(canvas, scene, view, opts) {
     opts = opts || {};
@@ -220,7 +222,7 @@
     const w = canvas.width, h = canvas.height;
     const scale = opts.scale || 1;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, w, h);
+    if (!opts.keep) ctx.clearRect(0, 0, w, h);
     if (opts.background) { ctx.fillStyle = opts.background; ctx.fillRect(0, 0, w, h); }
     if (view.roll) { ctx.translate(w / 2, h / 2); ctx.rotate(view.roll * RAD); ctx.translate(-w / 2, -h / 2); }
     const cam = camera(view, w, h);
