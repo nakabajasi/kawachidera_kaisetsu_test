@@ -1,0 +1,339 @@
+{
+  "_about": "言い回しだけを収める。史実（数値・名称・年代など）は書かない。{s}=主語、{o}=facts.json の object、{label}=下の labels。plain は確からしさの語尾を後ろに付ける形、polite は断定の事実に使う形。",
+  "default_style": "normal",
+  "styles": {
+    "normal": {
+      "name": "ふつう",
+      "lead_in": ["", "", "報告書によると、"],
+      "summary": { "intro": ["{topic}についてご説明します。", "{topic}の要点です。", ""], "outro": [""] },
+      "definition": { "intro": [""], "outro": [""] },
+      "period": { "intro": ["", "年代についてです。"], "outro": [""] },
+      "location": { "intro": [""], "outro": [""] },
+      "size": { "intro": ["", "大きさについてです。"], "outro": [""] },
+      "artifact": { "intro": ["", "出土した遺物についてです。"], "outro": [""] },
+      "interpretation": { "intro": ["報告書の解釈を紹介します。", ""], "outro": [""] },
+      "multi_view": { "intro": ["{topic}については、複数の見方があります。", "{topic}には、いくつかの見方が示されています。"], "outro": ["どれか一つに決まったわけではありません。", ""] },
+      "history": { "intro": ["{topic}は、調査が進むにつれて変わってきました。", "{topic}には、見直しの経過があります。"], "outro": [""] },
+      "uncertainty": { "intro": ["{topic}には、分かっていないことがあります。", ""], "outro": [""] },
+      "comparison": { "intro": ["比べてみます。", ""], "outro": [""] },
+      "navigation": { "intro": ["{topic}のご案内です。"], "outro": [""] }
+    },
+    "friendly": {
+      "name": "やさしく",
+      "lead_in": ["", "", "報告書によると、"],
+      "summary": { "intro": ["{topic}について、かんたんにお話ししますね。", "{topic}のポイントです。", ""], "outro": [""] },
+      "definition": { "intro": [""], "outro": [""] },
+      "period": { "intro": ["", "いつごろのことか、見てみましょう。"], "outro": [""] },
+      "location": { "intro": [""], "outro": [""] },
+      "size": { "intro": ["", "大きさを見てみましょう。"], "outro": [""] },
+      "artifact": { "intro": ["", "見つかったものを紹介しますね。"], "outro": [""] },
+      "interpretation": { "intro": ["報告書ではこう考えられています。", ""], "outro": [""] },
+      "multi_view": { "intro": ["{topic}は、じつは見方が一つではないんです。", "{topic}には、いくつかの考え方があります。"], "outro": ["まだ一つには決まっていないんですね。", ""] },
+      "history": { "intro": ["{topic}は、調査のたびに見直されてきたんです。", "{topic}には、こんな経過があります。"], "outro": [""] },
+      "uncertainty": { "intro": ["{topic}には、まだ分かっていないこともあります。", ""], "outro": [""] },
+      "comparison": { "intro": ["比べてみましょう。", ""], "outro": [""] },
+      "navigation": { "intro": ["{topic}をご案内しますね。"], "outro": [""] }
+    },
+    "guide": {
+      "name": "ガイド風",
+      "lead_in": ["", "報告書によると、", "調査報告では、"],
+      "summary": { "intro": ["ここで{topic}を見ていきましょう。", "それでは{topic}をご案内します。"], "outro": [""] },
+      "definition": { "intro": ["", "ここで言葉の確認です。"], "outro": [""] },
+      "period": { "intro": ["ここで年代に注目してみましょう。", ""], "outro": [""] },
+      "location": { "intro": ["場所を確かめておきましょう。", ""], "outro": [""] },
+      "size": { "intro": ["ここで大きさに注目してみましょう。", ""], "outro": [""] },
+      "artifact": { "intro": ["ここで出土した遺物を見ていきましょう。", ""], "outro": [""] },
+      "interpretation": { "intro": ["ここからは報告書の解釈です。", ""], "outro": [""] },
+      "multi_view": { "intro": ["{topic}には複数の見方があります。順に見ていきましょう。"], "outro": ["見方が分かれている点も、この史跡の見どころです。", ""] },
+      "history": { "intro": ["{topic}がどう見直されてきたか、順に見ていきましょう。"], "outro": [""] },
+      "uncertainty": { "intro": ["ここは、まだ分かっていない点です。", ""], "outro": [""] },
+      "comparison": { "intro": ["二つを比べてみましょう。", ""], "outro": [""] },
+      "navigation": { "intro": ["それでは{topic}へご案内します。"], "outro": [""] }
+    }
+  },
+
+  "certainty_phrases": {
+    "_about": "確からしさ（certainty）ごとの代表的な語尾。実際の語尾は下の modality_endings を使い、ここは modality が無いデータのための予備。",
+    "confirmed": ["ことが確認されています。"],
+    "probable": ["と考えられています。"],
+    "possible": ["可能性があります。"],
+    "uncertain": ["とも考えられていますが、はっきりとは分かっていません。"]
+  },
+
+  "modality_endings": {
+    "_about": "原文の言い回しの型（modality）ごとの語尾。plain の後ろに付ける。assert・unknown・undetermined は polite をそのまま使うので語尾を付けない。",
+    "written": {
+      "confirmed": ["ことが確認されている。"],
+      "concluded": ["と結論づけられている。"],
+      "judged": ["と考えられている。"],
+      "estimated": ["と推定されている。"],
+      "likely": ["可能性が高いとされている。"],
+      "possible": ["可能性がある。"],
+      "proposed": ["という仮説が示されている。"],
+      "tentative": ["とも考えられているが、はっきりとは分かっていない。"],
+      "cannot_conclude": ["とまでは断定できないとされている。"],
+      "reported": ["とされている。"],
+      "reported_tradition": ["と伝えられている。"],
+      "reported_old": ["と考えられていた。"]
+    },
+    "normal": {
+      "confirmed": ["ことが確認されています。", "ことが分かっています。"],
+      "concluded": ["と結論づけられています。"],
+      "judged": ["と考えられています。", "とみられています。"],
+      "estimated": ["と推定されています。", "と想定されています。"],
+      "likely": ["可能性が高いとされています。", "可能性が高いと考えられています。"],
+      "possible": ["可能性があります。", "可能性が考えられています。"],
+      "proposed": ["という仮説が示されています。", "とする仮説が出されています。"],
+      "tentative": ["とも考えられていますが、はっきりとは分かっていません。", "可能性も示されていますが、確かなことは分かっていません。"],
+      "cannot_conclude": ["とまでは断定できないとされています。", "とは言い切れないとされています。"],
+      "reported": ["とされています。", "と報告されています。"],
+      "reported_tradition": ["と伝えられています。"],
+      "reported_old": ["と考えられていました。", "とされていました。"]
+    },
+    "friendly": {
+      "confirmed": ["ことが確認されているんです。", "ことが分かっていますよ。"],
+      "concluded": ["と結論づけられているんです。"],
+      "judged": ["と考えられているんです。", "とみられていますよ。"],
+      "estimated": ["と推定されているんです。", "と想定されていますよ。"],
+      "likely": ["可能性が高いとされているんです。", "可能性が高いと考えられていますよ。"],
+      "possible": ["可能性があるんです。", "可能性が考えられていますよ。"],
+      "proposed": ["という仮説が示されているんです。", "とする仮説が出されていますよ。"],
+      "tentative": ["とも考えられていますが、はっきりとは分かっていないんです。", "可能性も示されていますが、確かなことは分かっていないんです。"],
+      "cannot_conclude": ["とまでは断定できないとされているんです。", "とは言い切れないとされていますよ。"],
+      "reported": ["とされているんです。", "と報告されていますよ。"],
+      "reported_tradition": ["と伝えられているんです。"],
+      "reported_old": ["と考えられていたんです。", "とされていたんですよ。"]
+    },
+    "guide": {
+      "confirmed": ["ことが確認されています。", "ことが調査で分かっています。"],
+      "concluded": ["と結論づけられています。"],
+      "judged": ["と考えられています。", "とみられています。"],
+      "estimated": ["と推定されています。", "と想定されています。"],
+      "likely": ["可能性が高いとされています。", "可能性が高いと考えられています。"],
+      "possible": ["可能性があります。", "可能性が考えられています。"],
+      "proposed": ["という仮説が示されています。", "とする仮説が出されています。"],
+      "tentative": ["とも考えられていますが、はっきりとは分かっていません。", "可能性も示されていますが、確かなことは分かっていません。"],
+      "cannot_conclude": ["とまでは断定できないとされています。", "とは言い切れないとされています。"],
+      "reported": ["とされています。", "と報告されています。"],
+      "reported_tradition": ["と伝えられています。"],
+      "reported_old": ["と考えられていました。", "とされていました。"]
+    }
+  },
+
+  "polite_rewrites": {
+    "_about": "断定の文（polite）の文末だけを話し方に合わせて言い換える規則。意味と確からしさは変えない。上から順に最初に合ったものを使う。",
+    "normal": [],
+    "guide": [],
+    "friendly": [
+      { "match": "いません。", "to": ["いません。", "いないんです。"] },
+      { "match": "ありません。", "to": ["ありません。", "ないんです。"] },
+      { "match": "ませんでした。", "to": ["ませんでした。"] },
+      { "match": "ています。", "to": ["ています。", "ているんです。", "ていますよ。"] },
+      { "match": "ました。", "to": ["ました。", "ましたよ。"] },
+      { "match": "です。", "to": ["です。", "なんです。", "ですよ。"] },
+      { "match": "ます。", "to": ["ます。", "ますよ。"] }
+    ]
+  },
+
+  "attribution_prefix": {
+    "section_author": ["報告書の{label}では、", "報告書の{label}によると、"],
+    "cited": ["{label}では、", "{label}によると、"],
+    "tradition": ["{label}では、"]
+  },
+
+  "connectors": {
+    "addition": ["また、", "さらに、", "そして、", ""],
+    "contrast": ["一方で、", "ただし、", "これに対して、"],
+    "transition": ["その後、", "続いて、"]
+  },
+
+  "fallback": {
+    "not_found": [
+      "その質問に合う記述は、報告書から見つけられませんでした。",
+      "報告書の中に、その質問に答えられる記述が見つかりませんでした。"
+    ],
+    "search_hit": [
+      "ぴったりの項目はありませんが、関係しそうな記述がありました。",
+      "近い内容の記述を見つけました。"
+    ],
+    "ask_again": ["言い方を変えるか、下の質問から選んでください。"],
+    "greeting": ["こんにちは。{site}について、報告書に書かれている内容をお答えします。下の質問から選ぶこともできます。"]
+  },
+
+  "labels": {
+    "height": "高さ",
+    "width": "幅",
+    "size_east_west": "東西の規模",
+    "size_north_south": "南北の規模",
+    "bay_width": "柱間",
+    "column_diameter": "柱の直径",
+    "stair_steps": "段数",
+    "stair_projection": "出",
+    "soseki_remaining": "上に残る礎石",
+    "extent_east_west": "回廊間の東西の規模",
+    "extent_north_south": "回廊間の南北の規模",
+    "designated_area": "史跡指定地の面積",
+    "roof_type": "屋根の形",
+    "layout_type": "伽藍配置",
+    "pattern": "文様",
+    "count_found": "出土点数",
+    "type_count": "型式",
+    "renshi": "蓮子の配置",
+    "shumon_count": "外区の珠文",
+    "level_difference": "高低差",
+    "interval": "向かい合う幅",
+    "distance": "距離",
+    "dimensions": "大きさ",
+    "quantity": "量",
+    "kidan_no_de": "基壇の出",
+    "original_terrain": "寺院造営前の地形",
+    "structure_option": "構造",
+    "address": "所在地"
+  },
+
+  "families": {
+    "measure": [
+      { "plain": "{s}の{label}は{o}である", "polite": "{s}の{label}は{o}です。" },
+      { "plain": "{s}は、{label}が{o}である", "polite": "{s}は、{label}が{o}です。" },
+      { "plain": "{s}の{label}は{o}である", "polite": "{s}の{label}は{o}となっています。" }
+    ]
+  },
+
+  "sentences": {
+    "is_a": [
+      { "plain": "{s}は{o}である", "polite": "{s}は{o}です。" },
+      { "plain": "{s}は、{o}である", "polite": "{s}は、{o}となっています。" }
+    ],
+    "is_not": [{ "plain": "{s}は{o}ではない", "polite": "{s}は{o}ではありません。" }],
+    "building_plan": [
+      { "plain": "{s}は{o}である", "polite": "{s}は{o}です。" },
+      { "plain": "{s}の平面は{o}である", "polite": "{s}の平面は{o}です。" }
+    ],
+    "layout_shape": [{ "plain": "{s}の伽藍は{o}である", "polite": "{s}の伽藍は{o}です。" }],
+    "located_in": [
+      { "plain": "{s}は{o}にある", "polite": "{s}は{o}にあります。" },
+      { "plain": "{s}があるのは{o}である", "polite": "{s}があるのは{o}です。" }
+    ],
+    "reading": [{ "plain": "{s}は「{o}」と読む", "polite": "{s}は「{o}」と読みます。" }],
+    "called": [{ "plain": "{s}は{o}と呼ばれていた", "polite": "{s}は{o}と呼ばれていました。" }],
+    "dated_to": [
+      { "plain": "{s}の時期は{o}である", "polite": "{s}の時期は{o}です。" },
+      { "plain": "{s}は{o}のものである", "polite": "{s}は{o}のものです。" }
+    ],
+    "dated_back_to": [{ "plain": "{s}は{o}まで遡る", "polite": "{s}は{o}まで遡ります。" }],
+    "not_earlier_than": [{ "plain": "{s}は{o}を遡ることはない", "polite": "{s}は{o}を遡ることはありません。" }],
+    "defined_as": [{ "plain": "{s}は{o}を目安とする", "polite": "{s}は{o}を目安としています。" }],
+    "built_in": [
+      { "plain": "{s}は{o}に造られた", "polite": "{s}は{o}に造られました。" },
+      { "plain": "{s}が造られたのは{o}である", "polite": "{s}が造られたのは{o}です。" }
+    ],
+    "built_timing": [{ "plain": "{s}は{o}建築された", "polite": "{s}は{o}建築されました。" }],
+    "started_in": [
+      { "plain": "{s}の造営は{o}から始まった", "polite": "{s}の造営は{o}から始まりました。" },
+      { "plain": "{s}の造営が始まったのは{o}である", "polite": "{s}の造営が始まったのは{o}です。" }
+    ],
+    "completed_in": [
+      { "plain": "{s}の伽藍の整備は{o}には完了した", "polite": "{s}の伽藍の整備は{o}には完了しました。" },
+      { "plain": "{s}の伽藍の整備が完了したのは{o}である", "polite": "{s}の伽藍の整備が完了したのは{o}です。" }
+    ],
+    "produced_in": [{ "plain": "{s}は{o}に製作された", "polite": "{s}は{o}に製作されました。" }],
+    "occurred_in": [
+      { "plain": "{s}は{o}に発生した", "polite": "{s}は{o}に発生しました。" },
+      { "plain": "{s}が発生したのは{o}である", "polite": "{s}が発生したのは{o}です。" }
+    ],
+    "existed_during": [{ "plain": "{s}は{o}存続した", "polite": "{s}は{o}存続しました。" }],
+    "existed": [{ "plain": "{s}は存在した", "polite": "{s}は存在しました。" }],
+    "designated_in": [{ "plain": "{s}は{o}に国の史跡に指定された", "polite": "{s}は{o}に国の史跡に指定されました。" }],
+    "opened_in": [{ "plain": "{s}は{o}に史跡公園として公開された", "polite": "{s}は{o}に史跡公園として公開されました。" }],
+    "conducted_in": [{ "plain": "{s}は{o}に行われた", "polite": "{s}は{o}に行われました。" }],
+    "conducted_by": [{ "plain": "{s}は{o}が行った", "polite": "{s}は{o}が行いました。" }],
+    "count_surveys": [{ "plain": "{s}は{o}にわたって行われた", "polite": "{s}は{o}にわたって行われています。" }],
+    "covers": [{ "plain": "{s}は{o}を報告している", "polite": "{s}は{o}を報告しています。" }],
+    "modified_in": [{ "plain": "{s}は{o}に改修を受けた", "polite": "{s}は{o}に改修を受けました。" }],
+    "extended_in": [{ "plain": "{s}は{o}に拡張された", "polite": "{s}は{o}に拡張されました。" }],
+    "extended_by": [{ "plain": "{s}は{o}拡張された", "polite": "{s}は{o}拡張されました。" }],
+    "rebuilt_as": [{ "plain": "{s}は{o}に建て替えられた", "polite": "{s}は{o}に建て替えられました。" }],
+    "built_with_method": [{ "plain": "{s}は{o}築かれた", "polite": "{s}は{o}築かれました。" }],
+    "erected_with": [{ "plain": "{s}は{o}建てられた", "polite": "{s}は{o}建てられました。" }],
+    "build_stages": [{ "plain": "{s}は{o}の工程で築かれた", "polite": "{s}は{o}の工程で築かれました。" }],
+    "built_together": [{ "plain": "{s}は{o}とともに建立された", "polite": "{s}は{o}とともに建立されました。" }],
+    "same_period": [{ "plain": "{s}は{o}と同時期に整備された", "polite": "{s}は{o}と同時期に整備されました。" }],
+    "building_existed": [{ "plain": "{s}の上の建物は{o}存続していた", "polite": "{s}の上の建物は{o}存続していました。" }],
+    "continued": [{ "plain": "{s}は{o}存続していた", "polite": "{s}は{o}存続していました。" }],
+    "continued_after": [{ "plain": "{s}では{o}が続いた", "polite": "{s}では{o}が続きました。" }],
+    "collapsed_by": [{ "plain": "{s}は{o}の影響で倒壊した", "polite": "{s}は{o}の影響で倒壊しました。" }],
+    "not_rebuilt": [{ "plain": "{s}はその後再建されなかった", "polite": "{s}はその後再建されませんでした。" }],
+    "moved_by": [{ "plain": "{s}は{o}動かされた", "polite": "{s}は{o}動かされました。" }],
+    "moved_to": [{ "plain": "{s}は{o}へ移動した", "polite": "{s}は{o}へ移動しました。" }],
+    "mold_moved_from": [{ "plain": "{s}へは{o}から笵が運ばれた", "polite": "{s}へは{o}から笵が運ばれました。" }],
+    "has": [
+      { "plain": "{s}には{o}がある", "polite": "{s}には{o}があります。" }
+    ],
+    "has_kinds": [{ "plain": "{s}には{o}がある", "polite": "{s}には{o}があります。" }],
+    "has_remains": [
+      { "plain": "{s}には{o}が残る", "polite": "{s}には{o}が残っています。" }
+    ],
+    "had": [{ "plain": "{s}には{o}が存在した", "polite": "{s}には{o}が存在しました。" }],
+    "existed_at": [{ "plain": "{s}は{o}に存在していた", "polite": "{s}は{o}に存在していました。" }],
+    "activity_assumed": [{ "plain": "{s}では{o}があった", "polite": "{s}では{o}がありました。" }],
+    "contains": [{ "plain": "{s}には{o}が多く含まれる", "polite": "{s}には{o}が多く含まれます。" }],
+    "all_lost": [{ "plain": "{s}の{o}はすべて失われている", "polite": "{s}の{o}はすべて失われています。" }],
+    "finding": [
+      { "plain": "{s}では{o}が見つかった", "polite": "{s}では{o}が見つかりました。" },
+      { "plain": "{s}では{o}が確認された", "polite": "{s}では{o}が確認されました。" }
+    ],
+    "event": [{ "plain": "{s}では{o}が行われた", "polite": "{s}では{o}が行われました。" }],
+    "found_at": [
+      { "plain": "{s}は{o}から出土した", "polite": "{s}は{o}から出土しました。" },
+      { "plain": "{s}が出土したのは{o}である", "polite": "{s}が出土したのは{o}です。" }
+    ],
+    "found_on": [{ "plain": "{s}は{o}に認められる", "polite": "{s}は{o}に認められます。" }],
+    "found_many": [{ "plain": "{s}は多く出土している", "polite": "{s}は多く出土しています。" }],
+    "detected_at": [{ "plain": "{s}は{o}で検出された", "polite": "{s}は{o}で検出されました。" }],
+    "count_confirmed": [{ "plain": "{s}は{o}確認されている", "polite": "{s}は{o}確認されています。" }],
+    "same_mold_as": [{ "plain": "{s}は{o}と同笵である", "polite": "{s}は{o}と同笵です。" }],
+    "same_design_as": [{ "plain": "{s}は{o}と同文である", "polite": "{s}は{o}と同文です。" }],
+    "same_mold_found": [{ "plain": "{s}と同笵の瓦は、{o}出土している", "polite": "{s}と同笵の瓦は、{o}出土しています。" }],
+    "paired_flat_tile": [{ "plain": "{s}に伴う平瓦は{o}である", "polite": "{s}に伴う平瓦は{o}です。" }],
+    "made_of": [{ "plain": "{s}の胎土は{o}である", "polite": "{s}の胎土は{o}です。" }],
+    "used_material": [{ "plain": "{s}には{o}が利用された", "polite": "{s}には{o}が利用されました。" }],
+    "used_on": [{ "plain": "{s}が葺かれた建物は{o}である", "polite": "{s}が葺かれた建物は{o}です。" }],
+    "used_as": [{ "plain": "{s}は{o}として使用された", "polite": "{s}は{o}として使用されました。" }],
+    "made_by_workers": [{ "plain": "{s}は{o}によって製作された", "polite": "{s}は{o}によって製作されました。" }],
+    "divided_into": [{ "plain": "{s}は{o}に分けられる", "polite": "{s}は{o}に分けられます。" }],
+    "built_by": [{ "plain": "{s}の造営には{o}が関与していた", "polite": "{s}の造営には{o}が関与していました。" }],
+    "also_involved": [{ "plain": "{s}の造営には{o}も関与していた", "polite": "{s}の造営には{o}も関与していました。" }],
+    "built_by_only": [{ "plain": "{s}の造営が{o}によってなされた", "polite": "{s}の造営は{o}によってなされました。" }],
+    "run_by": [{ "plain": "{s}は{o}によって営まれた", "polite": "{s}は{o}によって営まれました。" }],
+    "patron": [{ "plain": "{s}の檀越は{o}であった", "polite": "{s}の檀越は{o}でした。" }],
+    "leading_theory": [{ "plain": "{s}については、{o}が最も有力である", "polite": "{s}については、{o}が最も有力です。" }],
+    "theory_proposed": [{ "plain": "{s}については、{o}も提唱されている", "polite": "{s}については、{o}も提唱されています。" }],
+    "revival_by": [{ "plain": "{s}の復興は{o}行われた", "polite": "{s}の復興は{o}行われました。" }],
+    "chose_because": [{ "plain": "{s}は{o}を選択した", "polite": "{s}は{o}を選択しました。" }],
+    "revised_times": [{ "plain": "{s}では、建物の比定が現在までに{o}変更された", "polite": "{s}では、建物の比定が現在までに{o}変更されています。" }],
+    "tradition_building": [{ "plain": "{s}には{o}が建っていた", "polite": "{s}には{o}が建っていました。" }],
+    "roof_option": [{ "plain": "{s}の屋根は{o}", "polite": "{s}の屋根は{o}とされています。" }],
+    "affected": [{ "plain": "{s}は{o}に大きな影響を与えた", "polite": "{s}は{o}に大きな影響を与えました。" }],
+    "cause_of": [{ "plain": "{s}が{o}の原因になった", "polite": "{s}は{o}の原因になりました。" }],
+    "flowed": [{ "plain": "{s}は{o}流れた", "polite": "{s}は{o}流れました。" }],
+    "not_detected": [
+      { "plain": "{s}は見つかっていない", "polite": "{s}は見つかっていません。" },
+      { "plain": "{s}は未検出である", "polite": "{s}は未検出です。" }
+    ],
+    "none_found": [
+      { "plain": "{s}では{o}は見つかっていない", "polite": "{s}では{o}は見つかっていません。" },
+      { "plain": "{s}では{o}は確認されていない", "polite": "{s}では{o}は確認されていません。" }
+    ],
+    "not_done": [{ "plain": "{s}では{o}は行われなかった", "polite": "{s}では{o}は行われませんでした。" }],
+    "nonexistent": [{ "plain": "{s}は存在しない遺構である", "polite": "{s}は存在しない遺構です。" }],
+    "absent": [{ "plain": "{s}に{o}はなかった", "polite": "{s}に{o}はありませんでした。" }],
+    "unknown_matter": [
+      { "plain": "{s}について、{o}は分かっていない", "polite": "{s}について、{o}は分かっていません。" },
+      { "plain": "{s}について、{o}は不明である", "polite": "{s}について、{o}は不明です。" },
+      { "plain": "{s}について、{o}は、はっきりとは分かっていない", "polite": "{s}について、{o}は、はっきりとは分かっていません。" }
+    ],
+    "undetermined": [
+      { "plain": "{s}について、{o}は判断がむずかしい", "polite": "{s}について、{o}は判断がむずかしいとされています。" }
+    ]
+  }
+}

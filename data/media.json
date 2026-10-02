@@ -1,0 +1,415 @@
+{
+  "media": [
+    {
+      "id": "media_frontispiece_kondo",
+      "type": "photo",
+      "title": "金堂跡 北東から（三次元写真測量による鳥瞰図）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "caption": "平成26年。金堂基壇と礎石の全体が分かる",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 5,
+          "locator": "巻頭写真"
+        }
+      ]
+    },
+    {
+      "id": "media_frontispiece_park",
+      "type": "photo",
+      "title": "整備後の史跡公園（北東から）と整備前（南東から）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ],
+      "caption": "整備後は平成29年、整備前は平成16年",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 6,
+          "locator": "巻頭写真"
+        }
+      ]
+    },
+    {
+      "id": "media_photo_s30",
+      "type": "photo",
+      "title": "昭和30年代の金堂跡（南から）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "caption": "水田の中の土壇の上に家が一軒建つ",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 7,
+          "pdf_page": 21,
+          "locator": "写真"
+        }
+      ]
+    },
+    {
+      "id": "media_fig02",
+      "type": "drawing",
+      "title": "第2図 河内寺廃寺跡伽藍配置",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "temple_kawachidera_haiji"
+      ],
+      "caption": "史跡指定範囲、確認された遺構、未確認遺構、礎石を示す",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "media_fig04",
+      "type": "map",
+      "title": "第4図 第1次から第22次調査におけるトレンチ配置図",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "excavation_all"
+      ],
+      "caption": "調査次ごとに色分け",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 10,
+          "pdf_page": 24,
+          "locator": "第4図"
+        }
+      ]
+    },
+    {
+      "id": "media_fig05",
+      "type": "map",
+      "title": "第5図 調査トレンチ配置図（22・24・28・29・31次調査）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "excavation_all"
+      ],
+      "caption": "史跡指定範囲と伽藍、調査トレンチ",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "media_fig06",
+      "type": "image",
+      "title": "第6図 オルソ画像合成図（金堂・講堂・回廊）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "structure_kondo",
+        "structure_kodo",
+        "structure_kairo",
+        "area_jiiki_hoppo"
+      ],
+      "caption": "復元想定線と確認された礎石・礎石抜取穴を重ねる",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 13,
+          "pdf_page": 27,
+          "locator": "第6図"
+        }
+      ]
+    },
+    {
+      "id": "media_fig13",
+      "type": "drawing",
+      "title": "第13図 金堂基壇 既往調査トレンチ合成図",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "feature_kondo_kidan"
+      ],
+      "caption": "柱筋Ａ～Ｆ・①～⑤、遺構a～dを示す",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 22,
+          "pdf_page": 36,
+          "locator": "第13図"
+        }
+      ]
+    },
+    {
+      "id": "media_fig31",
+      "type": "reconstruction",
+      "title": "第31図 河内寺廃寺創建期の復元図（南東から）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "temple_kawachidera_haiji"
+      ],
+      "caption": "塔・金堂・講堂が南北に並ぶ（塔跡は未検出）",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131,
+          "locator": "第31図"
+        }
+      ]
+    },
+    {
+      "id": "media_plate01",
+      "type": "photo",
+      "title": "図版1 金堂基壇 全景（北東から・南から）",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "feature_kondo_kidan"
+      ],
+      "caption": "第22次発掘調査",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 135,
+          "locator": "図版1"
+        }
+      ]
+    },
+    {
+      "id": "media_plate16",
+      "type": "photo",
+      "title": "図版16 寺域北方の井戸、南石列を覆う土石流堆積",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "feature_ido",
+        "feature_minami_ishiretsu",
+        "event_dosekiryu"
+      ],
+      "caption": "第29次発掘調査",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 150,
+          "locator": "図版16"
+        }
+      ]
+    },
+    {
+      "id": "media_plate24",
+      "type": "drawing",
+      "title": "図版24 軒丸瓦",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "artifact_type_kwm1",
+        "artifact_type_kwm2",
+        "artifact_type_kwm3"
+      ],
+      "caption": "報告番号1～8",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 158,
+          "locator": "図版24"
+        }
+      ]
+    },
+    {
+      "id": "media_plate26",
+      "type": "drawing",
+      "title": "図版26 軒平瓦",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "artifact_type_kwh1",
+        "artifact_type_kwh2"
+      ],
+      "caption": "報告番号18～24",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 160,
+          "locator": "図版26"
+        }
+      ]
+    },
+    {
+      "id": "media_plate65",
+      "type": "drawing",
+      "title": "図版65 土器・石製品",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "artifact_no147",
+        "artifact_class_doki"
+      ],
+      "caption": "報告番号117～147",
+      "credit": "東大阪市（報告書掲載）",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 199,
+          "locator": "図版65"
+        }
+      ]
+    },
+    {
+      "id": "media_model_kondo_sfm",
+      "type": "model3d",
+      "title": "金堂跡の三次元写真測量データ",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "caption": "巻頭写真の鳥瞰図のもとになったデータ。存在は報告書から分かるが、所在と公開の可否は未確認",
+      "credit": "東大阪市",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 5,
+          "locator": "巻頭写真"
+        }
+      ]
+    },
+    {
+      "id": "media_model_kwm2",
+      "type": "model3d",
+      "title": "ＫＷＭ２と丸瓦の３Ｄデータ",
+      "file": null,
+      "availability": "not_included",
+      "related_entity_ids": [
+        "artifact_type_kwm2"
+      ],
+      "caption": "第5章第5節第4図は、軒丸瓦と丸瓦の３Ｄデータを接合したもの。所在と公開の可否は未確認",
+      "credit": "東大阪市",
+      "rights": "要確認",
+      "source_id": "source_report_2022",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 96,
+          "pdf_page": 110,
+          "locator": "第5章第5節"
+        }
+      ]
+    },
+    {
+      "id": "media_plan_schematic",
+      "type": "drawing",
+      "title": "伽藍配置の模式図",
+      "file": "generated:map",
+      "availability": "included",
+      "related_entity_ids": [
+        "temple_kawachidera_haiji"
+      ],
+      "caption": "このWebアプリのために作図した模式図。建物の大きさは報告書の数値により、位置と間隔はおおよそ",
+      "credit": "本アプリで作図",
+      "rights": "本アプリの一部",
+      "source_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "media_kondo_columns",
+      "type": "drawing",
+      "title": "創建時の金堂の柱配置（模式図）",
+      "file": "images/kondo_columns.svg",
+      "availability": "included",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "caption": "桁行５間・梁間４間、柱間1.95ｍの等間という報告書の記述をもとに作図した模式図。礎石の残り具合は表していない",
+      "credit": "本アプリで作図",
+      "rights": "本アプリの一部",
+      "source_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": "第3章第1節"
+        }
+      ]
+    }
+  ]
+}

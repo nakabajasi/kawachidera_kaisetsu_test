@@ -1,0 +1,1089 @@
+{
+  "entities": [
+    {
+      "id": "site_kawachidera_haiji_ato",
+      "entity_type": "site",
+      "name": "河内寺廃寺跡",
+      "aliases": [
+        "国指定史跡河内寺廃寺跡",
+        "史跡河内寺廃寺跡",
+        "国史跡河内寺廃寺跡",
+        "この史跡",
+        "この遺跡",
+        "ここ"
+      ],
+      "reading": "かわちでらはいじあと",
+      "note": "例言6：史跡指定範囲を指す名称"
+    },
+    {
+      "id": "site_kawachidera_ato",
+      "entity_type": "site",
+      "name": "河内寺跡",
+      "aliases": [],
+      "note": "例言6：史跡指定範囲外の周知の埋蔵文化財包蔵地を指す名称"
+    },
+    {
+      "id": "temple_kawachidera_haiji",
+      "entity_type": "site",
+      "name": "河内寺廃寺",
+      "aliases": [
+        "河内寺",
+        "この寺",
+        "寺院",
+        "お寺",
+        "寺"
+      ],
+      "note": "例言6：存続していた時期の寺院を指す暫定の名称"
+    },
+    {
+      "id": "structure_kondo",
+      "entity_type": "structure",
+      "name": "金堂",
+      "aliases": [
+        "金堂跡",
+        "こんどう"
+      ]
+    },
+    {
+      "id": "structure_kodo",
+      "entity_type": "structure",
+      "name": "講堂",
+      "aliases": [
+        "講堂跡",
+        "こうどう"
+      ]
+    },
+    {
+      "id": "structure_to",
+      "entity_type": "structure",
+      "name": "塔",
+      "aliases": [
+        "塔跡",
+        "塔推定地"
+      ]
+    },
+    {
+      "id": "structure_chumon",
+      "entity_type": "structure",
+      "name": "中門",
+      "aliases": [
+        "中門推定地",
+        "門"
+      ]
+    },
+    {
+      "id": "structure_kairo",
+      "entity_type": "structure",
+      "name": "回廊",
+      "aliases": [
+        "回廊跡",
+        "廻廊",
+        "かいろう"
+      ]
+    },
+    {
+      "id": "structure_kairo_east",
+      "entity_type": "structure",
+      "name": "東回廊",
+      "aliases": [
+        "東回廊跡",
+        "東面回廊"
+      ]
+    },
+    {
+      "id": "structure_kairo_west",
+      "entity_type": "structure",
+      "name": "西回廊",
+      "aliases": [
+        "西回廊跡"
+      ]
+    },
+    {
+      "id": "structure_kairo_north",
+      "entity_type": "structure",
+      "name": "北回廊",
+      "aliases": [
+        "北回廊跡",
+        "北面回廊"
+      ]
+    },
+    {
+      "id": "structure_kairo_south",
+      "entity_type": "structure",
+      "name": "南回廊",
+      "aliases": [
+        "南回廊跡"
+      ]
+    },
+    {
+      "id": "structure_chusei_butsudo",
+      "entity_type": "structure",
+      "name": "中世仏堂",
+      "aliases": [
+        "仏堂",
+        "中世の建物"
+      ]
+    },
+    {
+      "id": "structure_kinsei_tatemono",
+      "entity_type": "structure",
+      "name": "近世の建物",
+      "aliases": [
+        "江戸時代の建物"
+      ]
+    },
+    {
+      "id": "structure_kondo_later_buildings",
+      "entity_type": "structure",
+      "name": "金堂跡を中心に近世まで残ってきた建物（群）",
+      "aliases": []
+    },
+    {
+      "id": "structure_sobo_jikido",
+      "entity_type": "structure",
+      "name": "僧房や食堂などの遺構",
+      "aliases": [
+        "僧房",
+        "食堂",
+        "僧坊"
+      ]
+    },
+    {
+      "id": "feature_kondo_kidan",
+      "entity_type": "feature",
+      "name": "金堂基壇",
+      "aliases": [
+        "南側基壇",
+        "金堂の基壇"
+      ]
+    },
+    {
+      "id": "feature_kondo_soseki",
+      "entity_type": "feature",
+      "name": "金堂の礎石",
+      "aliases": [
+        "礎石"
+      ]
+    },
+    {
+      "id": "feature_kondo_kaidan",
+      "entity_type": "feature",
+      "name": "金堂基壇の階段",
+      "aliases": [
+        "金堂の階段"
+      ]
+    },
+    {
+      "id": "feature_kondo_inubashiri",
+      "entity_type": "feature",
+      "name": "金堂基壇の犬走",
+      "aliases": [
+        "犬走",
+        "犬走り"
+      ]
+    },
+    {
+      "id": "feature_kondo_rekijiki",
+      "entity_type": "feature",
+      "name": "金堂基壇東辺裾部の礫敷",
+      "aliases": [
+        "礫敷",
+        "遺構c"
+      ]
+    },
+    {
+      "id": "feature_kondo_reported_shinso",
+      "entity_type": "feature",
+      "name": "東大阪市教育委員会2007で報告された心礎と北の四天柱２石の抜取穴",
+      "aliases": [
+        "心礎",
+        "四天柱"
+      ]
+    },
+    {
+      "id": "feature_kondo_c3_d3",
+      "entity_type": "feature",
+      "name": "金堂基壇上面のＣ③・Ｄ③の位置",
+      "aliases": []
+    },
+    {
+      "id": "feature_kondo_stage2_deposit",
+      "entity_type": "feature",
+      "name": "基壇築成第２段階の下層上面を掘り込んだ堆積",
+      "aliases": []
+    },
+    {
+      "id": "feature_kodo_kidan",
+      "entity_type": "feature",
+      "name": "講堂基壇",
+      "aliases": [
+        "北側基壇",
+        "講堂の基壇"
+      ]
+    },
+    {
+      "id": "feature_kodo_kaidan",
+      "entity_type": "feature",
+      "name": "講堂基壇の階段",
+      "aliases": [
+        "講堂の階段"
+      ]
+    },
+    {
+      "id": "feature_kodo_north_ishiretsu",
+      "entity_type": "feature",
+      "name": "これまで講堂基壇の北辺と考えてきた石列",
+      "aliases": []
+    },
+    {
+      "id": "feature_kodo_ochikomi_ishi",
+      "entity_type": "feature",
+      "name": "既往の調査で礎石と考えられてきた幅1.0ｍの石",
+      "aliases": []
+    },
+    {
+      "id": "feature_kairo_kidan",
+      "entity_type": "feature",
+      "name": "回廊の基壇",
+      "aliases": [
+        "回廊基壇"
+      ]
+    },
+    {
+      "id": "feature_kairo_east_soseki",
+      "entity_type": "feature",
+      "name": "東回廊の礎石",
+      "aliases": []
+    },
+    {
+      "id": "feature_kairo_south_soseki",
+      "entity_type": "feature",
+      "name": "南回廊の礎石",
+      "aliases": []
+    },
+    {
+      "id": "feature_kairo_west_kidan",
+      "entity_type": "feature",
+      "name": "西回廊の基壇",
+      "aliases": []
+    },
+    {
+      "id": "feature_tozai_mizo",
+      "entity_type": "feature",
+      "name": "東西溝",
+      "aliases": [
+        "溝",
+        "東西方向の溝"
+      ]
+    },
+    {
+      "id": "feature_minami_ishiretsu",
+      "entity_type": "feature",
+      "name": "南石列",
+      "aliases": []
+    },
+    {
+      "id": "feature_kita_ishiretsu",
+      "entity_type": "feature",
+      "name": "北石列",
+      "aliases": []
+    },
+    {
+      "id": "feature_nanboku_ishiretsu",
+      "entity_type": "feature",
+      "name": "南北石列",
+      "aliases": [
+        "石列"
+      ]
+    },
+    {
+      "id": "feature_first_survey_ishiretsu",
+      "entity_type": "feature",
+      "name": "第１次調査で大型建物基壇の南辺と階段と報告された石列",
+      "aliases": []
+    },
+    {
+      "id": "feature_zenshin_ryuro",
+      "entity_type": "feature",
+      "name": "東西溝の前身となる流路",
+      "aliases": [
+        "前身の流路",
+        "東西流路",
+        "流路"
+      ]
+    },
+    {
+      "id": "feature_ido",
+      "entity_type": "feature",
+      "name": "中世の井戸",
+      "aliases": [
+        "井戸",
+        "井戸跡"
+      ]
+    },
+    {
+      "id": "area_jiiki_hoppo",
+      "entity_type": "place",
+      "name": "寺域北方",
+      "aliases": [
+        "史跡追加指定地",
+        "北方",
+        "寺の北側"
+      ]
+    },
+    {
+      "id": "area_tozai_mizo_north",
+      "entity_type": "place",
+      "name": "東西溝より北方の調査区",
+      "aliases": []
+    },
+    {
+      "id": "layer_dosekiryu_pre_temple",
+      "entity_type": "feature",
+      "name": "金堂基壇の下層の土石流堆積物",
+      "aliases": []
+    },
+    {
+      "id": "event_dosekiryu",
+      "entity_type": "event",
+      "name": "土石流",
+      "aliases": [
+        "土石流堆積",
+        "災害",
+        "どせきりゅう"
+      ]
+    },
+    {
+      "id": "excavation_01",
+      "entity_type": "excavation",
+      "name": "第1次調査",
+      "aliases": [
+        "1次調査",
+        "第1次発掘調査"
+      ],
+      "number": 1
+    },
+    {
+      "id": "excavation_02",
+      "entity_type": "excavation",
+      "name": "第2次調査",
+      "aliases": [
+        "2次調査",
+        "第2次発掘調査"
+      ],
+      "number": 2
+    },
+    {
+      "id": "excavation_03",
+      "entity_type": "excavation",
+      "name": "第3次調査",
+      "aliases": [
+        "3次調査",
+        "第3次発掘調査"
+      ],
+      "number": 3
+    },
+    {
+      "id": "excavation_05",
+      "entity_type": "excavation",
+      "name": "第5次調査",
+      "aliases": [
+        "5次調査",
+        "第5次発掘調査"
+      ],
+      "number": 5
+    },
+    {
+      "id": "excavation_09",
+      "entity_type": "excavation",
+      "name": "第9次調査",
+      "aliases": [
+        "9次調査",
+        "第9次発掘調査"
+      ],
+      "number": 9
+    },
+    {
+      "id": "excavation_11",
+      "entity_type": "excavation",
+      "name": "第11次調査",
+      "aliases": [
+        "11次調査",
+        "第11次発掘調査"
+      ],
+      "number": 11
+    },
+    {
+      "id": "excavation_13",
+      "entity_type": "excavation",
+      "name": "第13次調査",
+      "aliases": [
+        "13次調査",
+        "第13次発掘調査"
+      ],
+      "number": 13
+    },
+    {
+      "id": "excavation_21",
+      "entity_type": "excavation",
+      "name": "第21次調査",
+      "aliases": [
+        "21次調査",
+        "第21次発掘調査"
+      ],
+      "number": 21
+    },
+    {
+      "id": "excavation_22",
+      "entity_type": "excavation",
+      "name": "第22次調査",
+      "aliases": [
+        "22次調査",
+        "第22次発掘調査"
+      ],
+      "number": 22
+    },
+    {
+      "id": "excavation_24",
+      "entity_type": "excavation",
+      "name": "第24次調査",
+      "aliases": [
+        "24次調査",
+        "第24次発掘調査"
+      ],
+      "number": 24
+    },
+    {
+      "id": "excavation_25",
+      "entity_type": "excavation",
+      "name": "第25次調査",
+      "aliases": [
+        "25次調査",
+        "第25次発掘調査"
+      ],
+      "number": 25
+    },
+    {
+      "id": "excavation_26",
+      "entity_type": "excavation",
+      "name": "第26次調査",
+      "aliases": [
+        "26次調査",
+        "第26次発掘調査"
+      ],
+      "number": 26
+    },
+    {
+      "id": "excavation_28",
+      "entity_type": "excavation",
+      "name": "第28次調査",
+      "aliases": [
+        "28次調査",
+        "第28次発掘調査"
+      ],
+      "number": 28
+    },
+    {
+      "id": "excavation_29",
+      "entity_type": "excavation",
+      "name": "第29次調査",
+      "aliases": [
+        "29次調査",
+        "第29次発掘調査"
+      ],
+      "number": 29
+    },
+    {
+      "id": "excavation_31",
+      "entity_type": "excavation",
+      "name": "第31次調査",
+      "aliases": [
+        "31次調査",
+        "第31次発掘調査"
+      ],
+      "number": 31
+    },
+    {
+      "id": "excavation_all",
+      "entity_type": "excavation",
+      "name": "河内寺廃寺跡の発掘調査",
+      "aliases": [
+        "発掘調査",
+        "調査",
+        "発掘"
+      ]
+    },
+    {
+      "id": "artifact_all",
+      "entity_type": "artifact",
+      "name": "出土遺物",
+      "aliases": [
+        "遺物",
+        "出土品"
+      ]
+    },
+    {
+      "id": "artifact_class_kawara",
+      "entity_type": "artifact",
+      "name": "瓦類",
+      "aliases": [
+        "瓦",
+        "かわら"
+      ]
+    },
+    {
+      "id": "artifact_class_nokimaru",
+      "entity_type": "artifact",
+      "name": "軒丸瓦",
+      "aliases": [
+        "のきまるがわら"
+      ]
+    },
+    {
+      "id": "artifact_class_nokihira",
+      "entity_type": "artifact",
+      "name": "軒平瓦",
+      "aliases": [
+        "のきひらがわら"
+      ]
+    },
+    {
+      "id": "artifact_class_doki",
+      "entity_type": "artifact",
+      "name": "土器",
+      "aliases": []
+    },
+    {
+      "id": "artifact_type_kwm1",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ１",
+      "aliases": [
+        "KWM1",
+        "ＫＷＭ1"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM1"
+    },
+    {
+      "id": "artifact_type_kwm2",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ２",
+      "aliases": [
+        "KWM2",
+        "ＫＷＭ2"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM2"
+    },
+    {
+      "id": "artifact_type_kwm3",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ３",
+      "aliases": [
+        "KWM3",
+        "ＫＷＭ3"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM3"
+    },
+    {
+      "id": "artifact_type_kwm4",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ４",
+      "aliases": [
+        "KWM4",
+        "ＫＷＭ4"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM4"
+    },
+    {
+      "id": "artifact_type_kwm6",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ６",
+      "aliases": [
+        "KWM6",
+        "ＫＷＭ6"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM6"
+    },
+    {
+      "id": "artifact_type_kwm7",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ７",
+      "aliases": [
+        "KWM7",
+        "ＫＷＭ7"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM7"
+    },
+    {
+      "id": "artifact_type_kwm8",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ８",
+      "aliases": [
+        "KWM8",
+        "ＫＷＭ8"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM8"
+    },
+    {
+      "id": "artifact_type_kwm9",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ９",
+      "aliases": [
+        "KWM9",
+        "ＫＷＭ9"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM9"
+    },
+    {
+      "id": "artifact_type_kwm10",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ10",
+      "aliases": [
+        "KWM10",
+        "ＫＷＭ10"
+      ],
+      "class": "軒丸瓦",
+      "code": "KWM10"
+    },
+    {
+      "id": "artifact_type_kwh1",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ１",
+      "aliases": [
+        "KWH1",
+        "ＫＷＨ1"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH1"
+    },
+    {
+      "id": "artifact_type_kwh2",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ２",
+      "aliases": [
+        "KWH2",
+        "ＫＷＨ2"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH2"
+    },
+    {
+      "id": "artifact_type_kwh3",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ３",
+      "aliases": [
+        "KWH3",
+        "ＫＷＨ3"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH3"
+    },
+    {
+      "id": "artifact_type_kwh4",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ４",
+      "aliases": [
+        "KWH4",
+        "ＫＷＨ4"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH4"
+    },
+    {
+      "id": "artifact_type_kwh8",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ８",
+      "aliases": [
+        "KWH8",
+        "ＫＷＨ8"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH8"
+    },
+    {
+      "id": "artifact_type_kwh10",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ10",
+      "aliases": [
+        "KWH10",
+        "ＫＷＨ10"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH10"
+    },
+    {
+      "id": "artifact_type_kwh12",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ12",
+      "aliases": [
+        "KWH12",
+        "ＫＷＨ12"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH12"
+    },
+    {
+      "id": "artifact_type_kwh13",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ13",
+      "aliases": [
+        "KWH13",
+        "ＫＷＨ13"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH13"
+    },
+    {
+      "id": "artifact_type_kwh14",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ14",
+      "aliases": [
+        "KWH14",
+        "ＫＷＨ14"
+      ],
+      "class": "軒平瓦",
+      "code": "KWH14"
+    },
+    {
+      "id": "artifact_group_founding_tiles",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ１とＫＷＨ１・14",
+      "aliases": []
+    },
+    {
+      "id": "artifact_group_kwm2_kwh2",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ２－ＫＷＨ２",
+      "aliases": []
+    },
+    {
+      "id": "artifact_group_kwm2_set",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ２とＫＷＨ２・３・８の組み合わせ",
+      "aliases": []
+    },
+    {
+      "id": "artifact_group_kwh12_13",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ12・13",
+      "aliases": [
+        "KWH12・13",
+        "均整唐草文軒平瓦"
+      ]
+    },
+    {
+      "id": "artifact_group_kwm6_7",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ６・７",
+      "aliases": [
+        "巴文軒丸瓦"
+      ]
+    },
+    {
+      "id": "artifact_group_nara_tiles",
+      "entity_type": "artifact",
+      "name": "奈良時代に位置づけられる瓦",
+      "aliases": []
+    },
+    {
+      "id": "artifact_group_heian_tiles",
+      "entity_type": "artifact",
+      "name": "ＫＷＭ３やＫＷＨ４など平安時代中期の瓦",
+      "aliases": []
+    },
+    {
+      "id": "artifact_type_hira_2_1_2",
+      "entity_type": "artifact",
+      "name": "平瓦Ⅱ－１－２類",
+      "aliases": [
+        "Ⅱ－１－２類"
+      ],
+      "class": "平瓦"
+    },
+    {
+      "id": "artifact_dofutoga",
+      "entity_type": "artifact",
+      "name": "ＫＷＨ２（第11次調査出土）と平瓦Ⅱ－１－２類（報告番号65）",
+      "aliases": [
+        "同布筒瓦"
+      ]
+    },
+    {
+      "id": "artifact_no002",
+      "entity_type": "artifact",
+      "name": "瓦当がほぼ完形のＫＷＭ２（報告番号２）",
+      "aliases": [],
+      "report_no": "2"
+    },
+    {
+      "id": "artifact_no089",
+      "entity_type": "artifact",
+      "name": "鬼瓦（報告番号89）",
+      "aliases": [
+        "鬼瓦"
+      ],
+      "report_no": "89"
+    },
+    {
+      "id": "artifact_no090",
+      "entity_type": "artifact",
+      "name": "ヘラ書き瓦（報告番号90）",
+      "aliases": [
+        "ヘラ書き瓦"
+      ],
+      "report_no": "90"
+    },
+    {
+      "id": "artifact_no101",
+      "entity_type": "artifact",
+      "name": "円面硯（報告番号101）",
+      "aliases": [
+        "円面硯",
+        "硯",
+        "すずり"
+      ],
+      "report_no": "101"
+    },
+    {
+      "id": "artifact_no101_102",
+      "entity_type": "artifact",
+      "name": "円面硯（報告番号101・102）",
+      "aliases": [],
+      "report_no": "101,102"
+    },
+    {
+      "id": "artifact_no112",
+      "entity_type": "artifact",
+      "name": "土師器杯（報告番号112）",
+      "aliases": [
+        "土師器杯"
+      ],
+      "report_no": "112"
+    },
+    {
+      "id": "artifact_no142",
+      "entity_type": "artifact",
+      "name": "瓦質土器羽釜（報告番号142）",
+      "aliases": [
+        "羽釜"
+      ],
+      "report_no": "142"
+    },
+    {
+      "id": "artifact_no147",
+      "entity_type": "artifact",
+      "name": "石帯の丸鞆（報告番号147）",
+      "aliases": [
+        "石帯",
+        "丸鞆",
+        "石製品"
+      ],
+      "report_no": "147"
+    },
+    {
+      "id": "artifact_no091",
+      "entity_type": "artifact",
+      "name": "弥生土器（報告番号91）",
+      "aliases": [
+        "弥生土器"
+      ],
+      "report_no": "91"
+    },
+    {
+      "id": "artifact_jichin_tama",
+      "entity_type": "artifact",
+      "name": "地鎮具とみられる玉",
+      "aliases": [
+        "玉",
+        "地鎮具"
+      ]
+    },
+    {
+      "id": "material_white_substance",
+      "entity_type": "material",
+      "name": "軒平瓦に付着する白色物質",
+      "aliases": [
+        "白色物質",
+        "白い物質"
+      ]
+    },
+    {
+      "id": "material_ikoma_seiroku",
+      "entity_type": "material",
+      "name": "生駒西麓産の胎土",
+      "aliases": [
+        "生駒西麓産",
+        "胎土"
+      ]
+    },
+    {
+      "id": "group_kawachi_uji",
+      "entity_type": "person",
+      "name": "河内氏",
+      "aliases": [
+        "河内直",
+        "河内連",
+        "河内直（連）"
+      ]
+    },
+    {
+      "id": "group_nakatomi_uji",
+      "entity_type": "person",
+      "name": "中臣氏",
+      "aliases": [
+        "中臣氏（平岡連）",
+        "平岡連"
+      ]
+    },
+    {
+      "id": "group_tile_workers",
+      "entity_type": "person",
+      "name": "ＫＷＨ２や6561Ａを製作した造瓦工人集団",
+      "aliases": [
+        "瓦工人",
+        "工人",
+        "造瓦工人"
+      ]
+    },
+    {
+      "id": "group_tile_workers_early",
+      "entity_type": "person",
+      "name": "前期の瓦工人",
+      "aliases": []
+    },
+    {
+      "id": "group_tile_workers_mid",
+      "entity_type": "person",
+      "name": "中期の瓦工人",
+      "aliases": []
+    },
+    {
+      "id": "place_shitennoji",
+      "entity_type": "place",
+      "name": "四天王寺",
+      "aliases": []
+    },
+    {
+      "id": "place_kumedera",
+      "entity_type": "place",
+      "name": "久米寺",
+      "aliases": []
+    },
+    {
+      "id": "place_fujiwarakyu",
+      "entity_type": "place",
+      "name": "藤原宮",
+      "aliases": []
+    },
+    {
+      "id": "place_ota_haiji",
+      "entity_type": "place",
+      "name": "太田廃寺",
+      "aliases": []
+    },
+    {
+      "id": "place_nishigori_haiji",
+      "entity_type": "place",
+      "name": "西郡廃寺",
+      "aliases": []
+    },
+    {
+      "id": "place_kyakubo_haiji",
+      "entity_type": "place",
+      "name": "客坊廃寺",
+      "aliases": []
+    },
+    {
+      "id": "place_saraike_iseki",
+      "entity_type": "place",
+      "name": "皿池遺跡",
+      "aliases": []
+    },
+    {
+      "id": "place_hiraoka_jinja",
+      "entity_type": "place",
+      "name": "枚岡神社",
+      "aliases": []
+    },
+    {
+      "id": "place_koaza_kawachidera",
+      "entity_type": "place",
+      "name": "小字「河内寺」",
+      "aliases": [
+        "小字",
+        "字名"
+      ]
+    },
+    {
+      "id": "place_shuhen_iseki",
+      "entity_type": "place",
+      "name": "河内寺廃寺跡周辺の遺跡",
+      "aliases": [
+        "周辺の遺跡",
+        "周辺遺跡"
+      ]
+    },
+    {
+      "id": "period_asuka",
+      "entity_type": "period",
+      "name": "飛鳥時代",
+      "aliases": []
+    },
+    {
+      "id": "period_hakuho",
+      "entity_type": "period",
+      "name": "白鳳時代",
+      "aliases": [
+        "白鳳期"
+      ]
+    },
+    {
+      "id": "phase_1_founding",
+      "entity_type": "period",
+      "name": "寺院創建期（飛鳥時代後期（白鳳期））",
+      "aliases": [
+        "創建期",
+        "創建時"
+      ]
+    },
+    {
+      "id": "phase_2_nara_heian_early",
+      "entity_type": "period",
+      "name": "奈良時代～平安時代前期",
+      "aliases": []
+    },
+    {
+      "id": "phase_3_heian_mid_kamakura",
+      "entity_type": "period",
+      "name": "平安時代中期～鎌倉時代（土石流発生前）",
+      "aliases": []
+    },
+    {
+      "id": "phase_4_kamakura_late_nanbokucho",
+      "entity_type": "period",
+      "name": "鎌倉時代後期～南北朝時代（土石流発生後）",
+      "aliases": []
+    },
+    {
+      "id": "phase_5_muromachi_kinsei",
+      "entity_type": "period",
+      "name": "室町時代～近世",
+      "aliases": []
+    },
+    {
+      "id": "doc_report_2022",
+      "entity_type": "interpretation",
+      "name": "本報告書",
+      "aliases": [
+        "報告書"
+      ]
+    }
+  ]
+}

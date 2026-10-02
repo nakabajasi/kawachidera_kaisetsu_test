@@ -1,0 +1,1111 @@
+{
+  "relations": [
+    {
+      "id": "relation_001_part_of",
+      "subject": "structure_kondo",
+      "relation": "part_of",
+      "object": "temple_kawachidera_haiji",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_002_part_of",
+      "subject": "structure_kodo",
+      "relation": "part_of",
+      "object": "temple_kawachidera_haiji",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_003_part_of",
+      "subject": "structure_kairo",
+      "relation": "part_of",
+      "object": "temple_kawachidera_haiji",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_004_part_of",
+      "subject": "structure_to",
+      "relation": "part_of",
+      "object": "temple_kawachidera_haiji",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_005_part_of",
+      "subject": "structure_chumon",
+      "relation": "part_of",
+      "object": "temple_kawachidera_haiji",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_006_part_of",
+      "subject": "structure_kairo_east",
+      "relation": "part_of",
+      "object": "structure_kairo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_007_part_of",
+      "subject": "structure_kairo_west",
+      "relation": "part_of",
+      "object": "structure_kairo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_008_part_of",
+      "subject": "structure_kairo_north",
+      "relation": "part_of",
+      "object": "structure_kairo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_009_part_of",
+      "subject": "structure_kairo_south",
+      "relation": "part_of",
+      "object": "structure_kairo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "relation_010_part_of",
+      "subject": "feature_kondo_kidan",
+      "relation": "part_of",
+      "object": "structure_kondo",
+      "fact_id": "fact_kondo_kidan_type",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_011_part_of",
+      "subject": "feature_kondo_kaidan",
+      "relation": "part_of",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kondo_stair_position",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_012_part_of",
+      "subject": "feature_kondo_inubashiri",
+      "relation": "part_of",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kondo_inubashiri_found",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 21,
+          "pdf_page": 35,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_013_part_of",
+      "subject": "feature_kondo_soseki",
+      "relation": "part_of",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kondo_soseki_remaining",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_014_located_at",
+      "subject": "feature_kondo_rekijiki",
+      "relation": "located_at",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kondo_rekijiki_date",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 19,
+          "pdf_page": 33,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_015_part_of",
+      "subject": "feature_kodo_kidan",
+      "relation": "part_of",
+      "object": "structure_kodo",
+      "fact_id": "fact_kodo_kidan_type",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 24,
+          "pdf_page": 38,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_016_part_of",
+      "subject": "feature_kodo_kaidan",
+      "relation": "part_of",
+      "object": "feature_kodo_kidan",
+      "fact_id": "fact_kodo_stair_width",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 27,
+          "pdf_page": 41,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_017_part_of",
+      "subject": "feature_kairo_kidan",
+      "relation": "part_of",
+      "object": "structure_kairo",
+      "fact_id": "fact_kairo_kidan_height",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_018_part_of",
+      "subject": "feature_kairo_east_soseki",
+      "relation": "part_of",
+      "object": "structure_kairo_east",
+      "fact_id": "fact_kairo_east_soseki",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 27,
+          "pdf_page": 41,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_019_part_of",
+      "subject": "feature_kairo_south_soseki",
+      "relation": "part_of",
+      "object": "structure_kairo_south",
+      "fact_id": "fact_kairo_south_soseki",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 27,
+          "pdf_page": 41,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_020_part_of",
+      "subject": "feature_kairo_west_kidan",
+      "relation": "part_of",
+      "object": "structure_kairo_west",
+      "fact_id": "fact_kairo_west_width",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 38,
+          "pdf_page": 52,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_021_part_of",
+      "subject": "feature_minami_ishiretsu",
+      "relation": "part_of",
+      "object": "feature_nanboku_ishiretsu",
+      "fact_id": "fact_north_ishiretsu_width",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_022_part_of",
+      "subject": "feature_kita_ishiretsu",
+      "relation": "part_of",
+      "object": "feature_nanboku_ishiretsu",
+      "fact_id": "fact_north_ishiretsu_width",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_023_interpreted_as",
+      "subject": "feature_nanboku_ishiretsu",
+      "relation": "interpreted_as",
+      "object": "feature_tozai_mizo",
+      "fact_id": "fact_north_gogan",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_024_located_at",
+      "subject": "feature_tozai_mizo",
+      "relation": "located_at",
+      "object": "area_jiiki_hoppo",
+      "fact_id": "fact_north_heian_works",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_025_located_at",
+      "subject": "feature_zenshin_ryuro",
+      "relation": "located_at",
+      "object": "area_jiiki_hoppo",
+      "fact_id": "fact_zenshin_ryuro_founding",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_026_related_to",
+      "subject": "feature_zenshin_ryuro",
+      "relation": "related_to",
+      "object": "feature_tozai_mizo",
+      "fact_id": "fact_zenshin_ryuro_existed",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_027_located_at",
+      "subject": "feature_ido",
+      "relation": "located_at",
+      "object": "area_jiiki_hoppo",
+      "fact_id": "fact_ido_found",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 47,
+          "pdf_page": 61,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_028_located_at",
+      "subject": "site_kawachidera_haiji_ato",
+      "relation": "located_at",
+      "object": "place_koaza_kawachidera",
+      "fact_id": "fact_koaza_reading",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_029_located_at",
+      "subject": "structure_chusei_butsudo",
+      "relation": "located_at",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_chusei_butsudo_rebuilt",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_030_located_at",
+      "subject": "structure_kinsei_tatemono",
+      "relation": "located_at",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kinsei_building",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_031_interpreted_as",
+      "subject": "feature_kondo_kidan",
+      "relation": "interpreted_as",
+      "object": "structure_kondo",
+      "fact_id": "fact_ident_south_ex22",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_032_interpreted_as",
+      "subject": "feature_kodo_kidan",
+      "relation": "interpreted_as",
+      "object": "structure_kodo",
+      "fact_id": "fact_ident_north_ex22",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 24,
+          "pdf_page": 38,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_033_dated_to",
+      "subject": "structure_kondo",
+      "relation": "dated_to",
+      "object": "phase_1_founding",
+      "fact_id": "fact_kondo_plan",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_034_dated_to",
+      "subject": "structure_kodo",
+      "relation": "dated_to",
+      "object": "phase_1_founding",
+      "fact_id": "fact_kodo_with_kondo",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_035_dated_to",
+      "subject": "structure_kairo",
+      "relation": "dated_to",
+      "object": "phase_1_founding",
+      "fact_id": "fact_kairo_same_period",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_036_dated_to",
+      "subject": "feature_zenshin_ryuro",
+      "relation": "dated_to",
+      "object": "phase_1_founding",
+      "fact_id": "fact_zenshin_ryuro_founding",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_037_dated_to",
+      "subject": "feature_minami_ishiretsu",
+      "relation": "dated_to",
+      "object": "phase_3_heian_mid_kamakura",
+      "fact_id": "fact_minami_ishiretsu_date",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_038_dated_to",
+      "subject": "feature_kondo_rekijiki",
+      "relation": "dated_to",
+      "object": "phase_3_heian_mid_kamakura",
+      "fact_id": "fact_kondo_rekijiki_date",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 19,
+          "pdf_page": 33,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_039_dated_to",
+      "subject": "event_dosekiryu",
+      "relation": "dated_to",
+      "object": "phase_4_kamakura_late_nanbokucho",
+      "fact_id": "fact_dosekiryu_date_ch6",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_040_dated_to",
+      "subject": "structure_chusei_butsudo",
+      "relation": "dated_to",
+      "object": "phase_4_kamakura_late_nanbokucho",
+      "fact_id": "fact_chusei_butsudo_rebuilt",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_041_dated_to",
+      "subject": "structure_kinsei_tatemono",
+      "relation": "dated_to",
+      "object": "phase_5_muromachi_kinsei",
+      "fact_id": "fact_kinsei_building",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_042_dated_to",
+      "subject": "artifact_group_founding_tiles",
+      "relation": "dated_to",
+      "object": "phase_1_founding",
+      "fact_id": "fact_founding_tiles_mark_start",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_043_dated_to",
+      "subject": "artifact_group_kwh12_13",
+      "relation": "dated_to",
+      "object": "phase_4_kamakura_late_nanbokucho",
+      "fact_id": "fact_kwh12_period",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 59,
+          "pdf_page": 73,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_044_found_at",
+      "subject": "artifact_no101",
+      "relation": "found_at",
+      "object": "feature_zenshin_ryuro",
+      "fact_id": "fact_enmenken_found",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_045_found_at",
+      "subject": "artifact_jichin_tama",
+      "relation": "found_at",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_kondo_jichin_tama",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 18,
+          "pdf_page": 32,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_046_found_at",
+      "subject": "artifact_no147",
+      "relation": "found_at",
+      "object": "area_jiiki_hoppo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 67,
+          "pdf_page": 81,
+          "locator": "第6表（147：第29次調査 南北断面）"
+        }
+      ]
+    },
+    {
+      "id": "relation_047_found_at",
+      "subject": "artifact_no002",
+      "relation": "found_at",
+      "object": "feature_kondo_kidan",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 57,
+          "pdf_page": 71,
+          "locator": "第4表（2：第24次調査 金堂基壇北辺裾部 第Ⅷ層）"
+        }
+      ]
+    },
+    {
+      "id": "relation_048_found_at",
+      "subject": "artifact_no112",
+      "relation": "found_at",
+      "object": "area_jiiki_hoppo",
+      "fact_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 67,
+          "pdf_page": 81,
+          "locator": "第6表（112：第28次調査 水道管撤去トレンチ）"
+        }
+      ]
+    },
+    {
+      "id": "relation_049_made_of",
+      "subject": "artifact_class_kawara",
+      "relation": "made_of",
+      "object": "material_ikoma_seiroku",
+      "fact_id": "fact_tile_clay",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_050_part_of",
+      "subject": "artifact_type_kwm2",
+      "relation": "part_of",
+      "object": "artifact_class_nokimaru",
+      "fact_id": "fact_kwm2_most",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 93,
+          "pdf_page": 107,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_051_part_of",
+      "subject": "artifact_type_kwm1",
+      "relation": "part_of",
+      "object": "artifact_class_nokimaru",
+      "fact_id": "fact_kwm1_pattern",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_052_part_of",
+      "subject": "artifact_type_kwh2",
+      "relation": "part_of",
+      "object": "artifact_class_nokihira",
+      "fact_id": "fact_kwh2_pattern",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 58,
+          "pdf_page": 72,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_053_part_of",
+      "subject": "artifact_class_nokimaru",
+      "relation": "part_of",
+      "object": "artifact_class_kawara",
+      "fact_id": "fact_tile_kinds",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_054_part_of",
+      "subject": "artifact_class_nokihira",
+      "relation": "part_of",
+      "object": "artifact_class_kawara",
+      "fact_id": "fact_tile_kinds",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_055_associated_with",
+      "subject": "artifact_type_kwm2",
+      "relation": "associated_with",
+      "object": "artifact_type_kwh2",
+      "fact_id": "fact_kwm2_kwh2_date_tanizaki",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 84,
+          "pdf_page": 98,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_056_associated_with",
+      "subject": "artifact_group_kwh12_13",
+      "relation": "associated_with",
+      "object": "structure_chusei_butsudo",
+      "fact_id": "fact_chusei_butsudo_tiles",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 115,
+          "pdf_page": 129,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_057_found_at",
+      "subject": "material_white_substance",
+      "relation": "found_at",
+      "object": "artifact_type_kwh2",
+      "fact_id": "fact_white_on_tiles",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 109,
+          "pdf_page": 123,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_058_related_to",
+      "subject": "artifact_type_kwh10",
+      "relation": "related_to",
+      "object": "artifact_type_kwh8",
+      "fact_id": "fact_kwh10_vacant",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 59,
+          "pdf_page": 73,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_059_associated_with",
+      "subject": "temple_kawachidera_haiji",
+      "relation": "associated_with",
+      "object": "group_kawachi_uji",
+      "fact_id": "fact_clan_kawachi_leading",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_060_associated_with",
+      "subject": "temple_kawachidera_haiji",
+      "relation": "associated_with",
+      "object": "group_nakatomi_uji",
+      "fact_id": "fact_clan_ch6",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_061_related_to",
+      "subject": "temple_kawachidera_haiji",
+      "relation": "related_to",
+      "object": "place_shitennoji",
+      "fact_id": "fact_layout_shitennoji_ratio",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_062_related_to",
+      "subject": "site_kawachidera_haiji_ato",
+      "relation": "related_to",
+      "object": "place_saraike_iseki",
+      "fact_id": "fact_site_adjacent_gunga",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_063_related_to",
+      "subject": "artifact_type_kwm2",
+      "relation": "related_to",
+      "object": "place_ota_haiji",
+      "fact_id": "fact_kwm2_ota",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 102,
+          "pdf_page": 116,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_064_related_to",
+      "subject": "artifact_type_kwm2",
+      "relation": "related_to",
+      "object": "place_nishigori_haiji",
+      "fact_id": "fact_kwm2_ota",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 102,
+          "pdf_page": 116,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_065_related_to",
+      "subject": "artifact_type_kwm2",
+      "relation": "related_to",
+      "object": "place_kyakubo_haiji",
+      "fact_id": "fact_kwm2_kyakubo",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 4,
+          "pdf_page": 18,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_066_related_to",
+      "subject": "artifact_type_kwh8",
+      "relation": "related_to",
+      "object": "place_ota_haiji",
+      "fact_id": "fact_kwh8_ota",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 59,
+          "pdf_page": 73,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_067_related_to",
+      "subject": "group_tile_workers",
+      "relation": "related_to",
+      "object": "place_kumedera",
+      "fact_id": "fact_workers_moved",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 88,
+          "pdf_page": 102,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_068_related_to",
+      "subject": "group_tile_workers_early",
+      "relation": "related_to",
+      "object": "place_fujiwarakyu",
+      "fact_id": "fact_workers_early_moved",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 103,
+          "pdf_page": 117,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_069_related_to",
+      "subject": "group_nakatomi_uji",
+      "relation": "related_to",
+      "object": "place_hiraoka_jinja",
+      "fact_id": "fact_clan_ch6",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127,
+          "locator": null
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_070_related_to",
+      "subject": "event_dosekiryu",
+      "relation": "related_to",
+      "object": "structure_kodo",
+      "fact_id": "fact_kodo_collapsed",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_071_related_to",
+      "subject": "event_dosekiryu",
+      "relation": "related_to",
+      "object": "structure_kairo_east",
+      "fact_id": "fact_kairo_collapsed",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_072_related_to",
+      "subject": "excavation_22",
+      "relation": "related_to",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_ident_south_ex22",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "id": "relation_073_related_to",
+      "subject": "excavation_11",
+      "relation": "related_to",
+      "object": "feature_kondo_kidan",
+      "fact_id": "fact_excavation_11_found",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 7,
+          "pdf_page": 21,
+          "locator": null
+        }
+      ]
+    }
+  ]
+}

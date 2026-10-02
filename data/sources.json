@@ -1,0 +1,192 @@
+{
+  "sources": [
+    {
+      "id": "source_report_2022",
+      "type": "excavation_report",
+      "role": "primary",
+      "title": "第１期史跡整備事業に伴う国指定史跡河内寺廃寺跡発掘調査報告書",
+      "author": "今井真由美・宗石祥一（作成・編集）ほか",
+      "organization": "東大阪市",
+      "year": 2022,
+      "published": "2022年3月31日",
+      "volume": null,
+      "url": "https://sitereports.nabunken.go.jp/132311",
+      "pdf_pages": 206,
+      "page_rule": "本文は PDF通し頁 = 印刷頁 + 14。図版N は PDF (134 + N) 頁。はしがき・例言・凡例・抄録は印刷頁なし（page は null、pdf_page で示す）。",
+      "page_note": "「p.11」は報告書に印刷された頁です。頁番号のない箇所（はしがき・例言・凡例・図版・抄録）は、PDF の通し頁で「PDF 8頁」のように示します。本文では、PDF の通し頁は印刷された頁に14を足した数です。",
+      "sections": [
+        {
+          "id": "front",
+          "title": "はしがき・例言・凡例",
+          "pages": null,
+          "pdf_pages": "7–9",
+          "author": null
+        },
+        {
+          "id": "ch1",
+          "title": "第1章 遺跡の位置と環境",
+          "pages": "1–5",
+          "author": "今井真由美"
+        },
+        {
+          "id": "ch2",
+          "title": "第2章 史跡整備事業の経緯とその経過",
+          "pages": "6–10",
+          "author": "今井真由美"
+        },
+        {
+          "id": "ch3",
+          "title": "第3章 発掘調査成果",
+          "pages": "11–54",
+          "author": "仲林篤史"
+        },
+        {
+          "id": "ch4",
+          "title": "第4章 出土遺物",
+          "pages": "55–72",
+          "author": "今井真由美"
+        },
+        {
+          "id": "ch5s1",
+          "title": "第5章第1節 金堂基壇構築土からみた基壇造成過程に関する検討",
+          "pages": "73–78",
+          "author": "松田順一郎"
+        },
+        {
+          "id": "ch5s2",
+          "title": "第5章第2節 河内寺廃寺跡出土の瓦胎土に含まれる磁鉄鉱",
+          "pages": "79–82",
+          "author": "松田順一郎"
+        },
+        {
+          "id": "ch5s3",
+          "title": "第5章第3節 瓦からみた河内寺廃寺創建期の様相",
+          "pages": "83–85",
+          "author": "谷﨑仁美"
+        },
+        {
+          "id": "ch5s4",
+          "title": "第5章第4節 河内寺廃寺跡の造営集団の検討",
+          "pages": "86–92",
+          "author": "新尺雅弘"
+        },
+        {
+          "id": "ch5s5",
+          "title": "第5章第5節 軒丸瓦ＫＷＭ２の笵傷と瓦製作の様相",
+          "pages": "93–105",
+          "author": "仲林篤史"
+        },
+        {
+          "id": "ch5s6",
+          "title": "第5章第6節 軒平瓦ＫＷＨ２と平瓦Ⅱ－１－２類の検討",
+          "pages": "106–108",
+          "author": "仲林篤史"
+        },
+        {
+          "id": "ch5s7",
+          "title": "第5章第7節 軒平瓦に付着する白色を呈する化合物の自然科学分析",
+          "pages": "109–112",
+          "author": "今井真由美（分析：奈良文化財研究所）"
+        },
+        {
+          "id": "ch6",
+          "title": "第6章 発掘調査成果のまとめ",
+          "pages": "113–117",
+          "author": "仲林篤史"
+        },
+        {
+          "id": "plates",
+          "title": "図版1–67",
+          "pages": null,
+          "pdf_pages": "135–201",
+          "author": null
+        },
+        {
+          "id": "abstract",
+          "title": "報告書抄録",
+          "pages": null,
+          "pdf_pages": "203",
+          "author": null
+        }
+      ]
+    },
+    {
+      "id": "source_osakafu_1968",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "河内寺跡調査概報－東大阪市河内町－",
+      "author": null,
+      "organization": "大阪府教育委員会",
+      "year": 1968,
+      "volume": null,
+      "url": null,
+      "note": "本報告書54頁の文献一覧による。藤沢一夫「河内寺とその性格」を収める（92頁）。原本は未確認"
+    },
+    {
+      "id": "source_higashiosaka_2007",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "河内寺廃寺跡発掘調査報告書",
+      "author": null,
+      "organization": "東大阪市教育委員会",
+      "year": 2007,
+      "volume": null,
+      "url": null,
+      "note": "本報告書54・92頁では2007、69頁の文献一覧では2011と記される。原本は未確認"
+    },
+    {
+      "id": "source_higashiosaka_2015",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "国史跡河内寺廃寺跡第22次発掘調査概要",
+      "author": null,
+      "organization": "東大阪市教育委員会",
+      "year": 2015,
+      "volume": null,
+      "url": null,
+      "note": "例言7：第22次調査は本報告書をもって正式な報告とする。原本は未確認"
+    },
+    {
+      "id": "source_ami_2019",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "生駒西麓の古代寺院の研究－河内寺廃寺跡と法通寺跡を中心に（『古代寺院史の研究』思文閣出版）",
+      "author": "網伸也",
+      "organization": null,
+      "year": 2019,
+      "volume": null,
+      "url": null,
+      "note": "本報告書105頁の文献一覧による。原本は未確認"
+    },
+    {
+      "id": "source_shinjaku_2019",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "久米寺式軒瓦の成立と展開－藤原宮期における久米寺の性格－（『考古学研究』第66巻第2号）",
+      "author": "新尺雅弘",
+      "organization": null,
+      "year": 2019,
+      "volume": null,
+      "url": null,
+      "note": "本報告書85・105頁の文献一覧による。原本は未確認"
+    },
+    {
+      "id": "source_kindai_2015",
+      "type": "cited_reference",
+      "role": "cited_in_primary",
+      "seen": false,
+      "title": "平成26年度東大阪市地域研究助成金報告書 東大阪市内にある歴史文化遺産の調査及びその活用についての提言",
+      "author": null,
+      "organization": "近畿大学文芸学部",
+      "year": 2015,
+      "volume": null,
+      "url": null,
+      "note": "本報告書54頁の文献一覧による。原本は未確認"
+    }
+  ]
+}

@@ -1,0 +1,2504 @@
+{
+  "starters": [
+    {
+      "text": "どんな遺跡なの？",
+      "topic_id": "dialogue_overview"
+    },
+    {
+      "text": "いつ建てられたの？",
+      "topic_id": "dialogue_founding_period"
+    },
+    {
+      "text": "誰が建てたの？",
+      "topic_id": "dialogue_builder"
+    },
+    {
+      "text": "金堂はどんな建物？",
+      "topic_id": "dialogue_kondo"
+    },
+    {
+      "text": "塔は見つかったの？",
+      "topic_id": "dialogue_to"
+    },
+    {
+      "text": "なぜなくなったの？",
+      "topic_id": "dialogue_abandonment"
+    },
+    {
+      "text": "どんな瓦が出たの？",
+      "topic_id": "dialogue_kawara"
+    },
+    {
+      "text": "まだ分かっていないことは？",
+      "topic_id": "dialogue_unknowns"
+    }
+  ],
+  "topics": [
+    {
+      "id": "dialogue_overview",
+      "topic": "河内寺廃寺跡のあらまし",
+      "intent": "what",
+      "keywords": [
+        "どんな遺跡",
+        "どんな史跡",
+        "どんな寺",
+        "どんなところ",
+        "概要",
+        "あらまし",
+        "紹介",
+        "河内寺廃寺跡とは",
+        "何の跡",
+        "なんの跡",
+        "どういう"
+      ],
+      "entity_ids": [
+        "site_kawachidera_haiji_ato",
+        "temple_kawachidera_haiji"
+      ],
+      "sample_questions": [
+        "河内寺廃寺跡ってどんな遺跡？",
+        "ここはどんなところ？",
+        "概要を教えて",
+        "この史跡について教えて"
+      ],
+      "fact_ids": [
+        "fact_site_located_in",
+        "fact_temple_duration",
+        "fact_site_remains",
+        "fact_site_designated"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_layout_type_ch1",
+        "fact_site_park_opened",
+        "fact_site_designated_area"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_founding_period",
+        "dialogue_layout",
+        "dialogue_builder"
+      ],
+      "suggestions": [
+        {
+          "text": "いつ建てられたの？",
+          "topic_id": "dialogue_founding_period"
+        },
+        {
+          "text": "どんな建物があったの？",
+          "topic_id": "dialogue_layout"
+        },
+        {
+          "text": "誰が建てたの？",
+          "topic_id": "dialogue_builder"
+        }
+      ],
+      "action_ids": [
+        "action_page_overview",
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_location",
+      "topic": "場所",
+      "intent": "where",
+      "keywords": [
+        "どこにある",
+        "場所",
+        "所在地",
+        "住所",
+        "位置",
+        "何市",
+        "アクセス"
+      ],
+      "entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ],
+      "sample_questions": [
+        "どこにあるの？",
+        "場所を教えて",
+        "所在地は？"
+      ],
+      "fact_ids": [
+        "fact_site_located_in",
+        "fact_site_landform",
+        "fact_site_address_lots"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "location",
+      "related_topics": [
+        "dialogue_terrain",
+        "dialogue_designation"
+      ],
+      "suggestions": [
+        {
+          "text": "どんな地形に建てたの？",
+          "topic_id": "dialogue_terrain"
+        },
+        {
+          "text": "史跡に指定されたのはいつ？",
+          "topic_id": "dialogue_designation"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_founding_period",
+      "topic": "創建の時期",
+      "intent": "when",
+      "keywords": [
+        "いつ建て",
+        "いつ造",
+        "いつ作",
+        "いつでき",
+        "創建",
+        "建立",
+        "何世紀",
+        "何時代",
+        "年代",
+        "いつごろ",
+        "いつ頃",
+        "古い"
+      ],
+      "entity_ids": [
+        "temple_kawachidera_haiji"
+      ],
+      "sample_questions": [
+        "いつ建てられたの？",
+        "いつ造られたの？",
+        "創建はいつ？",
+        "何世紀の寺？",
+        "どのくらい古いの？"
+      ],
+      "fact_ids": [
+        "fact_founding_start",
+        "fact_founding_completed"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_founding_tiles_date_tanizaki",
+        "fact_founding_tiles_not_before",
+        "fact_kwm2_kwh2_date_tanizaki",
+        "fact_kwm2_date_q4"
+      ],
+      "response_type": "period",
+      "related_topics": [
+        "dialogue_duration",
+        "dialogue_kawara",
+        "dialogue_builder"
+      ],
+      "suggestions": [
+        {
+          "text": "いつまで続いたの？",
+          "topic_id": "dialogue_duration"
+        },
+        {
+          "text": "誰が建てたの？",
+          "topic_id": "dialogue_builder"
+        },
+        {
+          "text": "どんな瓦が出たの？",
+          "topic_id": "dialogue_kawara"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline"
+      ]
+    },
+    {
+      "id": "dialogue_duration",
+      "topic": "寺が続いた期間",
+      "intent": "when",
+      "keywords": [
+        "いつまで",
+        "存続",
+        "続いた",
+        "何年間",
+        "期間",
+        "いつなくなっ"
+      ],
+      "entity_ids": [
+        "temple_kawachidera_haiji"
+      ],
+      "sample_questions": [
+        "いつまで続いたの？",
+        "どのくらいの間あったの？",
+        "寺はいつまであった？"
+      ],
+      "fact_ids": [
+        "fact_temple_duration",
+        "fact_kondo_15c",
+        "fact_kinsei_hoto_unknown"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "period",
+      "related_topics": [
+        "dialogue_abandonment",
+        "dialogue_after"
+      ],
+      "suggestions": [
+        {
+          "text": "なぜなくなったの？",
+          "topic_id": "dialogue_abandonment"
+        },
+        {
+          "text": "土石流のあとはどうなった？",
+          "topic_id": "dialogue_after"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline"
+      ]
+    },
+    {
+      "id": "dialogue_builder",
+      "topic": "創建に関わった氏族",
+      "intent": "who",
+      "keywords": [
+        "誰が建て",
+        "だれが建て",
+        "誰が造",
+        "誰が作",
+        "誰の寺",
+        "氏族",
+        "檀越",
+        "河内氏",
+        "河内直",
+        "中臣",
+        "造営",
+        "創建者",
+        "誰"
+      ],
+      "entity_ids": [
+        "group_kawachi_uji",
+        "group_nakatomi_uji",
+        "temple_kawachidera_haiji"
+      ],
+      "sample_questions": [
+        "誰が建てたの？",
+        "どの氏族の寺？",
+        "創建したのは誰？",
+        "中臣氏は関係ある？"
+      ],
+      "fact_ids": [
+        "fact_clan_kawachi_leading",
+        "fact_clan_nakatomi_proposed",
+        "fact_clan_ch6"
+      ],
+      "connectors": {
+        "fact_clan_nakatomi_proposed": "contrast",
+        "fact_clan_ch6": "none"
+      },
+      "detail_fact_ids": [
+        "fact_clan_fujisawa",
+        "fact_clan_not_conclusive",
+        "fact_clan_nakatomi_hypothesis",
+        "fact_clan_multiple"
+      ],
+      "response_type": "multi_view",
+      "related_topics": [
+        "dialogue_gunga",
+        "dialogue_workers",
+        "dialogue_related_temples"
+      ],
+      "suggestions": [
+        {
+          "text": "郡衙と関係があるの？",
+          "topic_id": "dialogue_gunga"
+        },
+        {
+          "text": "瓦を作ったのはどんな人？",
+          "topic_id": "dialogue_workers"
+        },
+        {
+          "text": "ほかの寺との関係は？",
+          "topic_id": "dialogue_related_temples"
+        }
+      ],
+      "action_ids": [
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_layout",
+      "topic": "伽藍配置",
+      "intent": "what",
+      "keywords": [
+        "伽藍",
+        "配置",
+        "建物の並び",
+        "どんな建物",
+        "何があった",
+        "どんな形",
+        "レイアウト",
+        "四天王寺式",
+        "中門"
+      ],
+      "entity_ids": [
+        "temple_kawachidera_haiji",
+        "structure_chumon"
+      ],
+      "sample_questions": [
+        "どんな建物があったの？",
+        "伽藍配置は？",
+        "建物はどう並んでいたの？",
+        "どんな形の寺？"
+      ],
+      "fact_ids": [
+        "fact_layout_type_ch1",
+        "fact_to_not_detected",
+        "fact_site_remains"
+      ],
+      "connectors": {
+        "fact_to_not_detected": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_layout_shitennoji_ratio",
+        "fact_layout_terrain_choice",
+        "fact_layout_type_ch6"
+      ],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_size",
+        "dialogue_kondo",
+        "dialogue_to",
+        "dialogue_shitennoji"
+      ],
+      "suggestions": [
+        {
+          "text": "全体の大きさは？",
+          "topic_id": "dialogue_size"
+        },
+        {
+          "text": "塔は見つかったの？",
+          "topic_id": "dialogue_to"
+        },
+        {
+          "text": "金堂はどんな建物？",
+          "topic_id": "dialogue_kondo"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_size",
+      "topic": "伽藍全体の大きさ",
+      "intent": "size",
+      "keywords": [
+        "全体の大きさ",
+        "広さ",
+        "規模",
+        "どのくらい広",
+        "どれくらいの大きさ",
+        "面積",
+        "寺の大きさ"
+      ],
+      "entity_ids": [
+        "temple_kawachidera_haiji",
+        "site_kawachidera_haiji_ato"
+      ],
+      "sample_questions": [
+        "全体の大きさは？",
+        "寺はどのくらい広かったの？",
+        "規模を教えて",
+        "史跡の面積は？"
+      ],
+      "fact_ids": [
+        "fact_layout_extent_ew",
+        "fact_layout_extent_ns",
+        "fact_site_designated_area"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "size",
+      "related_topics": [
+        "dialogue_kondo_kidan",
+        "dialogue_kodo",
+        "dialogue_shitennoji"
+      ],
+      "suggestions": [
+        {
+          "text": "金堂の大きさは？",
+          "topic_id": "dialogue_kondo_kidan"
+        },
+        {
+          "text": "講堂の大きさは？",
+          "topic_id": "dialogue_kodo"
+        },
+        {
+          "text": "四天王寺と似ているの？",
+          "topic_id": "dialogue_shitennoji"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_shitennoji",
+      "topic": "四天王寺との関係",
+      "intent": null,
+      "keywords": [
+        "四天王寺",
+        "似ている",
+        "相似",
+        "なぜ四天王寺式",
+        "法隆寺式"
+      ],
+      "entity_ids": [
+        "place_shitennoji"
+      ],
+      "sample_questions": [
+        "四天王寺と似ているの？",
+        "なぜ四天王寺式なの？"
+      ],
+      "fact_ids": [
+        "fact_layout_shitennoji_ratio",
+        "fact_layout_terrain_choice"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "interpretation",
+      "related_topics": [
+        "dialogue_layout",
+        "dialogue_terrain"
+      ],
+      "suggestions": [
+        {
+          "text": "どんな地形に建てたの？",
+          "topic_id": "dialogue_terrain"
+        },
+        {
+          "text": "伽藍配置は？",
+          "topic_id": "dialogue_layout"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_terrain",
+      "topic": "地形",
+      "intent": null,
+      "keywords": [
+        "地形",
+        "扇状地",
+        "傾斜",
+        "坂",
+        "高低差",
+        "生駒",
+        "土地"
+      ],
+      "entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ],
+      "sample_questions": [
+        "どんな地形に建てたの？",
+        "土地は傾いているの？",
+        "高低差はある？"
+      ],
+      "fact_ids": [
+        "fact_site_original_terrain",
+        "fact_site_landform",
+        "fact_kairo_level_diff_ch3"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_kondo_method",
+        "dialogue_dosekiryu"
+      ],
+      "suggestions": [
+        {
+          "text": "基壇はどうやって造ったの？",
+          "topic_id": "dialogue_kondo_method"
+        },
+        {
+          "text": "土石流について教えて",
+          "topic_id": "dialogue_dosekiryu"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_kondo",
+      "topic": "金堂の建物",
+      "intent": "what",
+      "keywords": [
+        "金堂",
+        "本堂",
+        "こんどう",
+        "屋根",
+        "柱"
+      ],
+      "entity_ids": [
+        "structure_kondo"
+      ],
+      "sample_questions": [
+        "金堂はどんな建物？",
+        "金堂について教えて",
+        "金堂の屋根の形は？",
+        "金堂の柱は？"
+      ],
+      "fact_ids": [
+        "fact_kondo_plan",
+        "fact_kondo_bay",
+        "fact_kondo_roof",
+        "fact_kondo_soseki_remaining"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kondo_column_diameter",
+        "fact_kondo_no_floor",
+        "fact_kondo_inubashiri_founding"
+      ],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_kondo_kidan",
+        "dialogue_identification",
+        "dialogue_after"
+      ],
+      "suggestions": [
+        {
+          "text": "金堂の基壇の大きさは？",
+          "topic_id": "dialogue_kondo_kidan"
+        },
+        {
+          "text": "なぜ塔と考えられていたの？",
+          "topic_id": "dialogue_identification"
+        },
+        {
+          "text": "基壇はどうやって造ったの？",
+          "topic_id": "dialogue_kondo_method"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo",
+        "action_map_kondo",
+        "action_ar_kondo"
+      ]
+    },
+    {
+      "id": "dialogue_kondo_kidan",
+      "topic": "金堂基壇の大きさと造り",
+      "intent": "size",
+      "keywords": [
+        "金堂の大きさ",
+        "金堂基壇",
+        "基壇",
+        "金堂の高さ",
+        "階段",
+        "乱石積",
+        "礎石",
+        "金堂の規模"
+      ],
+      "entity_ids": [
+        "feature_kondo_kidan",
+        "feature_kondo_kaidan",
+        "structure_kondo"
+      ],
+      "sample_questions": [
+        "金堂の基壇の大きさは？",
+        "金堂の大きさは？",
+        "金堂基壇の高さは？",
+        "金堂に階段はあった？",
+        "礎石はいくつ残っている？"
+      ],
+      "fact_ids": [
+        "fact_kondo_kidan_ew",
+        "fact_kondo_kidan_ns",
+        "fact_kondo_kidan_height",
+        "fact_kondo_kidan_type",
+        "fact_kondo_stair_steps"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kondo_stair_position",
+        "fact_kondo_stair_projection",
+        "fact_kondo_soseki_remaining"
+      ],
+      "response_type": "size",
+      "related_topics": [
+        "dialogue_kondo",
+        "dialogue_kondo_method",
+        "dialogue_kodo"
+      ],
+      "suggestions": [
+        {
+          "text": "基壇はどうやって造ったの？",
+          "topic_id": "dialogue_kondo_method"
+        },
+        {
+          "text": "講堂の大きさは？",
+          "topic_id": "dialogue_kodo"
+        },
+        {
+          "text": "金堂はどんな建物？",
+          "topic_id": "dialogue_kondo"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo",
+        "action_map_kondo"
+      ]
+    },
+    {
+      "id": "dialogue_kondo_method",
+      "topic": "金堂基壇の築き方",
+      "intent": "how",
+      "keywords": [
+        "どうやって造",
+        "どうやって作",
+        "築き方",
+        "造り方",
+        "版築",
+        "掘込地業",
+        "盛土",
+        "工法",
+        "築成",
+        "工程"
+      ],
+      "entity_ids": [
+        "feature_kondo_kidan"
+      ],
+      "sample_questions": [
+        "基壇はどうやって造ったの？",
+        "版築はしているの？",
+        "掘込地業はあった？",
+        "金堂基壇の造り方は？"
+      ],
+      "fact_ids": [
+        "fact_kondo_build_method",
+        "fact_kondo_build_stages",
+        "fact_kondo_horikomi_possible",
+        "fact_kondo_horikomi_matsuda"
+      ],
+      "connectors": {
+        "fact_kondo_horikomi_possible": "contrast",
+        "fact_kondo_horikomi_matsuda": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_kondo_fill_units",
+        "fact_kondo_fill_source",
+        "fact_kondo_under_layer"
+      ],
+      "response_type": "multi_view",
+      "related_topics": [
+        "dialogue_jichin",
+        "dialogue_terrain",
+        "dialogue_kondo_kidan"
+      ],
+      "suggestions": [
+        {
+          "text": "地鎮のあとは見つかった？",
+          "topic_id": "dialogue_jichin"
+        },
+        {
+          "text": "どんな地形に建てたの？",
+          "topic_id": "dialogue_terrain"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo"
+      ]
+    },
+    {
+      "id": "dialogue_jichin",
+      "topic": "地鎮",
+      "intent": null,
+      "keywords": [
+        "地鎮",
+        "玉",
+        "まじない",
+        "儀式",
+        "鎮壇"
+      ],
+      "entity_ids": [
+        "artifact_jichin_tama",
+        "feature_kondo_stage2_deposit"
+      ],
+      "sample_questions": [
+        "地鎮のあとは見つかった？",
+        "地鎮具は出た？"
+      ],
+      "fact_ids": [
+        "fact_kondo_jichin_tama",
+        "fact_kondo_jichin_possible"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "interpretation",
+      "related_topics": [
+        "dialogue_kondo_method"
+      ],
+      "suggestions": [
+        {
+          "text": "基壇はどうやって造ったの？",
+          "topic_id": "dialogue_kondo_method"
+        },
+        {
+          "text": "何が出土したの？",
+          "topic_id": "dialogue_artifacts"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo"
+      ]
+    },
+    {
+      "id": "dialogue_identification",
+      "topic": "建物の比定",
+      "intent": "why",
+      "keywords": [
+        "なぜ塔",
+        "塔と考え",
+        "塔だと",
+        "比定",
+        "見直し",
+        "金堂と分か",
+        "金堂と判明",
+        "間違",
+        "心礎",
+        "変更",
+        "第22次"
+      ],
+      "entity_ids": [
+        "feature_kondo_kidan",
+        "feature_kondo_reported_shinso",
+        "excavation_22"
+      ],
+      "sample_questions": [
+        "なぜ塔と考えられていたの？",
+        "金堂だと分かったのはいつ？",
+        "建物の比定はどう変わったの？",
+        "心礎はあったの？"
+      ],
+      "fact_ids": [
+        "fact_ident_changes",
+        "fact_ident_south_ex11",
+        "fact_ident_south_ex22",
+        "fact_shinso_nonexistent"
+      ],
+      "connectors": {
+        "fact_ident_south_ex11": "none",
+        "fact_ident_south_ex22": "transition",
+        "fact_shinso_nonexistent": "addition"
+      },
+      "detail_fact_ids": [
+        "fact_ident_south_ex01",
+        "fact_ident_south_ex02",
+        "fact_ident_north_ex22",
+        "fact_c3d3_no_soseki"
+      ],
+      "response_type": "history",
+      "related_topics": [
+        "dialogue_to",
+        "dialogue_excavation",
+        "dialogue_kondo"
+      ],
+      "suggestions": [
+        {
+          "text": "塔は見つかったの？",
+          "topic_id": "dialogue_to"
+        },
+        {
+          "text": "発掘調査の経過は？",
+          "topic_id": "dialogue_excavation"
+        },
+        {
+          "text": "金堂はどんな建物？",
+          "topic_id": "dialogue_kondo"
+        }
+      ],
+      "action_ids": [
+        "action_map_kondo",
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_to",
+      "topic": "塔",
+      "intent": "what",
+      "keywords": [
+        "塔",
+        "五重塔",
+        "塔跡",
+        "塔はあった",
+        "塔は見つか"
+      ],
+      "entity_ids": [
+        "structure_to"
+      ],
+      "sample_questions": [
+        "塔は見つかったの？",
+        "塔はあったの？",
+        "塔はどこ？"
+      ],
+      "fact_ids": [
+        "fact_to_not_detected",
+        "fact_layout_type_ch1"
+      ],
+      "connectors": {
+        "fact_layout_type_ch1": "contrast"
+      },
+      "detail_fact_ids": [],
+      "response_type": "uncertainty",
+      "related_topics": [
+        "dialogue_identification",
+        "dialogue_layout",
+        "dialogue_unknowns"
+      ],
+      "suggestions": [
+        {
+          "text": "なぜ塔と考えられていたの？",
+          "topic_id": "dialogue_identification"
+        },
+        {
+          "text": "ほかに分かっていないことは？",
+          "topic_id": "dialogue_unknowns"
+        }
+      ],
+      "action_ids": [
+        "action_map_to"
+      ]
+    },
+    {
+      "id": "dialogue_kodo",
+      "topic": "講堂",
+      "intent": "what",
+      "keywords": [
+        "講堂",
+        "こうどう",
+        "講堂の大きさ",
+        "講堂基壇",
+        "講堂の高さ"
+      ],
+      "entity_ids": [
+        "structure_kodo",
+        "feature_kodo_kidan",
+        "feature_kodo_kaidan"
+      ],
+      "sample_questions": [
+        "講堂はどんな建物？",
+        "講堂の大きさは？",
+        "講堂について教えて",
+        "講堂基壇の高さは？"
+      ],
+      "fact_ids": [
+        "fact_kodo_plan_ch6",
+        "fact_kodo_soseki_lost",
+        "fact_kodo_kidan_ew",
+        "fact_kodo_kidan_ns",
+        "fact_kodo_height_unknown"
+      ],
+      "connectors": {
+        "fact_kodo_soseki_lost": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_kodo_plan",
+        "fact_kodo_height_assumed",
+        "fact_kodo_stair_width",
+        "fact_kodo_north_ishiretsu",
+        "fact_kodo_ext_heian_possible",
+        "fact_kodo_with_kondo"
+      ],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_dosekiryu",
+        "dialogue_kairo",
+        "dialogue_north"
+      ],
+      "suggestions": [
+        {
+          "text": "講堂はその後どうなった？",
+          "topic_id": "dialogue_dosekiryu"
+        },
+        {
+          "text": "回廊はどうだった？",
+          "topic_id": "dialogue_kairo"
+        },
+        {
+          "text": "寺の北側には何があったの？",
+          "topic_id": "dialogue_north"
+        }
+      ],
+      "action_ids": [
+        "action_page_kodo",
+        "action_map_kodo"
+      ]
+    },
+    {
+      "id": "dialogue_kairo",
+      "topic": "回廊",
+      "intent": "what",
+      "keywords": [
+        "回廊",
+        "廻廊",
+        "かいろう",
+        "東回廊",
+        "西回廊",
+        "北回廊",
+        "南回廊",
+        "単廊"
+      ],
+      "entity_ids": [
+        "structure_kairo",
+        "structure_kairo_east",
+        "structure_kairo_west",
+        "structure_kairo_north",
+        "structure_kairo_south"
+      ],
+      "sample_questions": [
+        "回廊はどうだった？",
+        "回廊について教えて",
+        "西回廊は見つかった？",
+        "北回廊はあった？"
+      ],
+      "fact_ids": [
+        "fact_kairo_form",
+        "fact_kairo_kidan_height",
+        "fact_kairo_east_soseki",
+        "fact_kairo_west_found",
+        "fact_kairo_north_likely"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kairo_south_soseki",
+        "fact_kairo_north_none",
+        "fact_kairo_same_period",
+        "fact_kairo_level_diff_ch3",
+        "fact_kairo_collapsed"
+      ],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_size",
+        "dialogue_dosekiryu",
+        "dialogue_layout"
+      ],
+      "suggestions": [
+        {
+          "text": "全体の大きさは？",
+          "topic_id": "dialogue_size"
+        },
+        {
+          "text": "土石流について教えて",
+          "topic_id": "dialogue_dosekiryu"
+        }
+      ],
+      "action_ids": [
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_north",
+      "topic": "寺域北方（東西溝と石列）",
+      "intent": "what",
+      "keywords": [
+        "北側",
+        "北方",
+        "寺域北方",
+        "東西溝",
+        "溝",
+        "石列",
+        "護岸",
+        "流路",
+        "水路",
+        "追加指定"
+      ],
+      "entity_ids": [
+        "area_jiiki_hoppo",
+        "feature_tozai_mizo",
+        "feature_nanboku_ishiretsu",
+        "feature_minami_ishiretsu",
+        "feature_kita_ishiretsu",
+        "feature_zenshin_ryuro"
+      ],
+      "sample_questions": [
+        "寺の北側には何があったの？",
+        "東西溝って何？",
+        "石列は何のため？",
+        "寺域北方について教えて"
+      ],
+      "fact_ids": [
+        "fact_zenshin_ryuro_existed",
+        "fact_north_gogan",
+        "fact_minami_ishiretsu_date",
+        "fact_tozai_mizo_purpose"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_north_first_report",
+        "fact_north_not_kidan",
+        "fact_north_ishiretsu_width",
+        "fact_north_distance_kodo",
+        "fact_tozai_mizo_until_muromachi",
+        "fact_ido_after_dosekiryu"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_sobo",
+        "dialogue_enmenken",
+        "dialogue_dosekiryu"
+      ],
+      "suggestions": [
+        {
+          "text": "僧侶はどこで暮らしていたの？",
+          "topic_id": "dialogue_sobo"
+        },
+        {
+          "text": "硯が出たって本当？",
+          "topic_id": "dialogue_enmenken"
+        },
+        {
+          "text": "土石流について教えて",
+          "topic_id": "dialogue_dosekiryu"
+        }
+      ],
+      "action_ids": [
+        "action_page_north",
+        "action_map_north"
+      ]
+    },
+    {
+      "id": "dialogue_sobo",
+      "topic": "僧房・食堂",
+      "intent": null,
+      "keywords": [
+        "僧房",
+        "僧坊",
+        "食堂",
+        "僧侶",
+        "お坊さん",
+        "僧",
+        "暮らし",
+        "生活",
+        "住んで"
+      ],
+      "entity_ids": [
+        "structure_sobo_jikido",
+        "area_tozai_mizo_north"
+      ],
+      "sample_questions": [
+        "僧侶はどこで暮らしていたの？",
+        "僧房は見つかった？",
+        "お坊さんはどこにいたの？"
+      ],
+      "fact_ids": [
+        "fact_sobo_not_detected",
+        "fact_sobo_possible_north",
+        "fact_north_monk_activity"
+      ],
+      "connectors": {
+        "fact_sobo_possible_north": "contrast"
+      },
+      "detail_fact_ids": [],
+      "response_type": "uncertainty",
+      "related_topics": [
+        "dialogue_north",
+        "dialogue_enmenken",
+        "dialogue_unknowns"
+      ],
+      "suggestions": [
+        {
+          "text": "寺の北側には何があったの？",
+          "topic_id": "dialogue_north"
+        },
+        {
+          "text": "硯が出たって本当？",
+          "topic_id": "dialogue_enmenken"
+        }
+      ],
+      "action_ids": [
+        "action_map_north"
+      ]
+    },
+    {
+      "id": "dialogue_dosekiryu",
+      "topic": "土石流",
+      "intent": "what",
+      "keywords": [
+        "土石流",
+        "災害",
+        "土砂",
+        "倒壊",
+        "壊れ",
+        "埋ま",
+        "被害",
+        "どうなった"
+      ],
+      "entity_ids": [
+        "event_dosekiryu"
+      ],
+      "sample_questions": [
+        "土石流について教えて",
+        "土石流はいつ起きたの？",
+        "講堂はその後どうなった？",
+        "どんな被害があったの？"
+      ],
+      "fact_ids": [
+        "fact_dosekiryu_date_ch6",
+        "fact_dosekiryu_affected",
+        "fact_dosekiryu_route",
+        "fact_kodo_collapsed",
+        "fact_kairo_collapsed"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_dosekiryu_date_p46",
+        "fact_dosekiryu_date_p53",
+        "fact_kodo_not_rebuilt",
+        "fact_dosekiryu_pre_heian",
+        "fact_kondo_under_layer"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_abandonment",
+        "dialogue_after"
+      ],
+      "suggestions": [
+        {
+          "text": "土石流で寺はなくなったの？",
+          "topic_id": "dialogue_abandonment"
+        },
+        {
+          "text": "土石流のあとはどうなった？",
+          "topic_id": "dialogue_after"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline",
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_abandonment",
+      "topic": "寺の廃絶の理由",
+      "intent": "why",
+      "keywords": [
+        "なぜなくな",
+        "なくなった",
+        "廃絶",
+        "滅び",
+        "消えた",
+        "廃寺",
+        "終わり",
+        "原因",
+        "なぜ廃"
+      ],
+      "entity_ids": [
+        "event_dosekiryu",
+        "temple_kawachidera_haiji"
+      ],
+      "sample_questions": [
+        "なぜなくなったの？",
+        "土石流で寺はなくなったの？",
+        "廃絶の原因は？",
+        "どうして廃寺になったの？"
+      ],
+      "fact_ids": [
+        "fact_dosekiryu_old_view",
+        "fact_dosekiryu_not_conclusive",
+        "fact_dosekiryu_after_works",
+        "fact_kinsei_hoto_unknown"
+      ],
+      "connectors": {
+        "fact_dosekiryu_not_conclusive": "contrast",
+        "fact_dosekiryu_after_works": "none",
+        "fact_kinsei_hoto_unknown": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_kwh12_13_after",
+        "fact_revival_risso",
+        "fact_chusei_butsudo_rebuilt"
+      ],
+      "response_type": "history",
+      "related_topics": [
+        "dialogue_after",
+        "dialogue_dosekiryu",
+        "dialogue_duration"
+      ],
+      "suggestions": [
+        {
+          "text": "土石流のあとはどうなった？",
+          "topic_id": "dialogue_after"
+        },
+        {
+          "text": "いつまで続いたの？",
+          "topic_id": "dialogue_duration"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline",
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_after",
+      "topic": "土石流のあとの金堂（中世仏堂）",
+      "intent": null,
+      "keywords": [
+        "中世仏堂",
+        "仏堂",
+        "復興",
+        "再建",
+        "建て替え",
+        "土石流のあと",
+        "土石流の後",
+        "その後",
+        "中世",
+        "律僧"
+      ],
+      "entity_ids": [
+        "structure_chusei_butsudo",
+        "artifact_group_kwh12_13"
+      ],
+      "sample_questions": [
+        "土石流のあとはどうなった？",
+        "中世仏堂って何？",
+        "寺は復興したの？",
+        "金堂は建て替えられたの？"
+      ],
+      "fact_ids": [
+        "fact_chusei_butsudo_rebuilt",
+        "fact_chusei_butsudo_plan",
+        "fact_chusei_butsudo_tiles",
+        "fact_kondo_15c"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_chusei_butsudo_timing",
+        "fact_chusei_butsudo_option_a",
+        "fact_chusei_butsudo_option_b",
+        "fact_kwh12_13_after",
+        "fact_kwh12_13_yamato",
+        "fact_revival_risso"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_kinsei",
+        "dialogue_abandonment"
+      ],
+      "suggestions": [
+        {
+          "text": "江戸時代はどうだったの？",
+          "topic_id": "dialogue_kinsei"
+        },
+        {
+          "text": "なぜなくなったの？",
+          "topic_id": "dialogue_abandonment"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo",
+        "action_page_timeline"
+      ]
+    },
+    {
+      "id": "dialogue_kinsei",
+      "topic": "近世の金堂跡",
+      "intent": null,
+      "keywords": [
+        "近世",
+        "江戸時代",
+        "江戸",
+        "鐘楼",
+        "伝承",
+        "大正",
+        "住宅"
+      ],
+      "entity_ids": [
+        "structure_kinsei_tatemono"
+      ],
+      "sample_questions": [
+        "江戸時代はどうだったの？",
+        "近世にも建物はあった？",
+        "鐘楼があったって本当？"
+      ],
+      "fact_ids": [
+        "fact_kinsei_building",
+        "fact_kondo_soseki_moved",
+        "fact_kinsei_roof_option_a",
+        "fact_kinsei_roof_option_b",
+        "fact_kinsei_hoto_unknown"
+      ],
+      "connectors": {
+        "fact_kinsei_roof_option_b": "contrast",
+        "fact_kinsei_hoto_unknown": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_kinsei_building_plan",
+        "fact_kondo_shoro_tradition",
+        "fact_kondo_house",
+        "fact_later_buildings_called"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_after",
+        "dialogue_name"
+      ],
+      "suggestions": [
+        {
+          "text": "「河内寺」という名前について教えて",
+          "topic_id": "dialogue_name"
+        },
+        {
+          "text": "土石流のあとはどうなった？",
+          "topic_id": "dialogue_after"
+        }
+      ],
+      "action_ids": [
+        "action_page_kondo"
+      ]
+    },
+    {
+      "id": "dialogue_heian",
+      "topic": "平安時代の寺",
+      "intent": null,
+      "keywords": [
+        "平安時代",
+        "平安",
+        "奈良時代",
+        "補修",
+        "葺き替え",
+        "改修"
+      ],
+      "entity_ids": [],
+      "sample_questions": [
+        "平安時代はどうだったの？",
+        "奈良時代や平安時代の様子は？",
+        "瓦は葺き替えたの？"
+      ],
+      "fact_ids": [
+        "fact_kondo_heian_modified",
+        "fact_kondo_heian_function",
+        "fact_kondo_heian_retile",
+        "fact_north_heian_works"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kondo_nara_ext_ch6",
+        "fact_nara_tiles_repair",
+        "fact_kodo_ext_heian_possible",
+        "fact_kondo_heian_rebuild_unknown"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_north",
+        "dialogue_dosekiryu"
+      ],
+      "suggestions": [
+        {
+          "text": "寺の北側には何があったの？",
+          "topic_id": "dialogue_north"
+        },
+        {
+          "text": "土石流について教えて",
+          "topic_id": "dialogue_dosekiryu"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline"
+      ]
+    },
+    {
+      "id": "dialogue_kawara",
+      "topic": "出土した瓦",
+      "intent": "what",
+      "keywords": [
+        "瓦",
+        "かわら",
+        "軒丸瓦",
+        "軒平瓦",
+        "鬼瓦",
+        "屋根瓦",
+        "型式"
+      ],
+      "entity_ids": [
+        "artifact_class_kawara",
+        "artifact_class_nokimaru",
+        "artifact_class_nokihira"
+      ],
+      "sample_questions": [
+        "どんな瓦が出たの？",
+        "瓦について教えて",
+        "瓦は何種類あるの？",
+        "鬼瓦は出た？"
+      ],
+      "fact_ids": [
+        "fact_tile_kinds",
+        "fact_nokimaru_types",
+        "fact_nokihira_types",
+        "fact_tile_clay",
+        "fact_kwm2_most"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_tile_magnetite",
+        "fact_onigawara",
+        "fact_herakaki",
+        "fact_kwm1_pattern",
+        "fact_kwh10_vacant"
+      ],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_kwm2",
+        "dialogue_kwh2",
+        "dialogue_workers",
+        "dialogue_white"
+      ],
+      "suggestions": [
+        {
+          "text": "ＫＷＭ２ってどんな瓦？",
+          "topic_id": "dialogue_kwm2"
+        },
+        {
+          "text": "瓦を作ったのはどんな人？",
+          "topic_id": "dialogue_workers"
+        },
+        {
+          "text": "瓦に白いものが付いているの？",
+          "topic_id": "dialogue_white"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts",
+        "action_gallery"
+      ]
+    },
+    {
+      "id": "dialogue_kwm2",
+      "topic": "軒丸瓦ＫＷＭ２",
+      "intent": "what",
+      "keywords": [
+        "kwm2",
+        "ｋｗｍ２",
+        "細弁",
+        "蓮華文",
+        "十三葉",
+        "同笵",
+        "笵傷",
+        "珠文",
+        "蓮子"
+      ],
+      "entity_ids": [
+        "artifact_type_kwm2"
+      ],
+      "sample_questions": [
+        "ＫＷＭ２ってどんな瓦？",
+        "いちばん多い軒丸瓦は？",
+        "KWM2の文様は？"
+      ],
+      "fact_ids": [
+        "fact_kwm2_pattern",
+        "fact_kwm2_renshi",
+        "fact_kwm2_shumon",
+        "fact_kwm2_most",
+        "fact_kwm2_date_q4"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kwm2_phases",
+        "fact_kwm2_workers",
+        "fact_kwm2_ota",
+        "fact_kwm2_same_mold",
+        "fact_kwm2_count_table",
+        "fact_kwm2_old_name"
+      ],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_kwh2",
+        "dialogue_workers",
+        "dialogue_related_temples"
+      ],
+      "suggestions": [
+        {
+          "text": "ＫＷＨ２ってどんな瓦？",
+          "topic_id": "dialogue_kwh2"
+        },
+        {
+          "text": "ほかの寺との関係は？",
+          "topic_id": "dialogue_related_temples"
+        },
+        {
+          "text": "瓦を作ったのはどんな人？",
+          "topic_id": "dialogue_workers"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts"
+      ]
+    },
+    {
+      "id": "dialogue_kwh2",
+      "topic": "軒平瓦ＫＷＨ２",
+      "intent": "what",
+      "keywords": [
+        "kwh2",
+        "ｋｗｈ２",
+        "波状重弧文",
+        "重弧文",
+        "同布筒瓦",
+        "布筒",
+        "6561"
+      ],
+      "entity_ids": [
+        "artifact_type_kwh2",
+        "artifact_dofutoga"
+      ],
+      "sample_questions": [
+        "ＫＷＨ２ってどんな瓦？",
+        "波状重弧文って何？",
+        "同布筒瓦って何？"
+      ],
+      "fact_ids": [
+        "fact_kwh2_pattern",
+        "fact_kwh2_period",
+        "fact_kwh2_same_design",
+        "fact_kwh2_origin",
+        "fact_dofutoga"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kwh2_hira",
+        "fact_kwh2_count_table",
+        "fact_white_on_tiles"
+      ],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_kwm2",
+        "dialogue_workers",
+        "dialogue_white"
+      ],
+      "suggestions": [
+        {
+          "text": "瓦を作ったのはどんな人？",
+          "topic_id": "dialogue_workers"
+        },
+        {
+          "text": "瓦に白いものが付いているの？",
+          "topic_id": "dialogue_white"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts"
+      ]
+    },
+    {
+      "id": "dialogue_workers",
+      "topic": "瓦を作った工人",
+      "intent": "who",
+      "keywords": [
+        "工人",
+        "瓦工",
+        "職人",
+        "作った人",
+        "瓦を作",
+        "渡来系",
+        "渡来",
+        "造瓦"
+      ],
+      "entity_ids": [
+        "group_tile_workers",
+        "group_tile_workers_early",
+        "group_tile_workers_mid"
+      ],
+      "sample_questions": [
+        "瓦を作ったのはどんな人？",
+        "瓦工人はどこから来たの？",
+        "工人はその後どこへ行ったの？"
+      ],
+      "fact_ids": [
+        "fact_workers_toraikei",
+        "fact_workers_moved",
+        "fact_kwm2_workers",
+        "fact_workers_mid_local"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_workers_early_moved",
+        "fact_dofutoga"
+      ],
+      "response_type": "interpretation",
+      "related_topics": [
+        "dialogue_related_temples",
+        "dialogue_kwh2",
+        "dialogue_builder"
+      ],
+      "suggestions": [
+        {
+          "text": "ほかの寺との関係は？",
+          "topic_id": "dialogue_related_temples"
+        },
+        {
+          "text": "誰が建てたの？",
+          "topic_id": "dialogue_builder"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts",
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_related_temples",
+      "topic": "ほかの寺との関係",
+      "intent": null,
+      "keywords": [
+        "ほかの寺",
+        "他の寺",
+        "太田廃寺",
+        "西郡廃寺",
+        "久米寺",
+        "客坊廃寺",
+        "藤原宮",
+        "法勝寺",
+        "関係のある寺",
+        "同じ瓦"
+      ],
+      "entity_ids": [
+        "place_ota_haiji",
+        "place_nishigori_haiji",
+        "place_kumedera",
+        "place_kyakubo_haiji",
+        "place_fujiwarakyu"
+      ],
+      "sample_questions": [
+        "ほかの寺との関係は？",
+        "同じ瓦が出た寺はある？",
+        "太田廃寺との関係は？",
+        "久米寺との関係は？"
+      ],
+      "fact_ids": [
+        "fact_kwm2_ota",
+        "fact_kwh8_ota",
+        "fact_ota_mold_moved",
+        "fact_nishigori_relation",
+        "fact_kwm2_kyakubo"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_workers_moved",
+        "fact_kwm4_same_mold",
+        "fact_kwh2_same_design",
+        "fact_kyakubo_founded"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_workers",
+        "dialogue_builder",
+        "dialogue_kwm2"
+      ],
+      "suggestions": [
+        {
+          "text": "瓦を作ったのはどんな人？",
+          "topic_id": "dialogue_workers"
+        },
+        {
+          "text": "誰が建てたの？",
+          "topic_id": "dialogue_builder"
+        }
+      ],
+      "action_ids": [
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_artifacts",
+      "topic": "出土した遺物",
+      "intent": "what",
+      "keywords": [
+        "出土",
+        "遺物",
+        "見つかったもの",
+        "何が出",
+        "何が見つか",
+        "発見",
+        "土器",
+        "出てきた"
+      ],
+      "entity_ids": [
+        "artifact_all",
+        "artifact_class_doki"
+      ],
+      "sample_questions": [
+        "何が出土したの？",
+        "どんな遺物があるの？",
+        "何が見つかったの？",
+        "土器は出た？"
+      ],
+      "fact_ids": [
+        "fact_artifact_boxes",
+        "fact_tile_kinds",
+        "fact_doki_kinds_after",
+        "fact_sekitai",
+        "fact_artifact_context_caveat"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_doki_kinds_before",
+        "fact_enmenken_found",
+        "fact_yayoi_doki",
+        "fact_onigawara"
+      ],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_kawara",
+        "dialogue_enmenken",
+        "dialogue_sekitai"
+      ],
+      "suggestions": [
+        {
+          "text": "どんな瓦が出たの？",
+          "topic_id": "dialogue_kawara"
+        },
+        {
+          "text": "硯が出たって本当？",
+          "topic_id": "dialogue_enmenken"
+        },
+        {
+          "text": "石帯って何？",
+          "topic_id": "dialogue_sekitai"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts",
+        "action_gallery"
+      ]
+    },
+    {
+      "id": "dialogue_enmenken",
+      "topic": "円面硯",
+      "intent": null,
+      "keywords": [
+        "硯",
+        "すずり",
+        "円面硯",
+        "文字",
+        "書く"
+      ],
+      "entity_ids": [
+        "artifact_no101",
+        "artifact_no101_102"
+      ],
+      "sample_questions": [
+        "硯が出たって本当？",
+        "円面硯について教えて",
+        "硯はどこから出たの？"
+      ],
+      "fact_ids": [
+        "fact_enmenken_found",
+        "fact_enmenken_date",
+        "fact_north_monk_activity"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_north",
+        "dialogue_sobo",
+        "dialogue_artifacts"
+      ],
+      "suggestions": [
+        {
+          "text": "僧侶はどこで暮らしていたの？",
+          "topic_id": "dialogue_sobo"
+        },
+        {
+          "text": "寺の北側には何があったの？",
+          "topic_id": "dialogue_north"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts",
+        "action_map_north"
+      ]
+    },
+    {
+      "id": "dialogue_sekitai",
+      "topic": "石帯の丸鞆",
+      "intent": null,
+      "keywords": [
+        "石帯",
+        "丸鞆",
+        "石製品",
+        "帯",
+        "ベルト"
+      ],
+      "entity_ids": [
+        "artifact_no147"
+      ],
+      "sample_questions": [
+        "石帯って何？",
+        "石製品は出た？",
+        "丸鞆について教えて"
+      ],
+      "fact_ids": [
+        "fact_sekitai",
+        "fact_sekitai_size",
+        "fact_sekitai_period"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "artifact",
+      "related_topics": [
+        "dialogue_artifacts"
+      ],
+      "suggestions": [
+        {
+          "text": "何が出土したの？",
+          "topic_id": "dialogue_artifacts"
+        },
+        {
+          "text": "硯が出たって本当？",
+          "topic_id": "dialogue_enmenken"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts"
+      ]
+    },
+    {
+      "id": "dialogue_white",
+      "topic": "瓦に付いた白色物質",
+      "intent": null,
+      "keywords": [
+        "白色物質",
+        "白い",
+        "白色",
+        "顔料",
+        "漆喰",
+        "白土",
+        "塗",
+        "分析",
+        "蛍光"
+      ],
+      "entity_ids": [
+        "material_white_substance"
+      ],
+      "sample_questions": [
+        "瓦に白いものが付いているの？",
+        "白色物質は何？",
+        "瓦に何か塗ってあるの？"
+      ],
+      "fact_ids": [
+        "fact_white_on_tiles",
+        "fact_white_not_identified",
+        "fact_white_silicon_possible",
+        "fact_white_rare"
+      ],
+      "connectors": {
+        "fact_white_not_identified": "contrast",
+        "fact_white_silicon_possible": "contrast",
+        "fact_white_rare": "none"
+      },
+      "detail_fact_ids": [],
+      "response_type": "uncertainty",
+      "related_topics": [
+        "dialogue_kwh2",
+        "dialogue_unknowns"
+      ],
+      "suggestions": [
+        {
+          "text": "ＫＷＨ２ってどんな瓦？",
+          "topic_id": "dialogue_kwh2"
+        },
+        {
+          "text": "ほかに分かっていないことは？",
+          "topic_id": "dialogue_unknowns"
+        }
+      ],
+      "action_ids": [
+        "action_page_artifacts"
+      ]
+    },
+    {
+      "id": "dialogue_name",
+      "topic": "寺の名前と読み方",
+      "intent": null,
+      "keywords": [
+        "名前",
+        "読み方",
+        "なんて読む",
+        "何と読む",
+        "呼び名",
+        "こんでら",
+        "寺名",
+        "名称",
+        "由来",
+        "小字"
+      ],
+      "entity_ids": [
+        "place_koaza_kawachidera"
+      ],
+      "sample_questions": [
+        "「河内寺」という名前について教えて",
+        "なんて読むの？",
+        "当時は何と呼ばれていたの？",
+        "名前の由来は？"
+      ],
+      "fact_ids": [
+        "fact_site_reading",
+        "fact_koaza_reading",
+        "fact_temple_name_unknown",
+        "fact_later_buildings_called"
+      ],
+      "connectors": {
+        "fact_temple_name_unknown": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_koaza_tradition",
+        "fact_koaza_ancient_doubt"
+      ],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_overview",
+        "dialogue_gunga"
+      ],
+      "suggestions": [
+        {
+          "text": "どんな遺跡なの？",
+          "topic_id": "dialogue_overview"
+        },
+        {
+          "text": "郡衙と関係があるの？",
+          "topic_id": "dialogue_gunga"
+        }
+      ],
+      "action_ids": [
+        "action_page_overview"
+      ]
+    },
+    {
+      "id": "dialogue_gunga",
+      "topic": "郡衙との関係",
+      "intent": null,
+      "keywords": [
+        "郡衙",
+        "郡家",
+        "役所",
+        "皿池",
+        "郡寺",
+        "官衙"
+      ],
+      "entity_ids": [
+        "place_saraike_iseki"
+      ],
+      "sample_questions": [
+        "郡衙と関係があるの？",
+        "皿池遺跡って何？",
+        "役所の近くの寺なの？"
+      ],
+      "fact_ids": [
+        "fact_saraike_gunga",
+        "fact_site_adjacent_gunga",
+        "fact_gunga_no_remains"
+      ],
+      "connectors": {
+        "fact_gunga_no_remains": "contrast"
+      },
+      "detail_fact_ids": [
+        "fact_saraike_kofun",
+        "fact_clan_not_conclusive"
+      ],
+      "response_type": "multi_view",
+      "related_topics": [
+        "dialogue_builder",
+        "dialogue_name"
+      ],
+      "suggestions": [
+        {
+          "text": "誰が建てたの？",
+          "topic_id": "dialogue_builder"
+        },
+        {
+          "text": "「河内寺」という名前について教えて",
+          "topic_id": "dialogue_name"
+        }
+      ],
+      "action_ids": [
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_excavation",
+      "topic": "発掘調査の経過",
+      "intent": null,
+      "keywords": [
+        "発掘",
+        "調査",
+        "何回",
+        "何次",
+        "調査の経過",
+        "いつ調査",
+        "報告書",
+        "誰が調査"
+      ],
+      "entity_ids": [
+        "excavation_all",
+        "excavation_01",
+        "excavation_11",
+        "doc_report_2022"
+      ],
+      "sample_questions": [
+        "発掘調査の経過は？",
+        "発掘は何回行われたの？",
+        "最初の調査はいつ？",
+        "この報告書は何を報告しているの？"
+      ],
+      "fact_ids": [
+        "fact_excavation_first",
+        "fact_excavation_count",
+        "fact_excavation_11_found",
+        "fact_ident_south_ex22",
+        "fact_report_scope"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_excavation_first_by",
+        "fact_excavation_11_trigger",
+        "fact_excavation_22_period"
+      ],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_identification",
+        "dialogue_designation"
+      ],
+      "suggestions": [
+        {
+          "text": "なぜ塔と考えられていたの？",
+          "topic_id": "dialogue_identification"
+        },
+        {
+          "text": "史跡に指定されたのはいつ？",
+          "topic_id": "dialogue_designation"
+        }
+      ],
+      "action_ids": [
+        "action_sources",
+        "action_report_external"
+      ]
+    },
+    {
+      "id": "dialogue_designation",
+      "topic": "史跡指定と史跡公園",
+      "intent": "when",
+      "keywords": [
+        "史跡指定",
+        "国史跡",
+        "指定",
+        "史跡公園",
+        "公園",
+        "整備",
+        "オープン",
+        "公開"
+      ],
+      "entity_ids": [],
+      "sample_questions": [
+        "史跡に指定されたのはいつ？",
+        "史跡公園はいつできたの？",
+        "指定地の広さは？"
+      ],
+      "fact_ids": [
+        "fact_site_designated",
+        "fact_site_designated_area",
+        "fact_site_park_opened"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "summary",
+      "related_topics": [
+        "dialogue_excavation",
+        "dialogue_overview"
+      ],
+      "suggestions": [
+        {
+          "text": "発掘調査の経過は？",
+          "topic_id": "dialogue_excavation"
+        },
+        {
+          "text": "どんな遺跡なの？",
+          "topic_id": "dialogue_overview"
+        }
+      ],
+      "action_ids": [
+        "action_page_overview",
+        "action_open_map"
+      ]
+    },
+    {
+      "id": "dialogue_unknowns",
+      "topic": "まだ分かっていないこと",
+      "intent": "unknown",
+      "keywords": [
+        "分かっていない",
+        "わかっていない",
+        "不明",
+        "謎",
+        "未解明",
+        "分からない",
+        "わからない",
+        "未検出",
+        "課題"
+      ],
+      "entity_ids": [],
+      "sample_questions": [
+        "ほかに分かっていないことは？",
+        "まだ分かっていないことは？",
+        "謎は残っている？"
+      ],
+      "fact_ids": [
+        "fact_to_not_detected",
+        "fact_sobo_not_detected",
+        "fact_temple_name_unknown",
+        "fact_kodo_height_unknown",
+        "fact_white_not_identified"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [
+        "fact_kinsei_hoto_unknown",
+        "fact_kondo_heian_rebuild_unknown",
+        "fact_kairo_other_unknown",
+        "fact_kondo_horikomi_matsuda"
+      ],
+      "response_type": "uncertainty",
+      "related_topics": [
+        "dialogue_to",
+        "dialogue_sobo",
+        "dialogue_white"
+      ],
+      "suggestions": [
+        {
+          "text": "塔は見つかったの？",
+          "topic_id": "dialogue_to"
+        },
+        {
+          "text": "僧侶はどこで暮らしていたの？",
+          "topic_id": "dialogue_sobo"
+        }
+      ],
+      "action_ids": [
+        "action_sources"
+      ]
+    },
+    {
+      "id": "dialogue_period_terms",
+      "topic": "時期の呼び方",
+      "intent": null,
+      "keywords": [
+        "飛鳥時代",
+        "白鳳時代",
+        "白鳳",
+        "時期区分",
+        "いつからいつ"
+      ],
+      "entity_ids": [
+        "period_asuka",
+        "period_hakuho"
+      ],
+      "sample_questions": [
+        "白鳳時代っていつ？",
+        "飛鳥時代はいつからいつまで？"
+      ],
+      "fact_ids": [
+        "fact_period_def_asuka",
+        "fact_period_def_hakuho"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "definition",
+      "related_topics": [
+        "dialogue_founding_period"
+      ],
+      "suggestions": [
+        {
+          "text": "いつ建てられたの？",
+          "topic_id": "dialogue_founding_period"
+        }
+      ],
+      "action_ids": [
+        "action_page_timeline"
+      ]
+    },
+    {
+      "id": "dialogue_visit",
+      "topic": "現地での体験",
+      "intent": null,
+      "keywords": [
+        "ar",
+        "ａｒ",
+        "カメラ",
+        "撮影",
+        "写真を撮",
+        "体験",
+        "見学",
+        "3d",
+        "３ｄ",
+        "立体",
+        "モデル",
+        "地図",
+        "マップ",
+        "案内"
+      ],
+      "entity_ids": [],
+      "sample_questions": [
+        "ARはある？",
+        "写真を撮りたい",
+        "3Dはある？",
+        "地図を見たい",
+        "現地で何ができる？"
+      ],
+      "fact_ids": [
+        "fact_site_park_opened",
+        "fact_site_remains"
+      ],
+      "connectors": {},
+      "detail_fact_ids": [],
+      "response_type": "navigation",
+      "related_topics": [
+        "dialogue_overview"
+      ],
+      "suggestions": [
+        {
+          "text": "どんな遺跡なの？",
+          "topic_id": "dialogue_overview"
+        },
+        {
+          "text": "金堂はどんな建物？",
+          "topic_id": "dialogue_kondo"
+        }
+      ],
+      "action_ids": [
+        "action_open_map",
+        "action_ar_kondo",
+        "action_camera_frame",
+        "action_model3d",
+        "action_quiz"
+      ]
+    }
+  ],
+  "intents": {
+    "when": {
+      "keywords": [
+        "いつ",
+        "何年",
+        "年代",
+        "時代",
+        "時期",
+        "世紀",
+        "何世紀"
+      ],
+      "predicates": [
+        "dated_to",
+        "built_in",
+        "started_in",
+        "completed_in",
+        "occurred_in",
+        "existed_during",
+        "produced_in",
+        "conducted_in",
+        "designated_in",
+        "opened_in",
+        "modified_in",
+        "extended_in",
+        "built_timing",
+        "dated_back_to"
+      ]
+    },
+    "size": {
+      "keywords": [
+        "大きさ",
+        "広さ",
+        "高さ",
+        "幅",
+        "長さ",
+        "規模",
+        "サイズ",
+        "何メートル",
+        "何ｍ",
+        "何m",
+        "どのくらい",
+        "どれくらい",
+        "寸法",
+        "距離"
+      ],
+      "predicates": [
+        "size_east_west",
+        "size_north_south",
+        "height",
+        "width",
+        "bay_width",
+        "extent_east_west",
+        "extent_north_south",
+        "level_difference",
+        "distance",
+        "interval",
+        "dimensions",
+        "column_diameter",
+        "designated_area",
+        "stair_projection",
+        "kidan_no_de"
+      ]
+    },
+    "count": {
+      "keywords": [
+        "いくつ",
+        "何個",
+        "何点",
+        "何石",
+        "何種類",
+        "何段",
+        "数",
+        "何箱"
+      ],
+      "predicates": [
+        "count_found",
+        "soseki_remaining",
+        "type_count",
+        "count_confirmed",
+        "shumon_count",
+        "quantity",
+        "count_surveys",
+        "stair_steps",
+        "build_stages"
+      ]
+    },
+    "where": {
+      "keywords": [
+        "どこ",
+        "場所",
+        "位置",
+        "どのあたり"
+      ],
+      "predicates": [
+        "located_in",
+        "found_at",
+        "detected_at",
+        "address",
+        "existed_at",
+        "found_on"
+      ]
+    },
+    "who": {
+      "keywords": [
+        "誰",
+        "だれ",
+        "どんな人",
+        "氏族"
+      ],
+      "predicates": [
+        "built_by",
+        "also_involved",
+        "patron",
+        "run_by",
+        "leading_theory",
+        "theory_proposed",
+        "conducted_by",
+        "made_by_workers",
+        "built_by_only"
+      ]
+    },
+    "what": {
+      "keywords": [
+        "とは",
+        "って何",
+        "ってなに",
+        "どんな",
+        "何",
+        "なに",
+        "について",
+        "教えて"
+      ],
+      "predicates": [
+        "is_a",
+        "building_plan",
+        "pattern",
+        "roof_type",
+        "layout_type",
+        "has_kinds",
+        "has",
+        "has_remains",
+        "built_with_method"
+      ]
+    },
+    "unknown": {
+      "keywords": [
+        "分かっていない",
+        "わかっていない",
+        "不明",
+        "謎"
+      ],
+      "predicates": [
+        "unknown_matter",
+        "undetermined",
+        "not_detected",
+        "none_found"
+      ]
+    }
+  },
+  "synonyms": {
+    "建てられた": [
+      "造られた",
+      "作られた",
+      "つくられた",
+      "できた",
+      "創建された",
+      "建立された",
+      "建った"
+    ],
+    "なくなった": [
+      "廃絶した",
+      "滅びた",
+      "消えた",
+      "終わった",
+      "廃れた"
+    ],
+    "瓦": [
+      "かわら",
+      "カワラ"
+    ],
+    "僧侶": [
+      "お坊さん",
+      "坊さん",
+      "僧"
+    ],
+    "大きさ": [
+      "サイズ",
+      "規模",
+      "寸法"
+    ],
+    "見つかった": [
+      "出土した",
+      "発見された",
+      "出てきた",
+      "検出された"
+    ],
+    "教えて": [
+      "知りたい",
+      "説明して",
+      "おしえて"
+    ],
+    "河内寺廃寺跡": [
+      "河内寺廃寺",
+      "かわちでら",
+      "河内寺"
+    ],
+    "土石流": [
+      "どせきりゅう",
+      "土砂崩れ",
+      "土砂災害"
+    ],
+    "硯": [
+      "すずり"
+    ]
+  }
+}

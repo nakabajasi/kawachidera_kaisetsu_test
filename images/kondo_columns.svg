@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.2 -3.2 20.30 20.90" role="img" aria-label="創建時の金堂の柱配置（模式図）" font-family="sans-serif">
+<title>創建時の金堂の柱配置（模式図）</title>
+<g fill="none" stroke="#1d2a30" stroke-width="0.08" stroke-linejoin="round">
+<rect x="0" y="0" width="13.9" height="12.3" stroke-dasharray="0.35 0.2"/>
+<rect x="5.975" y="12.3" width="1.95" height="1.5"/>
+<line x1="5.975" y1="12.600" x2="7.925" y2="12.600" stroke-width="0.04"/>
+<line x1="5.975" y1="12.900" x2="7.925" y2="12.900" stroke-width="0.04"/>
+<line x1="5.975" y1="13.200" x2="7.925" y2="13.200" stroke-width="0.04"/>
+<line x1="5.975" y1="13.500" x2="7.925" y2="13.500" stroke-width="0.04"/>
+<line x1="2.075" y1="2.250" x2="2.075" y2="10.050" stroke-width="0.04"/>
+<line x1="4.025" y1="2.250" x2="4.025" y2="10.050" stroke-width="0.04"/>
+<line x1="5.975" y1="2.250" x2="5.975" y2="10.050" stroke-width="0.04"/>
+<line x1="7.925" y1="2.250" x2="7.925" y2="10.050" stroke-width="0.04"/>
+<line x1="9.875" y1="2.250" x2="9.875" y2="10.050" stroke-width="0.04"/>
+<line x1="11.825" y1="2.250" x2="11.825" y2="10.050" stroke-width="0.04"/>
+<line x1="2.075" y1="2.250" x2="11.825" y2="2.250" stroke-width="0.04"/>
+<line x1="2.075" y1="4.200" x2="11.825" y2="4.200" stroke-width="0.04"/>
+<line x1="2.075" y1="6.150" x2="11.825" y2="6.150" stroke-width="0.04"/>
+<line x1="2.075" y1="8.100" x2="11.825" y2="8.100" stroke-width="0.04"/>
+<line x1="2.075" y1="10.050" x2="11.825" y2="10.050" stroke-width="0.04"/>
+<rect x="4.025" y="4.200" width="5.850" height="3.900" stroke-width="0.16"/>
+</g>
+<g fill="#1d2a30">
+<circle cx="2.075" cy="2.250" r="0.26"/>
+<circle cx="4.025" cy="2.250" r="0.26"/>
+<circle cx="5.975" cy="2.250" r="0.26"/>
+<circle cx="7.925" cy="2.250" r="0.26"/>
+<circle cx="9.875" cy="2.250" r="0.26"/>
+<circle cx="11.825" cy="2.250" r="0.26"/>
+<circle cx="2.075" cy="4.200" r="0.26"/>
+<circle cx="4.025" cy="4.200" r="0.26"/>
+<circle cx="5.975" cy="4.200" r="0.26"/>
+<circle cx="7.925" cy="4.200" r="0.26"/>
+<circle cx="9.875" cy="4.200" r="0.26"/>
+<circle cx="11.825" cy="4.200" r="0.26"/>
+<circle cx="2.075" cy="6.150" r="0.26"/>
+<circle cx="4.025" cy="6.150" r="0.26"/>
+<circle cx="9.875" cy="6.150" r="0.26"/>
+<circle cx="11.825" cy="6.150" r="0.26"/>
+<circle cx="2.075" cy="8.100" r="0.26"/>
+<circle cx="4.025" cy="8.100" r="0.26"/>
+<circle cx="5.975" cy="8.100" r="0.26"/>
+<circle cx="7.925" cy="8.100" r="0.26"/>
+<circle cx="9.875" cy="8.100" r="0.26"/>
+<circle cx="11.825" cy="8.100" r="0.26"/>
+<circle cx="2.075" cy="10.050" r="0.26"/>
+<circle cx="4.025" cy="10.050" r="0.26"/>
+<circle cx="5.975" cy="10.050" r="0.26"/>
+<circle cx="7.925" cy="10.050" r="0.26"/>
+<circle cx="9.875" cy="10.050" r="0.26"/>
+<circle cx="11.825" cy="10.050" r="0.26"/>
+</g>
+<g fill="#1d2a30" font-size="0.62" text-anchor="middle">
+<text x="2.075" y="1.500">Ａ</text>
+<text x="4.025" y="1.500">Ｂ</text>
+<text x="5.975" y="1.500">Ｃ</text>
+<text x="7.925" y="1.500">Ｄ</text>
+<text x="9.875" y="1.500">Ｅ</text>
+<text x="11.825" y="1.500">Ｆ</text>
+<text x="1.225" y="2.470">①</text>
+<text x="1.225" y="4.420">②</text>
+<text x="1.225" y="6.370">③</text>
+<text x="1.225" y="8.320">④</text>
+<text x="1.225" y="10.270">⑤</text>
+<text x="6.95" y="-1.5" font-size="0.7">基壇 東西13.9ｍ（46.5尺）</text>
+<text x="6.95" y="14.90" font-size="0.6">階段（５段・出1.5ｍ）</text>
+<text transform="translate(15.30 6.15) rotate(90)" font-size="0.7">基壇 南北12.3ｍ（41尺）</text>
+<text x="6.95" y="6.370" font-size="0.62">身舎</text>
+<text x="3.050" y="10.900" font-size="0.5">柱間1.95ｍ</text>
+<text x="-1.6" y="-1.4" font-size="0.7">北 ↑</text>
+</g></svg>

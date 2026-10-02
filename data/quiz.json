@@ -1,0 +1,367 @@
+{
+  "questions": [
+    {
+      "id": "quiz_kondo_kidan_ew",
+      "question": "金堂基壇の東西の規模は、次のどれでしょう。",
+      "choices": [
+        "13.9ｍ（46.5尺）",
+        "22.8m（76尺）",
+        "12.3ｍ（41尺）",
+        "約47ｍ"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_kondo_kidan_ew",
+        "fact_kondo_kidan_ns"
+      ],
+      "choice_fact_ids": [
+        "fact_kondo_kidan_ew",
+        "fact_kodo_kidan_ew",
+        "fact_kondo_kidan_ns",
+        "fact_layout_extent_ew"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ]
+    },
+    {
+      "id": "quiz_kondo_before",
+      "question": "いま金堂跡とされている基壇は、第22次調査の前には何の跡と考えられていたでしょう。",
+      "choices": [
+        "塔",
+        "講堂",
+        "中門",
+        "回廊"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_ident_south_ex11",
+        "fact_ident_south_ex22"
+      ],
+      "choice_fact_ids": [
+        "fact_ident_south_ex11",
+        null,
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 7,
+          "pdf_page": 21
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ]
+    },
+    {
+      "id": "quiz_to_detected",
+      "question": "塔の跡は、これまでの調査で見つかっているでしょうか。",
+      "choices": [
+        "見つかっていない（未検出）",
+        "第22次調査で見つかった",
+        "第１次調査で見つかった"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_to_not_detected",
+        "fact_ident_south_ex22"
+      ],
+      "choice_fact_ids": [
+        "fact_to_not_detected",
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ]
+    },
+    {
+      "id": "quiz_layout",
+      "question": "河内寺廃寺の伽藍配置は、何式と推定されてきたでしょう。",
+      "choices": [
+        "四天王寺式伽藍配置",
+        "法隆寺式伽藍配置",
+        "どちらとも推定されていない"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_layout_type_ch1"
+      ],
+      "choice_fact_ids": [
+        "fact_layout_type_ch1",
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        }
+      ]
+    },
+    {
+      "id": "quiz_kondo_roof",
+      "question": "創建時の金堂の屋根の形について、報告書はどう書いているでしょう。",
+      "choices": [
+        "入母屋造と考えられる",
+        "寄棟造と考えられる",
+        "手がかりがなく不明"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_kondo_roof",
+        "fact_kondo_plan"
+      ],
+      "choice_fact_ids": [
+        "fact_kondo_roof",
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ]
+    },
+    {
+      "id": "quiz_kwm2_most",
+      "question": "古代の軒丸瓦のうち、最も出土数が多い型式はどれでしょう。",
+      "choices": [
+        "ＫＷＭ２",
+        "ＫＷＭ１",
+        "ＫＷＭ３",
+        "ＫＷＭ４"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_kwm2_most",
+        "fact_kwm2_count_table"
+      ],
+      "choice_fact_ids": [
+        "fact_kwm2_most",
+        null,
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 93,
+          "pdf_page": 107
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 70,
+          "pdf_page": 84
+        }
+      ]
+    },
+    {
+      "id": "quiz_kwm2_pattern",
+      "question": "軒丸瓦ＫＷＭ２の文様はどれでしょう。",
+      "choices": [
+        "細弁十三葉蓮華文",
+        "素弁八葉蓮華文",
+        "単弁十二葉蓮華文",
+        "巴文"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_kwm2_pattern"
+      ],
+      "choice_fact_ids": [
+        "fact_kwm2_pattern",
+        "fact_kwm1_pattern",
+        "fact_kwm3_pattern",
+        "fact_kwm6_pattern"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69
+        }
+      ]
+    },
+    {
+      "id": "quiz_minami_ishiretsu",
+      "question": "寺域北方の南石列が造られた時期はどれでしょう。",
+      "choices": [
+        "10世紀末から11世紀、平安時代中期",
+        "7世紀第４四半期",
+        "８世紀",
+        "13世紀末から14世紀前半"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_minami_ishiretsu_date"
+      ],
+      "choice_fact_ids": [
+        "fact_minami_ishiretsu_date",
+        "fact_founding_completed",
+        "fact_enmenken_date",
+        "fact_dosekiryu_date_ch6"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62
+        }
+      ]
+    },
+    {
+      "id": "quiz_dosekiryu_cause",
+      "question": "土石流と寺院の廃絶の関係について、報告書（第６章）の書き方はどれでしょう。",
+      "choices": [
+        "廃絶の原因になったとまでは断定できない",
+        "土石流で廃絶したと断定している",
+        "土石流は起きていないとしている"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_dosekiryu_not_conclusive",
+        "fact_dosekiryu_after_works",
+        "fact_dosekiryu_old_view"
+      ],
+      "choice_fact_ids": [
+        "fact_dosekiryu_not_conclusive",
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 115,
+          "pdf_page": 129
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 46,
+          "pdf_page": 60
+        }
+      ]
+    },
+    {
+      "id": "quiz_kodo_height",
+      "question": "講堂基壇の創建時の高さについて、報告書の本文はどう書いているでしょう。",
+      "choices": [
+        "不明（階段を３段と想定すると0.6～0.7m）",
+        "約1.5ｍ（５尺）",
+        "30cm程度"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_kodo_height_unknown",
+        "fact_kodo_height_assumed"
+      ],
+      "choice_fact_ids": [
+        "fact_kodo_height_assumed",
+        "fact_kondo_kidan_height",
+        "fact_kairo_kidan_height"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 27,
+          "pdf_page": 41
+        }
+      ]
+    },
+    {
+      "id": "quiz_enmenken",
+      "question": "寺域北方などから出土した円面硯（報告番号101・102）の時期はどれでしょう。",
+      "choices": [
+        "８世紀",
+        "10世紀代",
+        "14世紀前半",
+        "弥生時代後期"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_enmenken_date",
+        "fact_enmenken_found"
+      ],
+      "choice_fact_ids": [
+        "fact_enmenken_date",
+        "fact_hajiki_112",
+        "fact_hagama_142",
+        "fact_yayoi_doki"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 66,
+          "pdf_page": 80
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62
+        }
+      ]
+    },
+    {
+      "id": "quiz_clan",
+      "question": "創建に関わった氏族について、報告書（第６章）が妥当とする解釈はどれでしょう。",
+      "choices": [
+        "河内直（連）単独ではなく、中臣氏も関与していた",
+        "河内直（連）だけが関わった",
+        "中臣氏だけが関わった"
+      ],
+      "correct_index": 0,
+      "explanation_fact_ids": [
+        "fact_clan_ch6",
+        "fact_clan_kawachi_leading",
+        "fact_clan_nakatomi_proposed"
+      ],
+      "choice_fact_ids": [
+        "fact_clan_ch6",
+        null,
+        null
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        }
+      ]
+    }
+  ]
+}

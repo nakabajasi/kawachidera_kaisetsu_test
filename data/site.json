@@ -1,0 +1,250 @@
+{
+  "id": "site_kawachidera_haiji_ato",
+  "project_id": "kawachidera",
+  "name": "河内寺廃寺跡",
+  "short_name": "河内寺廃寺跡",
+  "reading_fact_id": "fact_site_reading",
+  "category": "古代寺院跡（国指定史跡）",
+  "period": [
+    "phase_1_founding",
+    "phase_2_nara_heian_early",
+    "phase_3_heian_mid_kamakura",
+    "phase_4_kamakura_late_nanbokucho",
+    "phase_5_muromachi_kinsei"
+  ],
+  "summary": null,
+  "summary_fact_ids": [
+    "fact_temple_duration",
+    "fact_layout_type_ch1",
+    "fact_site_designated"
+  ],
+  "location": {
+    "latitude": null,
+    "longitude": null,
+    "note": "報告書に緯度・経度の記載はない（抄録にもなし）。図の枠に平面直角座標の目盛があるが、系の記載が凡例（第Ⅴ系・日本測地系）と第5章第1節第1図（第VI系）で食い違うため変換していない。"
+  },
+  "primary_source_id": "source_report_2022",
+  "features": {
+    "overview": true,
+    "map": true,
+    "dialogue": true,
+    "gallery": true,
+    "viewer3d": true,
+    "camera": true,
+    "ar": true,
+    "quiz": true,
+    "speech": true
+  },
+  "pages": {
+    "overview": [
+      {
+        "title": "場所と史跡",
+        "fact_ids": [
+          "fact_site_located_in",
+          "fact_site_landform",
+          "fact_site_remains",
+          "fact_site_designated",
+          "fact_site_designated_area",
+          "fact_site_park_opened"
+        ]
+      },
+      {
+        "title": "寺のすがた",
+        "fact_ids": [
+          "fact_layout_type_ch1",
+          "fact_to_not_detected",
+          "fact_layout_extent_ew",
+          "fact_layout_extent_ns",
+          "fact_layout_shitennoji_ratio"
+        ]
+      },
+      {
+        "title": "いつの寺か",
+        "fact_ids": [
+          "fact_founding_start",
+          "fact_founding_completed",
+          "fact_temple_duration"
+        ]
+      },
+      {
+        "title": "誰が建てたか",
+        "note_kind": "multi_view",
+        "fact_ids": [
+          "fact_clan_kawachi_leading",
+          "fact_clan_nakatomi_proposed",
+          "fact_clan_ch6"
+        ]
+      },
+      {
+        "title": "名前について",
+        "fact_ids": [
+          "fact_site_reading",
+          "fact_koaza_reading",
+          "fact_temple_name_unknown"
+        ]
+      },
+      {
+        "title": "調査の経過",
+        "fact_ids": [
+          "fact_excavation_first",
+          "fact_excavation_count",
+          "fact_ident_changes",
+          "fact_ident_south_ex22",
+          "fact_report_scope"
+        ]
+      }
+    ],
+    "timeline": [
+      {
+        "period_id": "phase_1_founding",
+        "fact_ids": [
+          "fact_founding_start",
+          "fact_founding_completed",
+          "fact_kondo_plan",
+          "fact_kodo_with_kondo",
+          "fact_kairo_same_period",
+          "fact_zenshin_ryuro_founding"
+        ]
+      },
+      {
+        "period_id": "phase_2_nara_heian_early",
+        "fact_ids": [
+          "fact_kondo_nara_ext_ch6",
+          "fact_north_monk_activity",
+          "fact_nara_tiles_repair"
+        ]
+      },
+      {
+        "period_id": "phase_3_heian_mid_kamakura",
+        "fact_ids": [
+          "fact_kondo_heian_modified",
+          "fact_kondo_heian_function",
+          "fact_kondo_heian_retile",
+          "fact_kodo_ext_distance",
+          "fact_north_heian_works"
+        ]
+      },
+      {
+        "period_id": "phase_4_kamakura_late_nanbokucho",
+        "fact_ids": [
+          "fact_dosekiryu_date_ch6",
+          "fact_kodo_collapsed",
+          "fact_kairo_collapsed",
+          "fact_chusei_butsudo_rebuilt",
+          "fact_dosekiryu_not_conclusive"
+        ]
+      },
+      {
+        "period_id": "phase_5_muromachi_kinsei",
+        "fact_ids": [
+          "fact_kondo_15c",
+          "fact_kinsei_building",
+          "fact_north_kinsei",
+          "fact_kinsei_hoto_unknown"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "title": "出土した瓦",
+        "fact_ids": [
+          "fact_tile_kinds",
+          "fact_nokimaru_types",
+          "fact_nokihira_types",
+          "fact_tile_clay",
+          "fact_tile_magnetite"
+        ],
+        "topic_id": "dialogue_kawara"
+      },
+      {
+        "title": "軒丸瓦 ＫＷＭ２",
+        "fact_ids": [
+          "fact_kwm2_pattern",
+          "fact_kwm2_renshi",
+          "fact_kwm2_shumon",
+          "fact_kwm2_period",
+          "fact_kwm2_most",
+          "fact_kwm2_phases",
+          "fact_kwm2_ota"
+        ],
+        "topic_id": "dialogue_kwm2",
+        "media_ids": [
+          "media_plate24"
+        ]
+      },
+      {
+        "title": "軒丸瓦 ＫＷＭ１と創建期の瓦",
+        "fact_ids": [
+          "fact_kwm1_pattern",
+          "fact_kwm1_period",
+          "fact_founding_tiles_mark_start",
+          "fact_founding_tiles_date_tanizaki"
+        ],
+        "topic_id": "dialogue_founding_period"
+      },
+      {
+        "title": "軒平瓦 ＫＷＨ２",
+        "fact_ids": [
+          "fact_kwh2_pattern",
+          "fact_kwh2_period",
+          "fact_kwh2_same_design",
+          "fact_kwh2_origin",
+          "fact_dofutoga"
+        ],
+        "topic_id": "dialogue_kwh2",
+        "media_ids": [
+          "media_plate26"
+        ]
+      },
+      {
+        "title": "中世の瓦 ＫＷＨ12・13",
+        "fact_ids": [
+          "fact_kwh12_period",
+          "fact_kwh12_13_after",
+          "fact_chusei_butsudo_tiles",
+          "fact_kwh12_13_yamato"
+        ],
+        "topic_id": "dialogue_after"
+      },
+      {
+        "title": "瓦に付いた白色物質",
+        "fact_ids": [
+          "fact_white_on_tiles",
+          "fact_white_not_identified",
+          "fact_white_silicon_possible",
+          "fact_white_rare"
+        ],
+        "topic_id": "dialogue_white"
+      },
+      {
+        "title": "土器と硯",
+        "fact_ids": [
+          "fact_doki_kinds_after",
+          "fact_doki_kinds_before",
+          "fact_enmenken_found",
+          "fact_enmenken_date"
+        ],
+        "topic_id": "dialogue_enmenken"
+      },
+      {
+        "title": "石製品",
+        "fact_ids": [
+          "fact_sekitai",
+          "fact_sekitai_size",
+          "fact_sekitai_period"
+        ],
+        "topic_id": "dialogue_sekitai",
+        "media_ids": [
+          "media_plate65"
+        ]
+      },
+      {
+        "title": "遺物を読むときの注意",
+        "fact_ids": [
+          "fact_artifact_boxes",
+          "fact_artifact_context_caveat"
+        ]
+      }
+    ]
+  }
+}

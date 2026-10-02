@@ -1,0 +1,162 @@
+{
+  "actions": [
+    {
+      "id": "action_open_map",
+      "type": "map",
+      "label": "現地マップを見る",
+      "url": "#/map",
+      "related_entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ]
+    },
+    {
+      "id": "action_map_kondo",
+      "type": "map",
+      "label": "マップで金堂跡を見る",
+      "url": "#/map?spot=spot_kondo",
+      "related_entity_ids": [
+        "structure_kondo"
+      ]
+    },
+    {
+      "id": "action_map_kodo",
+      "type": "map",
+      "label": "マップで講堂跡を見る",
+      "url": "#/map?spot=spot_kodo",
+      "related_entity_ids": [
+        "structure_kodo"
+      ]
+    },
+    {
+      "id": "action_map_north",
+      "type": "map",
+      "label": "マップで寺域北方を見る",
+      "url": "#/map?spot=spot_north",
+      "related_entity_ids": [
+        "area_jiiki_hoppo"
+      ]
+    },
+    {
+      "id": "action_map_to",
+      "type": "map",
+      "label": "マップで塔推定地を見る",
+      "url": "#/map?spot=spot_to",
+      "related_entity_ids": [
+        "structure_to"
+      ]
+    },
+    {
+      "id": "action_page_overview",
+      "type": "page",
+      "label": "史跡概要を読む",
+      "url": "#/overview",
+      "related_entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ]
+    },
+    {
+      "id": "action_page_timeline",
+      "type": "page",
+      "label": "時期ごとの移り変わりを見る",
+      "url": "#/overview?sec=timeline",
+      "related_entity_ids": [
+        "temple_kawachidera_haiji"
+      ]
+    },
+    {
+      "id": "action_page_kondo",
+      "type": "page",
+      "label": "金堂跡の解説を読む",
+      "url": "#/features/spot_kondo",
+      "related_entity_ids": [
+        "structure_kondo"
+      ]
+    },
+    {
+      "id": "action_page_kodo",
+      "type": "page",
+      "label": "講堂跡の解説を読む",
+      "url": "#/features/spot_kodo",
+      "related_entity_ids": [
+        "structure_kodo"
+      ]
+    },
+    {
+      "id": "action_page_north",
+      "type": "page",
+      "label": "寺域北方の解説を読む",
+      "url": "#/features/spot_north",
+      "related_entity_ids": [
+        "area_jiiki_hoppo"
+      ]
+    },
+    {
+      "id": "action_page_artifacts",
+      "type": "page",
+      "label": "出土遺物を見る",
+      "url": "#/artifacts",
+      "related_entity_ids": [
+        "artifact_all"
+      ]
+    },
+    {
+      "id": "action_gallery",
+      "type": "gallery",
+      "label": "画像・図面の一覧を見る",
+      "url": "#/gallery",
+      "related_entity_ids": []
+    },
+    {
+      "id": "action_quiz",
+      "type": "quiz",
+      "label": "クイズに挑戦する",
+      "url": "#/quiz",
+      "related_entity_ids": []
+    },
+    {
+      "id": "action_ar_kondo",
+      "type": "ar",
+      "label": "金堂の柱配置をカメラに重ねる",
+      "url": "ar/overlay/index.html?overlay=kondo_columns",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "requires": [
+        "camera"
+      ]
+    },
+    {
+      "id": "action_camera_frame",
+      "type": "camera",
+      "label": "記念フレームで撮影する",
+      "url": "ar/camera/index.html",
+      "related_entity_ids": [
+        "site_kawachidera_haiji_ato"
+      ],
+      "requires": [
+        "camera"
+      ]
+    },
+    {
+      "id": "action_model3d",
+      "type": "model3d",
+      "label": "3D資料を見る",
+      "url": "#/experience?sec=model3d",
+      "related_entity_ids": []
+    },
+    {
+      "id": "action_sources",
+      "type": "page",
+      "label": "出典を確認する",
+      "url": "#/sources",
+      "related_entity_ids": []
+    },
+    {
+      "id": "action_report_external",
+      "type": "external",
+      "label": "報告書の公開ページを開く（全国遺跡報告総覧）",
+      "url": "https://sitereports.nabunken.go.jp/132311",
+      "related_entity_ids": []
+    }
+  ]
+}

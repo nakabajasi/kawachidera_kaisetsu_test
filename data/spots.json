@@ -1,0 +1,560 @@
+{
+  "map": {
+    "mode": "schematic",
+    "note": "現地マップは模式図です。建物の大きさは報告書の数値をもとにしていますが、位置と間隔はおおよそで、測量図ではありません。",
+    "view_box": [
+      24,
+      34,
+      79,
+      112
+    ],
+    "north_up": true,
+    "scale_bar_m": 20,
+    "boundary": {
+      "kind": "designated_area_south_edge",
+      "y": 102,
+      "label_x": 43.5,
+      "note": "史跡指定範囲の南の境（第5図をもとにした概略）。これより南の塔推定地・中門推定地・南回廊は指定範囲の外。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    "dosekiryu": {
+      "fact_id": "fact_dosekiryu_route",
+      "band": {
+        "x": 44,
+        "y": 75.5,
+        "w": 39,
+        "h": 9
+      },
+      "label": "土石流が流れた（金堂と講堂の間）"
+    },
+    "image_map": {
+      "media_id": null,
+      "note": "第2図や第5図の転載許諾が得られたら、media.json に登録して画像マップに切り替えられる（README 参照）。"
+    },
+    "geo": {
+      "available": false,
+      "note": "緯度・経度が入った spot が1つもないため、地図タイルや現在地表示は使っていない。"
+    }
+  },
+  "spots": [
+    {
+      "id": "spot_kondo",
+      "name": "金堂跡",
+      "entity_ids": [
+        "structure_kondo",
+        "feature_kondo_kidan",
+        "feature_kondo_kaidan",
+        "feature_kondo_inubashiri",
+        "feature_kondo_rekijiki",
+        "feature_kondo_soseki",
+        "structure_chusei_butsudo",
+        "structure_kinsei_tatemono"
+      ],
+      "state": "confirmed",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 56.5,
+        "y": 86,
+        "w": 13.9,
+        "h": 12.3,
+        "label": {
+          "x": 63.45,
+          "y": 93.2,
+          "anchor": "middle",
+          "text": "金堂跡"
+        }
+      },
+      "description_fact_ids": [
+        "fact_kondo_plan",
+        "fact_kondo_bay",
+        "fact_kondo_roof",
+        "fact_kondo_kidan_ew",
+        "fact_kondo_kidan_ns",
+        "fact_kondo_kidan_height",
+        "fact_kondo_kidan_type",
+        "fact_kondo_stair_steps",
+        "fact_kondo_soseki_remaining",
+        "fact_kondo_build_method",
+        "fact_kondo_build_stages",
+        "fact_kondo_horikomi_possible",
+        "fact_kondo_horikomi_matsuda",
+        "fact_kondo_inubashiri_founding",
+        "fact_ident_south_ex22",
+        "fact_kondo_heian_modified",
+        "fact_chusei_butsudo_rebuilt",
+        "fact_chusei_butsudo_plan",
+        "fact_kondo_15c",
+        "fact_kinsei_building",
+        "fact_kondo_soseki_moved",
+        "fact_kondo_shoro_tradition"
+      ],
+      "media_ids": [
+        "media_frontispiece_kondo",
+        "media_fig13",
+        "media_plate01",
+        "media_kondo_columns"
+      ],
+      "action_ids": [
+        "action_ar_kondo",
+        "action_camera_frame"
+      ],
+      "topic_ids": [
+        "dialogue_kondo",
+        "dialogue_kondo_kidan",
+        "dialogue_identification",
+        "dialogue_after"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_kodo",
+      "name": "講堂跡",
+      "entity_ids": [
+        "structure_kodo",
+        "feature_kodo_kidan",
+        "feature_kodo_kaidan",
+        "feature_kodo_north_ishiretsu"
+      ],
+      "state": "confirmed",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 52.05,
+        "y": 60,
+        "w": 22.8,
+        "h": 13.8,
+        "label": {
+          "x": 63.45,
+          "y": 68,
+          "anchor": "middle",
+          "text": "講堂跡"
+        }
+      },
+      "description_fact_ids": [
+        "fact_kodo_plan_ch6",
+        "fact_kodo_soseki_lost",
+        "fact_kodo_kidan_ew",
+        "fact_kodo_kidan_ns",
+        "fact_kodo_kidan_type",
+        "fact_kodo_height_unknown",
+        "fact_kodo_height_assumed",
+        "fact_kodo_stair_width",
+        "fact_kodo_north_edge_confirmed",
+        "fact_kodo_north_ishiretsu",
+        "fact_kodo_ext_heian_possible",
+        "fact_ident_north_ex22",
+        "fact_kodo_with_kondo",
+        "fact_kodo_collapsed",
+        "fact_kodo_not_rebuilt"
+      ],
+      "media_ids": [
+        "media_fig06"
+      ],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_kodo",
+        "dialogue_dosekiryu"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_kairo_east",
+      "name": "東回廊跡",
+      "entity_ids": [
+        "structure_kairo_east",
+        "structure_kairo",
+        "feature_kairo_east_soseki",
+        "feature_kairo_kidan"
+      ],
+      "state": "confirmed",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 85,
+        "y": 65,
+        "w": 4,
+        "h": 70,
+        "label": {
+          "x": 90.5,
+          "y": 112,
+          "anchor": "start",
+          "text": "東回廊"
+        }
+      },
+      "description_fact_ids": [
+        "fact_kairo_form",
+        "fact_kairo_kidan_height",
+        "fact_kairo_east_soseki",
+        "fact_kairo_east_bay",
+        "fact_kairo_east_de",
+        "fact_kairo_same_period",
+        "fact_kairo_collapsed"
+      ],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_kairo"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_kairo_west",
+      "name": "西回廊跡",
+      "entity_ids": [
+        "structure_kairo_west",
+        "feature_kairo_west_kidan"
+      ],
+      "state": "confirmed",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 38,
+        "y": 65,
+        "w": 4,
+        "h": 70,
+        "label": {
+          "x": 36.5,
+          "y": 112,
+          "anchor": "end",
+          "text": "西回廊"
+        }
+      },
+      "description_fact_ids": [
+        "fact_kairo_west_found",
+        "fact_kairo_west_width",
+        "fact_kairo_west_soseki",
+        "fact_kairo_level_diff_ch3",
+        "fact_kairo_other_unknown"
+      ],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_kairo"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_kairo_north",
+      "name": "北回廊（推定）",
+      "entity_ids": [
+        "structure_kairo_north"
+      ],
+      "state": "estimated",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "polyrect",
+        "rects": [
+          {
+            "x": 42,
+            "y": 65,
+            "w": 10.05,
+            "h": 4
+          },
+          {
+            "x": 74.85,
+            "y": 65,
+            "w": 10.15,
+            "h": 4
+          }
+        ],
+        "label": null
+      },
+      "description_fact_ids": [
+        "fact_kairo_north_likely",
+        "fact_kairo_north_none",
+        "fact_kairo_north_kidando"
+      ],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_kairo"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_north",
+      "name": "寺域北方（東西溝・石列）",
+      "entity_ids": [
+        "area_jiiki_hoppo",
+        "feature_tozai_mizo",
+        "feature_minami_ishiretsu",
+        "feature_kita_ishiretsu",
+        "feature_nanboku_ishiretsu",
+        "feature_zenshin_ryuro",
+        "feature_ido",
+        "structure_sobo_jikido"
+      ],
+      "state": "confirmed",
+      "in_designated_area": true,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 44,
+        "y": 45.5,
+        "w": 39,
+        "h": 6.5,
+        "label": {
+          "x": 63.5,
+          "y": 43.6,
+          "anchor": "middle",
+          "text": "寺域北方（東西溝・石列）"
+        }
+      },
+      "description_fact_ids": [
+        "fact_north_gogan",
+        "fact_minami_ishiretsu_date",
+        "fact_north_ishiretsu_width",
+        "fact_zenshin_ryuro_existed",
+        "fact_tozai_mizo_purpose",
+        "fact_north_not_kidan",
+        "fact_enmenken_found",
+        "fact_sobo_not_detected",
+        "fact_sobo_possible_north",
+        "fact_north_distance_kodo",
+        "fact_ido_after_dosekiryu",
+        "fact_tozai_mizo_until_muromachi"
+      ],
+      "media_ids": [
+        "media_fig06"
+      ],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_north",
+        "dialogue_sobo",
+        "dialogue_enmenken"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        }
+      ]
+    },
+    {
+      "id": "spot_to",
+      "name": "塔推定地",
+      "entity_ids": [
+        "structure_to"
+      ],
+      "state": "estimated",
+      "in_designated_area": false,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 57,
+        "y": 108,
+        "w": 13,
+        "h": 11,
+        "label": {
+          "x": 63.5,
+          "y": 114.6,
+          "anchor": "middle",
+          "text": "塔推定地"
+        }
+      },
+      "description_fact_ids": [
+        "fact_to_not_detected",
+        "fact_layout_type_ch1",
+        "fact_ident_south_ex11",
+        "fact_ident_south_ex22"
+      ],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_to",
+        "dialogue_identification"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "spot_chumon",
+      "name": "中門推定地",
+      "entity_ids": [
+        "structure_chumon"
+      ],
+      "state": "estimated",
+      "in_designated_area": false,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "rect",
+        "x": 55,
+        "y": 129,
+        "w": 17,
+        "h": 8,
+        "label": {
+          "x": 63.5,
+          "y": 134.1,
+          "anchor": "middle",
+          "text": "中門推定地"
+        }
+      },
+      "description_fact_ids": [],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_layout"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    },
+    {
+      "id": "spot_kairo_south",
+      "name": "南回廊",
+      "entity_ids": [
+        "structure_kairo_south",
+        "feature_kairo_south_soseki"
+      ],
+      "state": "confirmed",
+      "in_designated_area": false,
+      "location": {
+        "latitude": null,
+        "longitude": null
+      },
+      "schematic": {
+        "shape": "polyrect",
+        "rects": [
+          {
+            "x": 42,
+            "y": 131,
+            "w": 13,
+            "h": 4
+          },
+          {
+            "x": 72,
+            "y": 131,
+            "w": 13,
+            "h": 4
+          }
+        ],
+        "label": {
+          "x": 78.5,
+          "y": 139.6,
+          "anchor": "middle",
+          "text": "南回廊"
+        }
+      },
+      "description_fact_ids": [
+        "fact_kairo_south_soseki",
+        "fact_layout_extent_ns"
+      ],
+      "media_ids": [],
+      "action_ids": [],
+      "topic_ids": [
+        "dialogue_kairo"
+      ],
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26,
+          "locator": "第5図"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17,
+          "locator": "第2図"
+        }
+      ]
+    }
+  ]
+}
