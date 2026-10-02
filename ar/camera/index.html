@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eef0ea'/%3E%3Crect x='7' y='6' width='18' height='8' fill='none' stroke='%231d2a30' stroke-width='2'/%3E%3Crect x='10' y='18' width='12' height='9' fill='%231f6f5e'/%3E%3C/svg%3E">
   <title>記念フレームで撮影する</title>
-  <link rel="stylesheet" href="../ar.css?v=4">
+  <link rel="stylesheet" href="../ar.css?v=5">
 </head>
 <body>
   <header class="bar">
@@ -15,31 +15,36 @@
 
   <div class="stage" id="stage">
     <video id="video" playsinline muted></video>
-    <img class="shot" id="shot" alt="撮影した写真" hidden>
     <div class="frame" id="frame" hidden>
       <div class="frame__title" id="frameTitle"></div>
       <div class="frame__date" id="frameDate"></div>
     </div>
+    <div class="flash" id="flash"></div>
     <div class="intro" id="intro">
-      <p>史跡名の入った枠をつけて写真を撮ります。写真はこの端末の中だけで作り、どこにも送信しません。</p>
+      <p>史跡名の入った枠をつけて写真を撮ります。写真はこの端末の中だけで作り、「写真に保存」を押したとき以外は端末の外に出しません。</p>
       <button type="button" class="btn" id="start">カメラを使う</button>
       <p class="err" id="err" role="alert"></p>
     </div>
   </div>
 
   <div class="panel" id="panel" hidden>
-    <div class="row" id="liveRow">
+    <div class="row">
       <button type="button" class="btn" id="shoot">撮影する</button>
       <button type="button" class="btn btn--line" id="flip">前後のカメラを切り替える</button>
     </div>
-    <div class="row" id="doneRow" hidden>
-      <a class="btn" id="save" download="heritage_photo.jpg">写真を保存する</a>
-      <button type="button" class="btn btn--line" id="retry">撮り直す</button>
-    </div>
-    <p class="cap" id="saveNote" hidden>保存できないときは、写真を長押しして保存してください。</p>
   </div>
 
-  <script src="../ar-common.js?v=4"></script>
+  <!-- 撮影した写真。「写真に保存」で端末の共有の画面を開く。共有が使えない端末では、画像の長押しで保存する -->
+  <section class="capture" id="capture" hidden aria-label="撮影した写真">
+    <img id="shot" alt="撮影した写真">
+    <p class="capture__hint" id="captureHint" aria-live="polite"></p>
+    <div class="capture__actions">
+      <button type="button" id="retry">撮り直す</button>
+      <button type="button" class="is-main" id="save">写真に保存</button>
+    </div>
+  </section>
+
+  <script src="../ar-common.js?v=5"></script>
   <script>
   (async function () {
     "use strict";
@@ -49,7 +54,7 @@
     let siteName = "";
 
     if (new URLSearchParams(location.search).get("debug") === "true") $("back").href = "../../index.html?debug=true#/experience";
-    const site = await HeritageAR.loadJSON("../../data/site.json");
+    const site = (await HeritageAR.loadJSON("../../data/site.json")) || (await HeritageAR.loadBundle("../../data/data.bundle.js", "site"));
     siteName = site && site.name ? site.name : "";
     // 縦書きは1文字ずつ積んで表す（書体による字送りの崩れを避ける）
     Array.from(siteName).forEach((ch) => { const sp = document.createElement("span"); sp.textContent = ch; $("frameTitle").appendChild(sp); });
@@ -64,48 +69,48 @@
       try {
         await HeritageAR.startCamera(video, facing);
         $("intro").hidden = true; $("frame").hidden = false; $("panel").hidden = false;
-        $("shot").hidden = true; $("liveRow").hidden = false; $("doneRow").hidden = true; $("saveNote").hidden = true;
       } catch (e) {
         $("intro").hidden = false; $("err").textContent = e.message;
       }
     }
 
-    function shoot() {
-      const vw = video.videoWidth, vh = video.videoHeight;
-      if (!vw || !vh) return;
-      // 画面に見えている範囲（映像は枠いっぱいに切り抜いて表示している）だけを写真にする
-      const stage = $("stage");
-      const aspect = stage.clientWidth / stage.clientHeight;
-      let sw = vw, sh = vh, sx = 0, sy = 0;
-      if (vw / vh > aspect) { sw = vh * aspect; sx = (vw - sw) / 2; } else { sh = vw / aspect; sy = (vh - sh) / 2; }
-      const scale = Math.min(1, 1600 / Math.max(sw, sh));
-      const w = Math.round(sw * scale), h = Math.round(sh * scale);
-      const c = document.createElement("canvas");
-      c.width = w; c.height = h;
-      const g = c.getContext("2d");
-      g.drawImage(video, sx, sy, sw, sh, 0, 0, w, h);
-      // 枠と史跡名を写真に描き込む
-      const u = Math.min(w, h) / 100;
-      g.strokeStyle = "rgba(255,255,255,0.92)"; g.lineWidth = Math.max(2, u * 0.4);
-      g.strokeRect(u * 4, u * 4, w - u * 8, h - u * 8);
-      g.fillStyle = "#fff"; g.shadowColor = "rgba(0,0,0,0.8)"; g.shadowBlur = u * 1.6;
-      const fs = u * 8.5;
-      g.font = "600 " + fs + "px 'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP','Noto Serif CJK JP',serif";
-      g.textAlign = "center"; g.textBaseline = "top";
-      Array.from(siteName).forEach((ch, i) => g.fillText(ch, w - u * 12, u * 9 + i * fs * 1.14));
-      g.font = (u * 3.2) + "px sans-serif"; g.textAlign = "left"; g.textBaseline = "alphabetic";
-      g.fillText(dateText, u * 8, h - u * 8);
-      const url = c.toDataURL("image/jpeg", 0.92);
-      $("shot").src = url; $("shot").hidden = false; $("frame").hidden = true;
-      $("save").href = url;
-      $("save").download = (site && site.project_id ? site.project_id : "heritage") + "_" + dateText.replace(/\./g, "") + ".jpg";
-      $("liveRow").hidden = true; $("doneRow").hidden = false; $("saveNote").hidden = false;
-      HeritageAR.stopCamera();
+    // 撮影のしかたは ar-common.js にまとめてある（柱の立体の画面と同じ）
+    const capture = HeritageAR.captureView(
+      { root: $("capture"), image: $("shot"), hint: $("captureHint"), retake: $("retry"), save: $("save") },
+      () => { $("shoot").focus(); });
+    let busy = false;
+    async function shoot() {
+      if (busy || !video.videoWidth) return;
+      busy = true;
+      try {
+        // 画面に見えている範囲（映像は枠いっぱいに切り抜いて表示している）を写真にする
+        const size = HeritageAR.captureSize($("stage"));
+        const w = size.w, h = size.h;
+        const c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        const g = c.getContext("2d");
+        if (!HeritageAR.drawVideoCover(g, video, w, h)) return;
+        // 枠と史跡名を写真に描き込む
+        const u = Math.min(w, h) / 100;
+        g.strokeStyle = "rgba(255,255,255,0.92)"; g.lineWidth = Math.max(2, u * 0.4);
+        g.strokeRect(u * 4, u * 4, w - u * 8, h - u * 8);
+        g.fillStyle = "#fff"; g.shadowColor = "rgba(0,0,0,0.8)"; g.shadowBlur = u * 1.6;
+        const fs = u * 8.5;
+        g.font = "600 " + fs + "px 'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP','Noto Serif CJK JP',serif";
+        g.textAlign = "center"; g.textBaseline = "top";
+        Array.from(siteName).forEach((ch, i) => g.fillText(ch, w - u * 12, u * 9 + i * fs * 1.14));
+        g.font = (u * 3.2) + "px sans-serif"; g.textAlign = "left"; g.textBaseline = "alphabetic";
+        g.fillText(dateText, u * 8, h - u * 8);
+
+        HeritageAR.flash($("flash"));
+        const blob = await HeritageAR.toJpeg(c);
+        if (!blob) return;
+        capture.show({ blob, name: (site && site.project_id ? site.project_id : "heritage") + "_" + HeritageAR.stamp() + ".jpg", title: siteName, hint: "記念フレームで撮影しました" });
+      } finally { busy = false; }
     }
 
     $("start").addEventListener("click", start);
     $("shoot").addEventListener("click", shoot);
-    $("retry").addEventListener("click", start);
     $("flip").addEventListener("click", () => { facing = facing === "environment" ? "user" : "environment"; start(); });
   })();
   </script>

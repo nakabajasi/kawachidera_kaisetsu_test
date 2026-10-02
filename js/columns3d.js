@@ -15,7 +15,7 @@
 
   // 版の番号。画面側（ar/columns3d/index.html）が、古いこのファイルと組み合わさっていないかを確かめるのに使う。
   // media.json の model の項目を増減したときは、この番号と HTML の ?v= を一緒に上げる（tools/set_version.mjs）。
-  const VERSION = 4;
+  const VERSION = 5;
   const RAD = Math.PI / 180;
   const SIDES = 20;            // 円柱の側面を何枚の面で表すか
   const NEAR = 0.25;           // これより手前（目のすぐ前）は描かない

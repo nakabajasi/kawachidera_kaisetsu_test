@@ -59,6 +59,21 @@ async function newPage(width, height) {
   page.on("response", (r) => { if (r.status() >= 400) errors.push("HTTP " + r.status() + " " + r.url()); });
   return { ctx, page, errors };
 }
+// 端末の共有の画面の代わり。渡されたファイルを記録する。__shareMode で「取り消し」「失敗」も試せる
+const fakeShare = (ctx) => ctx.addInitScript(() => {
+  window.__shared = []; window.__shareMode = "ok";
+  Object.defineProperty(Navigator.prototype, "canShare", { configurable: true, value: (d) => !!(d && d.files && d.files.length) });
+  Object.defineProperty(Navigator.prototype, "share", { configurable: true, value: async (d) => {
+    if (window.__shareMode === "abort") throw new DOMException("cancelled", "AbortError");
+    if (window.__shareMode === "fail") throw new DOMException("not allowed", "NotAllowedError");
+    window.__shared.push({ name: d.files[0].name, type: d.files[0].type, size: d.files[0].size, title: d.title });
+  } });
+});
+const noShare = (ctx) => ctx.addInitScript(() => {
+  Object.defineProperty(Navigator.prototype, "share", { configurable: true, value: undefined });
+  Object.defineProperty(Navigator.prototype, "canShare", { configurable: true, value: undefined });
+});
+const photoReady = (page) => page.waitForFunction(() => { const i = document.getElementById("shot"); return !document.getElementById("capture").hidden && i.complete && i.naturalWidth > 0; });
 const shot = async (page, name) => { if (SHOTS) await page.screenshot({ path: path.join(SHOTS, name + ".png"), fullPage: false }); };
 const noOverflow = (page) => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
 const go = async (page, hash) => { await page.evaluate((h) => { location.hash = h; }, hash); await page.waitForTimeout(120); };
@@ -258,6 +273,7 @@ for (const [w, h] of [[320, 568], [360, 740], [412, 915], [844, 390], [1280, 800
 section("AR・カメラ");
 {
   const { ctx, page, errors } = await newPage(390, 844);
+  await fakeShare(ctx);
   await page.goto(URL0 + "index.html#/experience");
   await page.waitForSelector('[data-action="action_ar_kondo"]');
   await page.click('[data-action="action_ar_kondo"]');
@@ -270,6 +286,8 @@ section("AR・カメラ");
   await page.waitForSelector("#view:not([hidden])");
   await page.waitForTimeout(250);
   ok(await page.evaluate(() => document.getElementById("video").videoWidth > 0), "カメラの映像が出ない");
+  const vid = await page.evaluate(() => { const v = document.getElementById("video"); return [v.videoWidth, v.videoHeight]; });
+  ok(vid[0] * vid[1] >= 1280 * 720, "細かいカメラ映像を頼めていない: " + vid.join("×"));
 
   // 全画面：調整の欄（スライダー）はなく、立体が画面いっぱいに出る
   const full = await page.evaluate(() => { const r = document.getElementById("view").getBoundingClientRect();
@@ -361,45 +379,63 @@ section("AR・カメラ");
   await page.waitForTimeout(80);
   await shot(page, "390_ar_columns3d");
   await page.click("#shoot");
-  await page.waitForSelector("#result:not([hidden])");
-  await page.waitForFunction(() => { const i = document.getElementById("shot"); return i.complete && i.naturalWidth > 0; });
+  await photoReady(page);
   const photo = await page.evaluate(async () => {
     const img = document.getElementById("shot"), st = document.getElementById("stage"), k = window.__columns3d, C = Heritage.Columns3D;
     const c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight;
     const g = c.getContext("2d"); g.drawImage(img, 0, 0);
     const px = (x, y) => Array.from(g.getImageData(Math.round(x), Math.round(y), 1, 1).data.slice(0, 3));
     // いちばん手前の柱の、高さの中ほど・幅の中央を調べる
-    const cam = C.project(k.view, c.width, c.height, 0, 0, 0); // 使うのは向きだけ
     const cols = k.scene.columns.map((col) => ({ col, p: C.project(k.view, c.width, c.height, col.x, k.view.height * (col.inner ? 1.2 : 1) * 0.5, col.z) }))
       .filter((o) => o.p && o.p.x > 40 && o.p.x < c.width - 40 && o.p.y > 0 && o.p.y < c.height).sort((a, b) => a.p.depth - b.p.depth);
     const near = cols[0];
     let red = 0; const d = g.getImageData(0, 0, c.width, c.height).data;
     for (let i = 0; i < d.length; i += 4) if (d[i] > 120 && d[i + 1] < d[i] * 0.62 && d[i + 2] < d[i] * 0.5) red++;
-    return { w: c.width, h: c.height, aspect: c.width / c.height, stage: st.clientWidth / st.clientHeight, onColumn: px(near.p.x, near.p.y), corner: px(c.width - 20, 20), red,
-      href: document.getElementById("save").getAttribute("href").slice(0, 23), download: document.getElementById("save").getAttribute("download"),
+    const blob = await (await fetch(img.src)).blob();
+    const r = img.getBoundingClientRect();
+    return { w: c.width, h: c.height, cw: st.clientWidth, ch: st.clientHeight, dpr: Math.min(devicePixelRatio, 2.5), onColumn: px(near.p.x, near.p.y), corner: px(c.width - 20, 20), red,
+      src: img.src.slice(0, 5), type: blob.type, bytes: blob.size, full: r.width === innerWidth && r.top === 0 && r.bottom <= document.getElementById("retry").getBoundingClientRect().top && r.height > innerHeight * 0.75, hint: document.getElementById("captureHint").textContent,
       callout: getComputedStyle(img).webkitTouchCallout || "", select: getComputedStyle(img).userSelect, events: getComputedStyle(img).pointerEvents,
-      menu: img.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, cancelable: true })), cam: !!cam };
+      menu: img.dispatchEvent(new MouseEvent("contextmenu", { bubbles: true, cancelable: true })) };
   });
-  ok(Math.max(photo.w, photo.h) >= 1200 && Math.abs(photo.aspect - photo.stage) < 0.01, `撮影した画像の大きさ・形が画面と違う: ${photo.w}×${photo.h}`);
-  ok(photo.corner[1] > 90 && photo.corner[0] < 80, "撮影した画像にカメラの映像が入っていない: " + photo.corner);
+  ok(photo.w === Math.round(photo.cw * photo.dpr) && photo.h === Math.round(photo.ch * photo.dpr), `撮影した写真の大きさが「画面×画素の細かさ」でない: ${photo.w}×${photo.h}`);
+  ok(photo.src === "blob:" && photo.type === "image/jpeg" && photo.bytes > 20000, `撮影した写真が JPEG になっていない: ${photo.type} ${photo.bytes}`);
+  ok(photo.full && photo.hint.includes("撮影しました"), "撮影した写真が画面いっぱい（ボタンの上まで）に出ない");
+  ok(photo.corner[1] > 90 && photo.corner[0] < 80, "撮影した写真にカメラの映像が入っていない: " + photo.corner);
   // 柱の色は (206,92,62) に明るさを掛けたもの。映像（緑）が透けていれば、緑の割合が上がる
-  ok(photo.onColumn[0] > 95 && Math.abs(photo.onColumn[1] / photo.onColumn[0] - 92 / 206) < 0.07 && Math.abs(photo.onColumn[2] / photo.onColumn[0] - 62 / 206) < 0.09, "撮影した画像で柱が透けている: " + photo.onColumn);
-  ok(photo.red > 20000, "撮影した画像に柱が写っていない: " + photo.red);
-  ok(photo.href === "data:image/jpeg;base64," && /^kawachidera_kondo_\d{8}_\d{6}\.jpg$/.test(photo.download), "保存ボタンで保存できない: " + photo.download);
+  ok(photo.onColumn[0] > 95 && Math.abs(photo.onColumn[1] / photo.onColumn[0] - 92 / 206) < 0.07 && Math.abs(photo.onColumn[2] / photo.onColumn[0] - 62 / 206) < 0.09, "撮影した写真で柱が透けている: " + photo.onColumn);
+  ok(photo.red > 20000, "撮影した写真に柱が写っていない: " + photo.red);
   ok(photo.menu === true && photo.callout !== "none" && photo.select !== "none" && photo.events !== "none", "画像の長押しが止められている");
-  ok(await page.locator("#save").isVisible() && await page.locator("#retry").isVisible(), "保存・撮り直しのボタンが出ない");
+  const btn = await page.evaluate(() => ["retry", "save"].map((id) => { const b = document.getElementById(id), r = b.getBoundingClientRect(); return b.textContent + ":" + (r.width > 100 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth); }).join(" "));
+  ok(btn === "撮り直す:true 写真に保存:true", "「撮り直す」「写真に保存」が出ない: " + btn);
   await shot(page, "390_ar_columns3d_result");
-  if (SHOTS) fs.writeFileSync(path.join(SHOTS, "ar_photo.jpg"), Buffer.from((await page.getAttribute("#shot", "src")).split(",")[1], "base64"));
-  const dl = page.waitForEvent("download");
-  await page.click("#save");
-  ok(/\.jpg$/.test((await dl).suggestedFilename()), "保存ボタンを押してもファイルが保存されない");
+  if (SHOTS) fs.writeFileSync(path.join(SHOTS, "ar_photo.jpg"), Buffer.from((await page.evaluate(async () => { const b = await (await fetch(document.getElementById("shot").src)).blob();
+    return await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(b); }); })).split(",")[1], "base64"));
+  // 「写真に保存」：共有の画面に JPEG のファイルを渡す。取り消しても何も起きない。失敗したら長押しを案内する
+  await page.click("#save"); await page.waitForTimeout(60);
+  const shared = await page.evaluate(() => window.__shared);
+  ok(shared.length === 1 && /^kawachidera_kondo_\d{8}_\d{6}\.jpg$/.test(shared[0].name) && shared[0].type === "image/jpeg" && shared[0].size === photo.bytes && shared[0].title.includes("金堂"), "「写真に保存」で共有の画面に写真が渡らない: " + JSON.stringify(shared));
+  await page.evaluate(() => { window.__shareMode = "abort"; });
+  await page.click("#save"); await page.waitForTimeout(60);
+  ok((await page.textContent("#captureHint")) === photo.hint && await page.locator("#capture").isVisible(), "共有を取り消したときに表示が変わる");
+  await page.evaluate(() => { window.__shareMode = "fail"; });
+  await page.click("#save"); await page.waitForTimeout(60);
+  ok((await page.textContent("#captureHint")).includes("長押しして写真に保存"), "共有に失敗したときに長押しの案内が出ない");
+  await page.evaluate(() => { window.__shareMode = "ok"; });
   await page.click("#retry");
-  ok(await page.locator("#result").isHidden() && await page.evaluate(() => document.getElementById("video").videoWidth > 0), "撮り直せない");
+  ok(await page.locator("#capture").isHidden() && await page.evaluate(() => document.getElementById("video").videoWidth > 0 && HeritageAR.isLive()), "撮り直せない（カメラが止まっている）");
+  // 共有の画面や別のアプリから戻ったとき：映像を出し直す。カメラが切れていたら、つなぎ直す
+  await page.evaluate(() => { document.getElementById("video").pause(); document.dispatchEvent(new Event("visibilitychange")); });
+  await page.waitForFunction(() => !document.getElementById("video").paused);
+  await page.evaluate(() => { document.getElementById("video").srcObject.getTracks().forEach((t) => t.stop()); document.dispatchEvent(new Event("visibilitychange")); });
+  await page.waitForFunction(() => HeritageAR.isLive() && !document.getElementById("video").paused && document.getElementById("video").videoWidth > 0);
+  ok(await page.evaluate(() => HeritageAR.isLive()), "戻ってきたときにカメラをつなぎ直せない");
+  await page.waitForTimeout(300);
 
   // 範囲を隠して撮ると、柱だけが重なる
   await page.click("#planes"); await page.waitForTimeout(80);
   await page.click("#shoot");
-  await page.waitForFunction(() => { const i = document.getElementById("shot"); return !document.getElementById("result").hidden && i.complete && i.naturalWidth > 0; });
+  await photoReady(page);
   const plainFloor = await page.evaluate(() => { const img = document.getElementById("shot"), k = window.__columns3d, C = Heritage.Columns3D;
     const c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; const g = c.getContext("2d"); g.drawImage(img, 0, 0);
     // 柱のない基壇の南東のすみ近く（建物の範囲の外）の色。範囲を隠していれば映像の緑のまま
@@ -423,7 +459,7 @@ section("AR・カメラ");
   ok(await page.locator("#video").evaluate((v) => !v.srcObject), "「カメラを使わずに」でカメラが動いている");
   ok((await inked()) > 5000, "カメラなしで立体が描かれない");
   await page.click("#shoot");
-  await page.waitForFunction(() => { const i = document.getElementById("shot"); return !document.getElementById("result").hidden && i.complete && i.naturalWidth > 0; });
+  await photoReady(page);
   ok(await page.evaluate(() => document.getElementById("shot").naturalHeight >= 1200), "カメラなしで撮影できない");
   await page.click("#retry");
   await page.click("#reset");
@@ -443,11 +479,65 @@ section("AR・カメラ");
   await page.click("#start");
   await page.waitForSelector("#shoot", { state: "visible" });
   ok((await page.textContent("#frameTitle")) === "河内寺廃寺跡", "フレームに史跡名が出ない");
-  await page.click("#shoot");
-  await page.waitForSelector("#shot:not([hidden])");
-  ok((await page.getAttribute("#save", "href")).startsWith("data:image/jpeg"), "撮影した写真が作られない");
   await shot(page, "390_ar_camera");
+  await page.click("#shoot");
+  await photoReady(page);
+  const fr = await page.evaluate(async () => { const img = document.getElementById("shot"), st = document.getElementById("stage").getBoundingClientRect(), dpr = Math.min(devicePixelRatio, 2.5);
+    const blob = await (await fetch(img.src)).blob(); const r = img.getBoundingClientRect();
+    return { size: img.naturalWidth === Math.round(st.width * dpr) && img.naturalHeight === Math.round(st.height * dpr), type: blob.type, bytes: blob.size, full: r.width === innerWidth && r.top === 0 && r.bottom <= document.getElementById("retry").getBoundingClientRect().top,
+      hint: document.getElementById("captureHint").textContent, callout: getComputedStyle(img).webkitTouchCallout || "", select: getComputedStyle(img).userSelect }; });
+  ok(fr.size && fr.type === "image/jpeg" && fr.bytes > 20000 && fr.full, "記念フレームの写真が作られない: " + JSON.stringify(fr));
+  ok(fr.hint.includes("撮影しました") && fr.callout !== "none" && fr.select !== "none", "記念フレームの写真を長押しで保存できない");
+  await shot(page, "390_ar_camera_result");
+  const before = await page.evaluate(() => window.__shared.length);
+  await page.click("#save"); await page.waitForTimeout(60);
+  const sh = await page.evaluate(() => window.__shared);
+  ok(sh.length === before + 1 && /^kawachidera_\d{8}_\d{6}\.jpg$/.test(sh[sh.length - 1].name) && sh[sh.length - 1].size === fr.bytes, "記念フレームの「写真に保存」で写真が渡らない: " + JSON.stringify(sh[sh.length - 1]));
+  await page.click("#retry");
+  ok(await page.locator("#capture").isHidden() && await page.evaluate(() => HeritageAR.isLive()) && await page.locator("#shoot").isVisible(), "記念フレームで撮り直せない");
+  await page.click("#flip");
+  await page.waitForFunction(() => HeritageAR.isLive() && document.getElementById("video").videoWidth > 0);
+  ok(await page.locator("#shoot").isVisible(), "前後のカメラを切り替えると撮影できなくなる");
   ok(errors.length === 0, "エラー: " + errors.join(" | "));
+  await ctx.close();
+}
+
+section("共有が使えない端末での保存");
+{
+  // 指で使う端末：長押しを案内する（ファイルの保存や画面の移動は起こさない）
+  const { ctx, page, errors } = await newPage(390, 844);
+  await noShare(ctx);
+  await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d");
+  await page.click("#nocam");
+  await page.waitForSelector("#view:not([hidden])");
+  await page.click("#shoot");
+  await photoReady(page);
+  let downloads = 0; page.on("download", () => downloads++);
+  const url = page.url();
+  await page.click("#save"); await page.waitForTimeout(300);
+  ok((await page.textContent("#captureHint")).includes("長押しして写真に保存") && downloads === 0 && page.url() === url && await page.locator("#shot").isVisible(), "共有が使えない端末で長押しの案内が出ない");
+  await shot(page, "390_ar_columns3d_noshare");
+  ok(errors.length === 0, "エラー: " + errors.join(" | "));
+  await ctx.close();
+}
+{
+  // マウスで使う端末：ファイルとして保存する
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, locale: "ja-JP", acceptDownloads: true });
+  await noShare(ctx);
+  const page = await ctx.newPage();
+  await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d");
+  await page.click("#nocam");
+  await page.waitForSelector("#view:not([hidden])");
+  await page.click("#shoot");
+  await photoReady(page);
+  if (await page.evaluate(() => matchMedia("(hover: hover) and (pointer: fine)").matches)) {
+    const dl = page.waitForEvent("download");
+    await page.click("#save");
+    ok(/^kawachidera_kondo_\d{8}_\d{6}\.jpg$/.test((await dl).suggestedFilename()), "マウスで使う端末でファイルが保存されない");
+  } else {
+    await page.click("#save"); await page.waitForTimeout(200);
+    ok((await page.textContent("#captureHint")).includes("長押し"), "共有が使えないときの案内が出ない");
+  }
   await ctx.close();
 }
 
@@ -498,7 +588,7 @@ for (const [w, h] of [[320, 568], [844, 390], [1280, 800]]) {
   ok(g.debug.includes("media_kondo_columns_3d") && g.debug.includes("28本") && /az [\d.]+ \/ el/.test(g.debug) && g.back.includes("debug=true"), `${w}×${h} デバッグ表示が出ない`);
   await shot(page, `${w}_ar_columns3d`);
   await page.click("#shoot");
-  await page.waitForFunction(() => { const i = document.getElementById("shot"); return !document.getElementById("result").hidden && i.complete && i.naturalWidth > 0; });
+  await photoReady(page);
   const res = await page.evaluate(() => { const r = (id) => document.getElementById(id).getBoundingClientRect(); const i = r("shot"), img = document.getElementById("shot");
     return { iw: i.width, ih: i.height, ok: ["save", "retry"].every((id) => { const b = r(id); return b.width > 0 && b.left >= 0 && b.right <= innerWidth && b.bottom <= innerHeight; }), aspect: img.naturalWidth / img.naturalHeight, stage: innerWidth / innerHeight }; });
   ok(res.iw >= 150 && res.ih >= 150 && res.ok, `${w}×${h} 撮影した画像か保存ボタンがおさまらない: ${Math.round(res.iw)}×${Math.round(res.ih)}`);

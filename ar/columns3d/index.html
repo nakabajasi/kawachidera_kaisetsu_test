@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eef0ea'/%3E%3Crect x='7' y='6' width='18' height='8' fill='none' stroke='%231d2a30' stroke-width='2'/%3E%3Crect x='10' y='18' width='12' height='9' fill='%231f6f5e'/%3E%3C/svg%3E">
   <title>柱を立体でカメラに重ねる</title>
-  <link rel="stylesheet" href="../ar.css?v=4">
+  <link rel="stylesheet" href="../ar.css?v=5">
 </head>
 <body class="ar3d">
   <div class="stage" id="stage">
@@ -26,18 +26,7 @@
       <button type="button" class="chip" id="reset">最初に戻す</button>
     </div>
 
-    <!-- 撮影した画像。保存ボタンか、画像の長押しで保存する -->
-    <div class="result" id="result" hidden>
-      <img id="shot" alt="柱の立体を重ねて撮影した画像">
-      <div class="result__bar">
-        <p class="cap">「保存する」を押すか、画像を長押しすると、この端末に保存できます。</p>
-        <div class="row">
-          <a class="btn" id="save" download="heritage_ar.jpg">保存する</a>
-          <button type="button" class="btn btn--line" id="share" hidden>共有する</button>
-          <button type="button" class="btn btn--line" id="retry">撮り直す</button>
-        </div>
-      </div>
-    </div>
+    <div class="flash" id="flash"></div>
 
     <div class="sheet3d" id="about" hidden role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
       <div class="sheet3d__in">
@@ -64,8 +53,18 @@
     </div>
   </div>
 
-  <script src="../ar-common.js?v=4"></script>
-  <script src="../../js/columns3d.js?v=4"></script>
+  <!-- 撮影した写真。「写真に保存」で端末の共有の画面を開く。共有が使えない端末では、画像の長押しで保存する -->
+  <section class="capture" id="capture" hidden aria-label="撮影した写真">
+    <img id="shot" alt="柱の立体を重ねて撮影した写真">
+    <p class="capture__hint" id="captureHint" aria-live="polite"></p>
+    <div class="capture__actions">
+      <button type="button" id="retry">撮り直す</button>
+      <button type="button" class="is-main" id="save">写真に保存</button>
+    </div>
+  </section>
+
+  <script src="../ar-common.js?v=5"></script>
+  <script src="../../js/columns3d.js?v=5"></script>
   <script>
   (async function () {
     "use strict";
@@ -80,7 +79,7 @@
 
     // この画面と js/columns3d.js の版が合っているか確かめる。古いファイルが残っていると柱が正しく描けない
     // （高さが0に見えるなど）ので、そのまま描かずに知らせる。
-    const NEED = 4;
+    const NEED = 5;
     function stop(message) {
       $("lead").textContent = message;
       $("introNote").textContent = "";
@@ -257,68 +256,58 @@
     window.addEventListener("orientationchange", schedule);
 
     // ───────── 撮影して保存する ─────────
-    // 画面に見えている範囲のカメラ映像に、柱の立体を透かさずに重ねて1枚の画像にする。画像は端末の中だけで作り、送信しない。
-    let shotFile = null;
-    function shoot() {
-      const cw = stage.clientWidth, ch = stage.clientHeight, aspect = cw / ch;
-      const vw = video.videoWidth, vh = video.videoHeight;
-      const useVideo = !ui.plain && vw > 0 && vh > 0;
-      let sw = cw, sh = ch, sx = 0, sy = 0;
-      if (useVideo) { // 映像は画面いっぱいに切り抜いて表示しているので、同じ範囲を切り出す
-        sw = vw; sh = vh;
-        if (vw / vh > aspect) { sw = vh * aspect; sx = (vw - sw) / 2; } else { sh = vw / aspect; sy = (vh - sh) / 2; }
-      }
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const long = Math.min(1600, Math.max(sw, sh, Math.max(cw, ch) * dpr));
-      const k = long / Math.max(cw, ch);
-      const w = Math.round(cw * k), h = Math.round(ch * k);
-      const c = document.createElement("canvas");
-      c.width = w; c.height = h;
-      const g = c.getContext("2d");
-      if (useVideo) g.drawImage(video, sx, sy, sw, sh, 0, 0, w, h);
-      else { const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, "#27343a"); bg.addColorStop(0.55, "#1b2428"); bg.addColorStop(1, "#141b1e"); g.fillStyle = bg; g.fillRect(0, 0, w, h); }
-      C.render(c, scene, C.normalize(Object.assign({}, view), model), { tone: "tan", planes: ui.planes, scale: w / cw, keep: true });
+    // 画面に見えている範囲のカメラ映像に、柱の立体を透かさずに重ねて1枚の写真にする（ar-common.js の撮影のしかた）。
+    const capture = HeritageAR.captureView(
+      { root: $("capture"), image: $("shot"), hint: $("captureHint"), retake: $("retry"), save: $("save") },
+      () => { $("shoot").focus(); });
+    let busy = false;
+    async function shoot() {
+      if (busy) return;
+      const useVideo = !ui.plain;
+      if (useVideo && !video.videoWidth) return; // カメラの映像がまだ来ていない
+      busy = true;
+      try {
+        const size = HeritageAR.captureSize(stage);
+        const w = size.w, h = size.h;
+        const c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        const g = c.getContext("2d");
+        if (useVideo) HeritageAR.drawVideoCover(g, video, w, h);
+        else { const bg = g.createLinearGradient(0, 0, 0, h); bg.addColorStop(0, "#27343a"); bg.addColorStop(0.55, "#1b2428"); bg.addColorStop(1, "#141b1e"); g.fillStyle = bg; g.fillRect(0, 0, w, h); }
+        C.render(c, scene, C.normalize(Object.assign({}, view), model), { tone: "tan", planes: ui.planes, scale: w / stage.clientWidth, keep: true });
 
-      // 何の画像かを、すみに小さく書き込む（高さが仮の値であることを含む）
-      const now = new Date(), p2 = (n) => String(n).padStart(2, "0");
-      const date = now.getFullYear() + "." + p2(now.getMonth() + 1) + "." + p2(now.getDate());
-      const photo = model.photo || {};
-      const lines = [photo.caption || item.title, (photo.note ? photo.note + "　" : "") + date].filter(Boolean);
-      const u = Math.min(w, h) / 100, margin = u * 4;
-      g.setTransform(1, 0, 0, 1, 0, 0);
-      g.textAlign = "left"; g.textBaseline = "alphabetic"; g.lineJoin = "round";
-      let y = h - margin;
-      lines.slice().reverse().forEach((text, i) => {
-        let fs = (i === lines.length - 1 ? 3.1 : 2.5) * u;
-        g.font = (i === lines.length - 1 ? "600 " : "") + fs + "px sans-serif";
-        const tw = g.measureText(text).width;
-        if (tw > w - margin * 2) { fs *= (w - margin * 2) / tw; g.font = (i === lines.length - 1 ? "600 " : "") + fs + "px sans-serif"; }
-        g.lineWidth = fs * 0.28; g.strokeStyle = "rgba(0,0,0,0.72)"; g.strokeText(text, margin, y);
-        g.fillStyle = "#fff"; g.fillText(text, margin, y);
-        y -= fs * 1.5;
-      });
+        // 何の写真かを、すみに小さく書き込む（高さが仮の値であることを含む）
+        const now = new Date(), p2 = (n) => String(n).padStart(2, "0");
+        const date = now.getFullYear() + "." + p2(now.getMonth() + 1) + "." + p2(now.getDate());
+        const photo = model.photo || {};
+        const lines = [photo.caption || item.title, (photo.note ? photo.note + "　" : "") + date].filter(Boolean);
+        const u = Math.min(w, h) / 100, margin = u * 4;
+        g.setTransform(1, 0, 0, 1, 0, 0);
+        g.textAlign = "left"; g.textBaseline = "alphabetic"; g.lineJoin = "round";
+        let y = h - margin;
+        lines.slice().reverse().forEach((text, i) => {
+          const bold = i === lines.length - 1 ? "600 " : "";
+          let fs = (bold ? 3.1 : 2.5) * u;
+          g.font = bold + fs + "px sans-serif";
+          const tw = g.measureText(text).width;
+          if (tw > w - margin * 2) { fs *= (w - margin * 2) / tw; g.font = bold + fs + "px sans-serif"; }
+          g.lineWidth = fs * 0.28; g.strokeStyle = "rgba(0,0,0,0.72)"; g.strokeText(text, margin, y);
+          g.fillStyle = "#fff"; g.fillText(text, margin, y);
+          y -= fs * 1.5;
+        });
 
-      const url = c.toDataURL("image/jpeg", 0.92);
-      const name = (photo.file_prefix || "heritage_ar") + "_" + date.replace(/\./g, "") + "_" + p2(now.getHours()) + p2(now.getMinutes()) + p2(now.getSeconds()) + ".jpg";
-      $("shot").src = url;
-      $("save").href = url; $("save").download = name;
-      $("result").hidden = false;
-      // 共有（iPhone では「画像を保存」で写真に入る）が使える端末にだけ、ボタンを出す
-      shotFile = null; $("share").hidden = true;
-      if (c.toBlob && navigator.canShare) {
-        c.toBlob((blob) => {
-          if (!blob) return;
-          try {
-            const file = new File([blob], name, { type: "image/jpeg" });
-            if (navigator.canShare({ files: [file] })) { shotFile = file; $("share").hidden = false; }
-          } catch (e) { /* 共有は出さない */ }
-        }, "image/jpeg", 0.92);
-      }
-      $("save").focus();
+        HeritageAR.flash($("flash"));
+        const blob = await HeritageAR.toJpeg(c);
+        if (!blob) return;
+        capture.show({ blob, name: (photo.file_prefix || "heritage_ar") + "_" + HeritageAR.stamp(now) + ".jpg", title: photo.caption || item.title, hint: "柱を重ねて撮影しました" });
+      } finally { busy = false; }
     }
     $("shoot").addEventListener("click", shoot);
-    $("retry").addEventListener("click", () => { $("result").hidden = true; $("shot").removeAttribute("src"); shotFile = null; $("shoot").focus(); });
-    $("share").addEventListener("click", () => { if (shotFile) navigator.share({ files: [shotFile] }).catch(() => { /* 取り消したとき */ }); });
+
+    // 指でつまんだときに、ページ全体が拡大されないようにする（iPhone の Safari 向け）
+    ["gesturestart", "gesturechange", "gestureend"].forEach((type) => {
+      document.addEventListener(type, (e) => { if ($("about").hidden) e.preventDefault(); }, { passive: false });
+    });
 
     // 動作確認用（tools/browser_test.mjs から使う）
     window.__columns3d = { get view() { return view; }, scene, model, ui, draw };
