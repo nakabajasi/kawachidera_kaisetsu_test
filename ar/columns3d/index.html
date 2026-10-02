@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23eef0ea'/%3E%3Crect x='7' y='6' width='18' height='8' fill='none' stroke='%231d2a30' stroke-width='2'/%3E%3Crect x='10' y='18' width='12' height='9' fill='%231f6f5e'/%3E%3C/svg%3E">
   <title>柱を立体でカメラに重ねる</title>
-  <link rel="stylesheet" href="../ar.css">
+  <link rel="stylesheet" href="../ar.css?v=4">
 </head>
 <body class="ar3d">
   <div class="stage" id="stage">
@@ -56,14 +56,16 @@
       <h1 id="title">柱を立体でカメラに重ねる</h1>
       <p id="lead">柱を円柱の立体で並べ、カメラの映像に重ねて表示します。画面を指でなぞって、いま立っている位置からの見え方に合わせ、そのまま撮影して保存できます。</p>
       <p class="note" id="introNote"></p>
-      <button type="button" class="btn" id="start">カメラを使う</button>
-      <button type="button" class="btn btn--line" id="nocam">カメラを使わずに立体だけ見る</button>
+      <div class="btns">
+        <button type="button" class="btn" id="start">カメラを使う</button>
+        <button type="button" class="btn btn--line" id="nocam">カメラを使わずに立体だけ見る</button>
+      </div>
       <p class="err" id="err" role="alert"></p>
     </div>
   </div>
 
-  <script src="../ar-common.js"></script>
-  <script src="../../js/columns3d.js"></script>
+  <script src="../ar-common.js?v=4"></script>
+  <script src="../../js/columns3d.js?v=4"></script>
   <script>
   (async function () {
     "use strict";
@@ -76,16 +78,26 @@
 
     if (DEBUG) $("back").href = "../../index.html?debug=true#/experience";
 
+    // この画面と js/columns3d.js の版が合っているか確かめる。古いファイルが残っていると柱が正しく描けない
+    // （高さが0に見えるなど）ので、そのまま描かずに知らせる。
+    const NEED = 4;
+    function stop(message) {
+      $("lead").textContent = message;
+      $("introNote").textContent = "";
+      $("start").hidden = true; $("nocam").hidden = true;
+    }
+    if (!C || !(C.VERSION >= NEED)) {
+      stop("古いファイル（js/columns3d.js）が残っているため、柱を表示できません。ページを読み込み直してください。直らないときは、js/columns3d.js が新しいものに置き換わっているか確かめてください。");
+      return;
+    }
+
     // 立体の形は media.json から引く（?model=kondo_columns_3d → media_kondo_columns_3d）
     const key = (params.get("model") || "kondo_columns_3d").replace(/[^a-z0-9_]/gi, "");
     const media = (await HeritageAR.loadJSON("../../data/media.json")) || (await HeritageAR.loadBundle("../../data/data.bundle.js", "media"));
     const item = media && media.media.find((m) => m.id === "media_" + key && m.model && m.model.kind === "column_grid");
-    if (!item) {
-      $("lead").textContent = "立体の形のデータ（data/media.json）を読めませんでした。";
-      $("start").hidden = true; $("nocam").hidden = true;
-      return;
-    }
+    if (!item) { stop("立体の形のデータ（data/media.json）を読めませんでした。"); return; }
     const model = item.model;
+    if (!(Number(model.column.height) > 0) || !(Number(model.column.diameter) > 0)) { stop("柱の高さか太さ（data/media.json の model.column）が数値になっていません。"); return; }
     const scene = C.buildScene(model);
     const canvas = $("view"), stage = $("stage"), video = $("video");
     const STORE = "heritage.columns3d." + item.id;

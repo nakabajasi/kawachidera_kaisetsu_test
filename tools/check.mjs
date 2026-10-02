@@ -135,6 +135,28 @@ section("立体の柱");
   }
 }
 
+// ───────── 2c. 版の番号（新旧のファイルが混ざらないための ?v=）がそろっているか ─────────
+section("版の番号");
+{
+  const C = require(path.join(ROOT, "js/columns3d.js"));
+  const seen = new Set();
+  for (const f of ["index.html", "ar/columns3d/index.html", "ar/camera/index.html"]) {
+    const html = fs.readFileSync(path.join(ROOT, f), "utf8");
+    const refs = [...html.matchAll(/<script src="([^"]+)"|<link rel="stylesheet" href="([^"]+)"/g)].map((m) => m[1] || m[2]);
+    ok(refs.length > 0, `${f}: js / css の読み込みが見つからない`);
+    for (const r of refs) {
+      const m = r.match(/\?v=(\d+)$/);
+      ok(!!m, `${f}: ${r} に ?v= が付いていない`);
+      if (m) seen.add(m[1]);
+      ok(fs.existsSync(path.join(ROOT, path.dirname(f), r.split("?")[0])), `${f}: ${r} がない`);
+    }
+    const need = html.match(/const NEED = (\d+);/);
+    if (need) seen.add(need[1]);
+  }
+  seen.add(String(C.VERSION));
+  ok(seen.size === 1, "版の番号がそろっていない: " + [...seen].join(", ") + "（node tools/set_version.mjs <番号> でそろえる）");
+}
+
 // ───────── 3. 言い回しに史実が混ざっていないか ─────────
 section("language.json に史実が混ざっていないか");
 const strings = [];

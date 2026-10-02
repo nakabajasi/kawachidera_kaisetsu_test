@@ -239,6 +239,16 @@ Node.js があるときだけ使う。公開には要らない。
 | `node tools/browser_test.mjs` | Chromium での動作確認（playwright が必要）。サブフォルダの下で配信し、各ページ、対話、マップ、クイズ、debug、画面幅5種、カメラ画面、file:// を確かめる |
 | `node tools/make_statements.mjs` | facts.json の statement を作り直す |
 | `node tools/make_bundle.mjs` | data/data.bundle.js を作り直す |
+| `node tools/set_version.mjs <番号>` | HTML から読み込む js / css に付ける版の番号（`?v=`）と、`js/columns3d.js` の `VERSION` をまとめて書き換える |
+
+### ファイルを直して公開し直すとき（版の番号）
+
+JSON は開くたびに新しいものを読むが、js と css は利用者の端末や配信側にしばらく残る。そのため、公開し直した直後は**新しいデータと古いプログラムが混ざって動く**ことがある（実際に、`media.json` の項目を減らしたあと、古い `js/columns3d.js` が柱を高さ0で描く不具合が出た）。これを防ぐため、
+
+- HTML から読み込む js / css には `?v=4` のように版の番号を付けている。番号を変えると、新しい HTML は必ず新しいファイルを読みに行く。
+- js か css を直したら、`node tools/set_version.mjs <いまより大きい整数>` で番号を上げてから公開する。`node tools/check.mjs` が、番号がそろっているかを確かめる。
+- 柱の立体の画面は、`js/columns3d.js` の版が自分の求める版より古いとき、柱を描かずに「古いファイルが残っています」と知らせる。
+- ファイルを1つずつ置き換えるときは、**変更したファイルをすべて**置き換える（一部だけ置き換えると、同じ混ざり方になる）。
 
 ## 9. 将来、生成AIを足すとき
 

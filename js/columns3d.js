@@ -13,6 +13,9 @@
 (function (root) {
   "use strict";
 
+  // 版の番号。画面側（ar/columns3d/index.html）が、古いこのファイルと組み合わさっていないかを確かめるのに使う。
+  // media.json の model の項目を増減したときは、この番号と HTML の ?v= を一緒に上げる（tools/set_version.mjs）。
+  const VERSION = 4;
   const RAD = Math.PI / 180;
   const SIDES = 20;            // 円柱の側面を何枚の面で表すか
   const NEAR = 0.25;           // これより手前（目のすぐ前）は描かない
@@ -77,7 +80,8 @@
     view.roll = clamp(view.roll, LIMIT.roll[0], LIMIT.roll[1]);
     view.pan = clamp(view.pan, -80, 80);
     view.tilt = clamp(view.tilt, -80, 80);
-    if (model && !(view.height > 0)) view.height = model.column.height;
+    // 柱の高さは model の値を使う。数値でない値（古いデータとの組み合わせなど）が入っていたら model の値に戻す
+    if (!(view.height > 0) || !isFinite(view.height)) view.height = model ? Number(model.column.height) : NaN;
     return view;
   }
 
@@ -235,6 +239,11 @@
     // 遠い柱から順に描く（手前の柱が奥の柱を隠す）
     const order = scene.columns.slice().sort((a, b) =>
       Math.hypot(b.x - cam.eye.x, b.z - cam.eye.z) - Math.hypot(a.x - cam.eye.x, a.z - cam.eye.z));
+    if (!(view.height > 0)) { // 高さ0の柱を黙って描くことはしない
+      if (typeof console !== "undefined") console.warn("columns3d: 柱の高さが数値でないため、柱を描きません（view.height / model.column.height を確かめる）");
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      return cam;
+    }
     order.forEach((c) => drawColumn(ctx, cam, c, scene.radius, c.inner ? view.height * scene.innerRatio : view.height, rgb, scale));
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     return cam;
@@ -248,7 +257,7 @@
   /** 目の高さ（柱の根元の面からの高さ、ｍ） */
   function eyeHeight(view) { return TARGET_Y + view.dist * Math.sin(view.el * RAD); }
 
-  const api = { buildScene, defaultView, normalize, render, project, directionName, eyeHeight, TONES, LIMIT, TARGET_Y };
+  const api = { VERSION, buildScene, defaultView, normalize, render, project, directionName, eyeHeight, TONES, LIMIT, TARGET_Y };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.Heritage = root.Heritage || {};
   root.Heritage.Columns3D = api;

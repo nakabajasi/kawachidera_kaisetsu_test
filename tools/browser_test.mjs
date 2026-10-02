@@ -295,6 +295,16 @@ section("AR・カメラ");
   ok(await page.evaluate(() => { const C = Heritage.Columns3D, k = window.__columns3d, s = k.scene, st = document.getElementById("stage");
     return [[-1, -1], [1, -1], [1, 1], [-1, 1]].every(([a, b]) => { const p = C.project(k.view, st.clientWidth, st.clientHeight, a * s.width / 2, 0, b * s.depth / 2); return p && p.x >= 0 && p.x <= st.clientWidth && p.y >= 0 && p.y <= st.clientHeight; }); }), "最初の見え方で建物の範囲が画面からはみ出す");
 
+  // 柱が高さをもって描かれている（高さ0の平らな印になっていない）
+  const tall = await page.evaluate(() => { const C = Heritage.Columns3D, k = window.__columns3d, st = document.getElementById("stage"), c = document.getElementById("view"), g = c.getContext("2d");
+    const dpr = c.width / st.clientWidth, P = (x, y, z) => C.project(k.view, st.clientWidth, st.clientHeight, x, y, z);
+    const near = k.scene.columns.map((col) => ({ col, d: P(col.x, 0, col.z).depth })).sort((a, b) => a.d - b.d)[0].col;
+    const h = k.view.height * (near.inner ? k.scene.innerRatio : 1), foot = P(near.x, 0, near.z), top = P(near.x, h, near.z), mid = P(near.x, h / 2, near.z);
+    const px = Array.from(g.getImageData(Math.round(mid.x * dpr), Math.round(mid.y * dpr), 1, 1).data);
+    return { height: k.view.height, px: foot.y - top.y, screen: st.clientHeight, mid: px }; });
+  ok(tall.height === 3 && tall.px > tall.screen * 0.06, `柱の高さがない: 高さ ${tall.height}ｍ、画面上 ${Math.round(tall.px)}px`);
+  ok(tall.mid[3] === 255 && tall.mid[0] > 95 && tall.mid[1] < tall.mid[0] * 0.6, "柱の高さの中ほどに柱が描かれていない: " + tall.mid);
+
   // 指の操作だけで合わせる：1本でなぞると回る、2本でなぞると動く、つまむと距離
   const box = await page.locator("#view").boundingBox();
   const cx = box.x + box.width / 2, cy = box.y + box.height / 2;
@@ -400,12 +410,16 @@ section("AR・カメラ");
 
   // 合わせた見え方は、開き直しても残る。「最初に戻す」で戻る
   await page.waitForTimeout(600);
+  // 前の版が端末に残した内容（高さや濃さを含み、高さが数値でないこともある）が混ざっていても、柱の高さは model の値になる
+  await page.evaluate(() => { const key = "heritage.columns3d.media_kondo_columns_3d"; const o = JSON.parse(localStorage.getItem(key));
+    Object.assign(o.view, { roll: 12, fov: 95, height: null }); o.tone = "white"; o.opacity = 20; localStorage.setItem(key, JSON.stringify(o)); });
   await page.reload();
   await page.click("#nocam");
   await page.waitForSelector("#view:not([hidden])");
   await page.waitForTimeout(150);
   const v6 = await state();
-  ok(v6.az === 40 && v6.dist === 15 && v6.height === 3, "合わせた見え方が残らない: " + JSON.stringify(v6));
+  ok(v6.az === 40 && v6.dist === 15, "合わせた見え方が残らない: " + JSON.stringify(v6));
+  ok(v6.height === 3 && v6.roll === 0 && v6.fov === 60, "前の版が残した内容で、柱の高さや写る範囲が変わる: " + JSON.stringify(v6));
   ok(await page.locator("#video").evaluate((v) => !v.srcObject), "「カメラを使わずに」でカメラが動いている");
   ok((await inked()) > 5000, "カメラなしで立体が描かれない");
   await page.click("#shoot");
@@ -437,11 +451,38 @@ section("AR・カメラ");
   await ctx.close();
 }
 
+section("新旧のファイルが混ざったとき");
+{
+  // js / css には版の番号が付いていて、新しい HTML は新しいファイルを読みに行く
+  const { ctx, page, errors } = await newPage(390, 844);
+  const asked = [];
+  page.on("request", (r) => { if (/\.(js|css)(\?|$)/.test(r.url())) asked.push(r.url()); });
+  await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d");
+  await page.waitForSelector("#nocam");
+  ok(asked.length >= 3 && asked.every((u) => /\?v=\d+$/.test(u)), "js / css の読み込みに版の番号が付いていない: " + asked.join(" "));
+  ok(errors.length === 0, "エラー: " + errors.join(" | "));
+  await ctx.close();
+}
+{
+  // 古い js/columns3d.js が残っていたら、柱を平らに描いてしまわずに、その旨を知らせる
+  const { ctx, page } = await newPage(390, 844);
+  const engine = fs.readFileSync(path.join(ROOT, "js/columns3d.js"), "utf8");
+  ok(engine.includes("const api = { VERSION, "), "js/columns3d.js に版の番号がない");
+  await page.route("**/js/columns3d.js*", (route) => route.fulfill({ contentType: "text/javascript", body: engine.replace("const api = { VERSION, ", "const api = { ") }));
+  await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d");
+  await page.waitForFunction(() => document.getElementById("lead").textContent.includes("古いファイル"));
+  ok(await page.locator("#start").isHidden() && await page.locator("#nocam").isHidden() && await page.locator("#view").isHidden(), "古いファイルが残っているのに、始められてしまう");
+  await shot(page, "390_ar_columns3d_stale");
+  await ctx.close();
+}
+
 section("立体の画面の大きさ");
 for (const [w, h] of [[320, 568], [844, 390], [1280, 800]]) {
   const { ctx, page, errors } = await newPage(w, h);
   await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d&debug=true");
-  ok(await page.evaluate(() => { const r = (id) => document.getElementById(id).getBoundingClientRect(); return r("nocam").bottom <= innerHeight && r("title").top >= 0 && r("back").bottom <= r("title").top + 1; }), `${w}×${h} 始める前の画面がおさまらない`);
+  await page.waitForFunction(() => document.getElementById("introNote").textContent.length > 0); // データを読み終えて、断り書きが入ってから測る
+  const fit = await page.evaluate(() => { const r = (id) => document.getElementById(id).getBoundingClientRect(); return { nocam: r("nocam").bottom, start: r("start").bottom, title: r("title").top, back: r("back").bottom, vh: innerHeight }; });
+  ok(fit.nocam <= fit.vh && fit.start <= fit.vh && fit.back <= fit.title + 1, `${w}×${h} 始める前の画面がおさまらない: ` + JSON.stringify(fit));
   await page.click("#nocam");
   await page.waitForSelector("#view:not([hidden])");
   await page.waitForTimeout(150);
