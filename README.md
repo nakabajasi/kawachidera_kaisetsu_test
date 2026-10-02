@@ -1,0 +1,1 @@
+# kawachidera_kaisetsu_test
