@@ -199,12 +199,13 @@ section("マップ・クイズ・画像");
   ok(await page.locator(".quiz__choices button").count() >= 3, "クイズをやり直せない");
 
   await go(page, "/gallery");
-  ok(await page.locator(".mediacard").count() === 18, "画像一覧の件数が違う");
+  ok(await page.locator(".mediacard").count() === 19, "画像一覧の件数が違う");
   ok(await page.locator(".mediacard__figure .plan").count() === 1 && await page.locator(".mediacard__figure img").count() === 1, "作図した図が表示されない");
   const imgOk = await page.evaluate(() => Array.from(document.images).every((i) => i.complete && i.naturalWidth > 0));
   ok(imgOk, "画像が読めていない");
   await page.click('.seg [data-type="model3d"]');
-  ok(await page.locator(".mediacard").count() === 2, "種類でしぼれない");
+  ok(await page.locator(".mediacard").count() === 3, "種類でしぼれない");
+  ok(await page.locator(".mediacard canvas[data-columns3d]").count() === 1 && await page.locator('.mediacard [data-action="action_ar_kondo"]').count() === 1, "画像一覧に柱の立体の図と、開くボタンが出ない");
 
   await go(page, "/sources");
   await page.fill("#factQuery", "礎石");
@@ -261,16 +262,97 @@ section("AR・カメラ");
   await page.waitForSelector('[data-action="action_ar_kondo"]');
   await page.click('[data-action="action_ar_kondo"]');
   await page.waitForSelector("#nocam");
-  ok(page.url().startsWith(URL0 + "ar/overlay/"), "AR の画面に移らない: " + page.url());
-  ok((await page.textContent("#title")).includes("金堂"), "重ねる図の題名が出ない");
+  ok(page.url().startsWith(URL0 + "ar/columns3d/"), "AR の画面に移らない: " + page.url());
+  ok((await page.textContent("#title")).includes("金堂"), "立体の図の題名が出ない");
+  ok(await page.locator("#video").evaluate((v) => !v.srcObject), "ボタンを押す前にカメラが動いている");
   await page.click("#start");
-  await page.waitForSelector("#overlay:not([hidden])");
+  await page.waitForSelector("#view:not([hidden])");
+  await page.waitForTimeout(200);
   ok(await page.evaluate(() => document.getElementById("video").videoWidth > 0), "カメラの映像が出ない");
-  ok(await page.evaluate(() => document.getElementById("overlay").naturalWidth > 0), "重ねる図が読めない");
-  await shot(page, "390_ar_overlay");
+
+  // 形：柱28本、身舎の柱10本だけ1.2倍、平面は高さ0
+  const sc = await page.evaluate(() => { const s = window.__columns3d.scene; return {
+    n: s.columns.length, inner: s.columns.filter((c) => c.inner).map((c) => c.name).join(""), ratio: s.innerRatio, r: s.radius,
+    planes: s.planes.map((p) => [p.id, p.w, p.d, p.y].join("/")).join(" ") }; });
+  ok(sc.n === 28, "柱の本数が28でない: " + sc.n);
+  ok(sc.inner === "Ｂ②Ｃ②Ｄ②Ｅ②Ｂ③Ｅ③Ｂ④Ｃ④Ｄ④Ｅ④", "身舎の柱が違う: " + sc.inner);
+  ok(sc.ratio === 1.2, "身舎の柱の高さの倍率が1.2でない: " + sc.ratio);
+  ok(sc.planes === "kidan/13.9/12.3/0 building/9.75/7.8/0", "平面の大きさ・高さが違う: " + sc.planes);
+  const inked = () => page.evaluate(() => { const c = document.getElementById("view"); const d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) n++; return n; });
+  const drawn = await inked();
+  ok(drawn > 5000, "立体が描かれていない: " + drawn);
+  const state = () => page.evaluate(() => Object.assign({}, window.__columns3d.view));
+  const v0 = await state();
+
+  // なぞって回す／ずらす、ホイールとつまむ操作で距離
+  const box = await page.locator("#view").boundingBox();
+  const cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+  const drag = async (dx, dy) => { await page.mouse.move(cx, cy); await page.mouse.down(); await page.mouse.move(cx + dx / 2, cy + dy / 2); await page.mouse.move(cx + dx, cy + dy); await page.mouse.up(); await page.waitForTimeout(60); };
+  await drag(60, -30);
+  const v1 = await state();
+  ok(Math.abs(v1.az - ((v0.az - 24 + 360) % 360)) < 0.01 && Math.abs(v1.el - (v0.el - 9)) < 0.01, `なぞっても回らない: az ${v0.az}→${v1.az} el ${v0.el}→${v1.el}`);
+  ok(v1.pan === 0 && v1.tilt === 0, "「回す」のときに位置がずれる");
+  await page.click("#modeMove");
+  await drag(40, 20);
+  const v2 = await state();
+  ok(v2.az === v1.az && v2.el === v1.el && v2.pan < 0 && v2.tilt > 0, `「ずらす」が効かない: pan ${v2.pan} tilt ${v2.tilt}`);
+  await page.click("#modeRotate");
+  await page.mouse.move(cx, cy); await page.mouse.wheel(0, -200); await page.waitForTimeout(60);
+  const v3 = await state();
+  ok(v3.dist < v2.dist, `ホイールで距離が変わらない: ${v2.dist}→${v3.dist}`);
+  await page.evaluate(() => { // 2本の指を広げる
+    const c = document.getElementById("view"); const r = c.getBoundingClientRect(); const y = r.top + r.height / 2;
+    const ev = (type, id, x) => c.dispatchEvent(new PointerEvent(type, { pointerId: id, pointerType: "touch", clientX: x, clientY: y, bubbles: true }));
+    ev("pointerdown", 91, r.left + 150); ev("pointerdown", 92, r.left + 240);
+    ev("pointermove", 91, r.left + 105); ev("pointermove", 92, r.left + 285);
+    ev("pointerup", 91, r.left + 105); ev("pointerup", 92, r.left + 285);
+  });
+  await page.waitForTimeout(60);
+  const v4 = await state();
+  ok(Math.abs(v4.dist - v3.dist / 2) < 0.02, `つまんでも距離が変わらない: ${v3.dist}→${v4.dist}`);
+
+  // スライダー
+  const slide = async (id, value) => { await page.locator("#" + id).evaluate((el, v) => { el.value = v; el.dispatchEvent(new Event("input", { bubbles: true })); }, String(value)); await page.waitForTimeout(60); };
+  await slide("az", 90); await slide("el", 30); await slide("dist", 30); await slide("height", 4);
+  const v5 = await state();
+  ok(v5.az === 90 && v5.el === 30 && v5.dist === 30 && v5.height === 4, "スライダーが効かない: " + JSON.stringify(v5));
+  ok((await page.textContent("#readout")).startsWith("東から"), "見る方角の表示が違う: " + (await page.textContent("#readout")));
+  ok((await page.textContent("#heightOut")).includes("4.0"), "柱の高さの表示が違う");
+  ok((await page.textContent("#heightNote")).includes("報告書に書かれていません"), "柱の高さが仮の値であることが示されていない");
+  // 身舎の柱の頭が、外側の柱の頭より1.2倍高い位置に描かれる（真横から見て確かめる）
+  const tops = await page.evaluate(() => { const C = Heritage.Columns3D, v = Object.assign({}, window.__columns3d.view, { az: 0, el: 0, pan: 0, tilt: 0, roll: 0 });
+    const y = (h) => C.project(v, 400, 400, 0, h, 0).y; return (y(0) - y(4 * 1.2)) / (y(0) - y(4)); });
+  ok(Math.abs(tops - 1.2) < 1e-9, "身舎の柱の高さの比が違う: " + tops);
+  await page.evaluate(() => { document.getElementById("more").open = true; });
+  await page.click("#planes");
+  await page.waitForTimeout(80);
+  ok((await inked()) < (await page.evaluate(() => { window.__columns3d.ui.planes = true; window.__columns3d.draw(); const c = document.getElementById("view"); const d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i] > 0) n++; return n; })), "基壇と建物の範囲を隠せない");
+  await page.evaluate(() => { document.getElementById("about").open = true; });
+  const basis = await page.textContent("#basis");
+  ok(basis.includes("基壇の範囲") && basis.includes("建物の範囲") && basis.includes("報告書に書かれていない"), "もとになっているものの説明が足りない");
+  ok(await noOverflow(page), "立体の画面が横にはみ出す");
+  await shot(page, "390_ar_columns3d");
+
+  // 合わせた見え方は、開き直しても残る。「最初に戻す」で戻る
+  await page.waitForTimeout(600);
+  await page.reload();
+  await page.click("#nocam");
+  await page.waitForSelector("#view:not([hidden])");
+  await page.waitForTimeout(150);
+  const v6 = await state();
+  ok(v6.az === 90 && v6.height === 4, "合わせた見え方が残らない: " + JSON.stringify(v6));
+  ok(await page.locator("#video").evaluate((v) => !v.srcObject), "「カメラを使わずに」でカメラが動いている");
+  ok((await inked()) > 5000, "カメラなしで立体が描かれない");
+  await page.click("#reset");
+  await page.waitForTimeout(80);
+  const v7 = await state();
+  ok(v7.az === v0.az && v7.el === v0.el && v7.dist === v0.dist && v7.height === v0.height && v7.pan === 0, "最初の見え方に戻らない: " + JSON.stringify(v7));
+  await shot(page, "390_ar_columns3d_plain");
+  await page.waitForTimeout(600);
   await page.click("#back");
   await page.waitForSelector(".hero h1, .h1");
   ok(page.url().endsWith("#/experience"), "AR から戻れない: " + page.url());
+  ok(await page.evaluate(() => { const c = document.querySelector("canvas[data-columns3d]"); if (!c) return false; const d = c.getContext("2d").getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 0; i < d.length; i += 4) if (d[i] > 150 && d[i + 2] < 120) n++; return n > 1000; }), "体験ページに立体の図が描かれていない");
 
   await page.click('[data-action="action_camera_frame"]');
   await page.waitForSelector("#start");
@@ -286,6 +368,25 @@ section("AR・カメラ");
   await ctx.close();
 }
 
+section("立体の画面の大きさ");
+for (const [w, h] of [[320, 568], [844, 390], [1280, 800]]) {
+  const { ctx, page, errors } = await newPage(w, h);
+  await page.goto(URL0 + "ar/columns3d/index.html?model=kondo_columns_3d&debug=true");
+  await page.click("#nocam");
+  await page.waitForSelector("#view:not([hidden])");
+  await page.waitForTimeout(150);
+  const g = await page.evaluate(() => { const r = document.getElementById("view").getBoundingClientRect(), p = document.getElementById("panel").getBoundingClientRect();
+    return { w: r.width, h: r.height, panelBottom: p.bottom, panelRight: p.right, vw: innerWidth, vh: innerHeight, debug: document.getElementById("debug").textContent, back: document.getElementById("back").getAttribute("href") }; });
+  ok(g.w >= 280 && g.h >= 180, `${w}×${h} 立体を見る場所が小さすぎる: ${Math.round(g.w)}×${Math.round(g.h)}`);
+  ok(g.panelBottom <= g.vh + 1 && g.panelRight <= g.vw + 1, `${w}×${h} 調整の欄が画面からはみ出す`);
+  ok(await noOverflow(page), `${w}×${h} 横にはみ出す`);
+  ok(g.debug.includes("media_kondo_columns_3d") && g.debug.includes("28本") && g.back.includes("debug=true"), `${w}×${h} デバッグ表示が出ない`);
+  await page.click("#reset"); await page.waitForTimeout(80);
+  await shot(page, `${w}_ar_columns3d`);
+  ok(errors.length === 0, `${w}×${h} エラー: ` + errors.join(" | "));
+  await ctx.close();
+}
+
 // ───────── 7. index.html を直接開く（file://） ─────────
 section("file:// で直接開く");
 {
@@ -297,6 +398,10 @@ section("file:// で直接開く");
   await page.click("#chatForm button[type=submit]");
   await page.waitForFunction(() => document.querySelectorAll(".msg--sys").length > 1);
   ok((await page.locator(".msg--sys .msg__text").last().innerText()).includes("22.8"), "file:// で対話が動かない");
+  await page.goto(pathToFileURL(path.join(ROOT, "ar/columns3d/index.html")).href + "?model=kondo_columns_3d");
+  await page.click("#nocam");
+  await page.waitForSelector("#view:not([hidden])");
+  ok(await page.evaluate(() => window.__columns3d.scene.columns.length === 28), "file:// で立体の画面が動かない");
   ok(errors.filter((e) => !e.includes("requestfailed")).length === 0, "エラー: " + errors.join(" | "));
   await ctx.close();
 }

@@ -297,7 +297,8 @@
       <h1 class="h1">AR・体験</h1>
       <section class="block">
         <h2>カメラに重ねて見る</h2>
-        <p>金堂の柱配置の模式図を、カメラの映像に重ねて表示します。位置と大きさは画面上で手で合わせます。</p>
+        <p>創建時の金堂の柱を円柱の立体で並べ、カメラの映像に重ねて表示します。画面を指でなぞって回し、いま立っている位置からの見え方に合わせます。位置合わせの目印として、基壇の範囲と建物の範囲を、柱の根元の高さに平らな面で示します。</p>
+        <p class="hint">柱の位置と間隔は報告書の数値によります。柱の高さは報告書に書かれていないため、仮の高さです（画面で変えられます）。</p>
         ${actionButtons(by("ar"))}
       </section>
       <section class="block">
@@ -308,11 +309,13 @@
       <p class="caution">カメラは、次の画面で「カメラを使う」を押したときにだけ許可を求めます。https で開いているときに動きます。</p>
       <section class="block" id="model3d">
         <h2>3D資料</h2>
-        ${models.map((m) => `<div class="mediacard mediacard--none"><h3>${esc(m.title)}</h3><p>${esc(m.caption)}</p>
+        ${H.Media.cards(models.filter((m) => m.availability === "included"), data, { refLabel, esc })}
+        ${models.filter((m) => m.availability !== "included").map((m) => `<div class="mediacard mediacard--none"><h3>${esc(m.title)}</h3><p>${esc(m.caption)}</p>
           <p class="mediacard__meta">${m.source_refs.map((r) => esc(refLabel(r)) + (r.locator ? "（" + esc(r.locator) + "）" : "")).join("、")}</p></div>`).join("")}
-        <p class="hint">3Dモデルのファイルは、まだこのアプリに入っていません。入手できたら models/ に置いて登録します（README 参照）。</p>
+        <p class="hint">報告書に出てくる3Dデータのファイルは、まだこのアプリに入っていません。入手できたら models/ に置いて登録します（README 参照）。</p>
       </section>
       ${actionButtons([data.actionMap.action_quiz, data.actionMap.action_open_map])}`;
+    H.Media.hydrate(main, data);
     if (q.sec === "model3d") requestAnimationFrame(() => $("#model3d").scrollIntoView());
     return "AR・体験";
   };

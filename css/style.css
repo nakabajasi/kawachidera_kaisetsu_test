@@ -233,6 +233,9 @@ main { max-width: 720px; margin: 0 auto; padding: 16px 16px 32px; outline: none;
 .mediacard__figure { border-bottom: 1px solid var(--line); background: var(--surface); }
 .mediacard__figure img { display: block; width: 100%; height: auto; padding: 8px; }
 @media (prefers-color-scheme: dark) { .mediacard__figure img { filter: invert(0.9) hue-rotate(180deg); } }
+.mediacard__figure--3d { background: #1b2428; }
+.mediacard__figure--3d canvas { display: block; width: 100%; height: auto; }
+.mediacard figcaption .acts { margin: 10px 0 0; }
 .mediacard__absent {
   aspect-ratio: 16 / 7; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   color: var(--ink-2); font-size: 13px; border-bottom: 1px solid var(--line);

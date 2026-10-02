@@ -104,7 +104,8 @@
         "media_frontispiece_kondo",
         "media_fig13",
         "media_plate01",
-        "media_kondo_columns"
+        "media_kondo_columns",
+        "media_kondo_columns_3d"
       ],
       "action_ids": [
         "action_ar_kondo",

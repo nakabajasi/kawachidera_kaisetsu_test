@@ -116,8 +116,8 @@
     {
       "id": "action_ar_kondo",
       "type": "ar",
-      "label": "金堂の柱配置をカメラに重ねる",
-      "url": "ar/overlay/index.html?overlay=kondo_columns",
+      "label": "金堂の柱を立体でカメラに重ねる",
+      "url": "ar/columns3d/index.html?model=kondo_columns_3d",
       "related_entity_ids": [
         "structure_kondo"
       ],

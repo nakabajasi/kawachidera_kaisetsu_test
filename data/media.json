@@ -410,6 +410,234 @@
           "locator": "第3章第1節"
         }
       ]
+    },
+    {
+      "id": "media_kondo_columns_3d",
+      "type": "model3d",
+      "title": "創建時の金堂の柱（立体の模式）",
+      "file": "generated:columns3d",
+      "availability": "included",
+      "related_entity_ids": [
+        "structure_kondo"
+      ],
+      "caption": "柱の位置と間隔は報告書の記述による。柱の高さは報告書に書かれていないため、仮の高さで表している",
+      "credit": "本アプリで作図",
+      "rights": "本アプリの一部",
+      "source_id": null,
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25,
+          "locator": "第3章第1節"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37,
+          "locator": "第3章第1節"
+        }
+      ],
+      "action_id": "action_ar_kondo",
+      "model": {
+        "kind": "column_grid",
+        "unit": "m",
+        "grid": {
+          "cols": [
+            "Ａ",
+            "Ｂ",
+            "Ｃ",
+            "Ｄ",
+            "Ｅ",
+            "Ｆ"
+          ],
+          "rows": [
+            "①",
+            "②",
+            "③",
+            "④",
+            "⑤"
+          ],
+          "bay_x": 1.95,
+          "bay_z": 1.95
+        },
+        "omit": [
+          "Ｃ③",
+          "Ｄ③"
+        ],
+        "inner": {
+          "cols": [
+            "Ｂ",
+            "Ｅ"
+          ],
+          "rows": [
+            "②",
+            "④"
+          ],
+          "height_ratio": 1.2,
+          "label": "身舎の柱"
+        },
+        "column": {
+          "diameter": 0.5,
+          "height": 3,
+          "height_min": 2,
+          "height_max": 6,
+          "height_note": "柱の高さは報告書に書かれていません。仮の高さで表しています（内側の身舎の柱は、その1.2倍）。"
+        },
+        "planes": [
+          {
+            "id": "kidan",
+            "label": "基壇の範囲",
+            "w": 13.9,
+            "d": 12.3,
+            "dashed": true
+          },
+          {
+            "id": "building",
+            "label": "建物の範囲",
+            "w": 9.75,
+            "d": 7.8
+          }
+        ],
+        "view": {
+          "az": 25,
+          "el": 10,
+          "dist": 24,
+          "fov": 60
+        },
+        "basis": [
+          {
+            "item": "柱の位置",
+            "from": "report",
+            "text": "創建時の建物は桁行５間・梁間４間で、柱間は1.95ｍ（6.5尺）の等間。Ｃ③・Ｄ③は、礎石はなかったと結論づけられているため柱を置かず、28本を並べている。",
+            "fact_ids": [
+              "fact_kondo_plan",
+              "fact_kondo_bay",
+              "fact_c3d3_no_soseki"
+            ],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 11,
+                "pdf_page": 25,
+                "locator": "第3章第1節"
+              },
+              {
+                "source_id": "source_report_2022",
+                "page": 17,
+                "pdf_page": 31,
+                "locator": "第3章第1節"
+              },
+              {
+                "source_id": "source_report_2022",
+                "page": 23,
+                "pdf_page": 37,
+                "locator": "第3章第1節"
+              }
+            ]
+          },
+          {
+            "item": "身舎の柱",
+            "from": "report",
+            "text": "身舎は桁行がＢ～Ｅ列の３間、梁間が②～④列の２間。この範囲の柱10本を身舎の柱として扱っている。",
+            "fact_ids": [],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 23,
+                "pdf_page": 37,
+                "locator": "第3章第1節"
+              }
+            ]
+          },
+          {
+            "item": "柱の太さ",
+            "from": "report",
+            "text": "礎石の上面から推測できる柱の直径は45cm～60cm。この範囲から0.5ｍとして描いている。",
+            "fact_ids": [
+              "fact_kondo_column_diameter"
+            ],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 23,
+                "pdf_page": 37,
+                "locator": "第3章第1節"
+              }
+            ]
+          },
+          {
+            "item": "基壇の範囲",
+            "from": "report",
+            "text": "東西13.9ｍ（46.5尺）、南北12.3ｍ（41尺）。検出した辺から中軸線までの距離を折り返して求められた規模。",
+            "fact_ids": [
+              "fact_kondo_kidan_ew",
+              "fact_kondo_kidan_ns"
+            ],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 11,
+                "pdf_page": 25,
+                "locator": "第3章第1節"
+              }
+            ]
+          },
+          {
+            "item": "建物の範囲",
+            "from": "assumed",
+            "text": "外側の柱の中心を結んだ範囲。柱間1.95ｍに５間・４間を掛けて、東西9.75ｍ、南北7.8ｍとした。軒や壁の位置を表すものではない。",
+            "fact_ids": [
+              "fact_kondo_bay"
+            ],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 11,
+                "pdf_page": 25,
+                "locator": "第3章第1節"
+              }
+            ]
+          },
+          {
+            "item": "基壇と建物の位置",
+            "from": "assumed",
+            "text": "建物を基壇の中央に置いている。建物と基壇の中心が一致するとは、報告書に書かれていない。",
+            "fact_ids": [],
+            "source_refs": []
+          },
+          {
+            "item": "柱の高さ",
+            "from": "assumed",
+            "text": "報告書に書かれていない。外側の柱を3.0ｍとして描いており、スライダーで変えられる。",
+            "fact_ids": [],
+            "source_refs": []
+          },
+          {
+            "item": "身舎の柱の高さ",
+            "from": "assumed",
+            "text": "身舎の柱だけ、外側の柱の1.2倍の高さで描いている。見分けやすくするための設定で、報告書の数値ではない。",
+            "fact_ids": [],
+            "source_refs": []
+          },
+          {
+            "item": "高さ0の面",
+            "from": "assumed",
+            "text": "柱の根元を高さ0とし、基壇の範囲と建物の範囲も同じ高さの平らな面として置いている。基壇の高さ（約1.5ｍ）や階段は立体にしていない。",
+            "fact_ids": [
+              "fact_kondo_kidan_height"
+            ],
+            "source_refs": [
+              {
+                "source_id": "source_report_2022",
+                "page": 11,
+                "pdf_page": 25,
+                "locator": "第3章第1節"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -17,14 +17,19 @@
     const included = m.availability === "included";
     let body;
     if (included && m.file === "generated:map") body = `<div class="mediacard__figure" data-generated-map="1"></div>`;
+    else if (included && m.model) body = `<div class="mediacard__figure mediacard__figure--3d"><canvas data-columns3d="${h.esc(m.id)}" width="720" height="440" role="img" aria-label="${h.esc(m.title)}"></canvas></div>`;
     else if (included && m.file) body = `<div class="mediacard__figure"><img src="./${h.esc(m.file)}" alt="${h.esc(m.title)}" loading="lazy"></div>`;
     else body = `<div class="mediacard__absent" role="img" aria-label="画像は掲載していません"><span>${h.esc(TYPE[m.type] || m.type)}</span><span>掲載していません</span></div>`;
+    // 立体の図には、動かせる画面を開くボタンを付ける
+    const act = included && m.action_id && data.actionMap ? data.actionMap[m.action_id] : null;
+    const open = act ? `<div class="acts"><button type="button" class="act act--${h.esc(act.type)}" data-action="${h.esc(act.id)}">${h.esc(act.label)}</button></div>` : "";
     return `<figure class="mediacard${included ? "" : " mediacard--none"}" data-type="${h.esc(m.type)}">
       ${body}
       <figcaption>
         <h3>${h.esc(m.title)}</h3>
         <p>${h.esc(m.caption || "")}</p>
         <p class="mediacard__meta">${included ? h.esc(m.credit) : "報告書 " + refs(m, h) + " に掲載。転載の可否を確認中のため、ここには載せていません。"}</p>
+        ${open}
       </figcaption>
     </figure>`;
   }
@@ -35,8 +40,16 @@
     return `<div class="mediagrid">${items.map((m) => card(m, data, h)).join("")}</div>`;
   }
 
-  /** カードの中の「作図した模式図」を描く（innerHTML を入れたあとに呼ぶ） */
+  /** カードの中の「作図した模式図」と「立体の図」を描く（innerHTML を入れたあとに呼ぶ） */
   function hydrate(scope, data) {
+    const C = root.Heritage.Columns3D;
+    Array.from(scope.querySelectorAll("canvas[data-columns3d]")).forEach((el) => {
+      const m = data.mediaMap[el.dataset.columns3d];
+      if (!C || !m || !m.model) return;
+      const view = C.defaultView(m.model);
+      view.dist *= 0.92; // カードでは少し大きめに見せる
+      C.render(el, C.buildScene(m.model), view, { tone: "tan", scale: 1.6, background: "#1b2428" });
+    });
     Array.from(scope.querySelectorAll("[data-generated-map]")).forEach((el) => {
       root.Heritage.Map.render(el, data, { onSelect: (id) => { location.hash = "/map?spot=" + id; } });
     });

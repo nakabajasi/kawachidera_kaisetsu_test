@@ -67,6 +67,11 @@ for (const s of data.spots) {
 }
 for (const r of data.relations) { needEnt(r.subject, r.id); needEnt(r.object, r.id); ok(r.source_refs.length > 0, `${r.id}: 出典がない`); if (r.fact_id) needFact(r.fact_id, r.id); }
 for (const m of data.media) m.related_entity_ids.forEach((id) => needEnt(id, m.id));
+for (const m of data.media) {
+  if (m.availability === "included" && m.file && !m.file.startsWith("generated:")) ok(fs.existsSync(path.join(ROOT, m.file)), `${m.id}: ${m.file} がない`);
+  if (m.action_id) ok(!!data.actionMap[m.action_id], `${m.id}: action ${m.action_id} がない`);
+  if (m.model) (m.model.basis || []).forEach((b) => { b.fact_ids.forEach((id) => needFact(id, m.id)); ok(["report", "assumed"].includes(b.from), `${m.id}: basis.from ${b.from}`); });
+}
 for (const q of data.quiz) {
   q.explanation_fact_ids.forEach((id) => needFact(id, q.id));
   ok(q.correct_index >= 0 && q.correct_index < q.choices.length, `${q.id}: correct_index`);
@@ -81,6 +86,52 @@ for (const a of data.actions) {
   ok(!a.url.startsWith("/"), `${a.id}: URL が / で始まっている（GitHub Pages のサブフォルダで動かない）`);
 }
 for (const sec of [...data.site.pages.overview, ...data.site.pages.timeline, ...data.site.pages.artifacts]) sec.fact_ids.forEach((id) => needFact(id, "site.pages"));
+
+// ───────── 2b. 立体の柱（js/columns3d.js）の形と、報告書の数値との一致 ─────────
+section("立体の柱");
+{
+  const C = require(path.join(ROOT, "js/columns3d.js"));
+  const near = (a, b) => Math.abs(a - b) < 1e-9;
+  for (const m of data.media.filter((x) => x.model && x.model.kind === "column_grid")) {
+    const model = m.model, scene = C.buildScene(model);
+    const inner = scene.columns.filter((c) => c.inner), outer = scene.columns.filter((c) => !c.inner);
+    ok(scene.columns.length === model.grid.cols.length * model.grid.rows.length - model.omit.length, `${m.id}: 柱の本数`);
+    ok(model.omit.every((n) => !scene.columns.some((c) => c.name === n)), `${m.id}: 置かないはずの位置に柱がある`);
+    ok(scene.planes.every((p) => p.y === 0), `${m.id}: 平面が高さ0にない`);
+    ok(near(model.inner.height_ratio, 1.2), `${m.id}: 身舎の柱の高さの倍率`);
+    // 隣り合う柱の間隔が、どこも柱間どおり
+    const byName = Object.fromEntries(scene.columns.map((c) => [c.name, c]));
+    let gaps = 0;
+    model.grid.rows.forEach((r) => model.grid.cols.forEach((c, i) => {
+      const a = byName[c + r], b = byName[model.grid.cols[i + 1] + r];
+      if (a && b) { gaps++; ok(near(b.x - a.x, model.grid.bay_x) && near(a.z, b.z), `${m.id}: ${a.name}–${b.name} の間隔`); }
+    }));
+    ok(gaps > 0, `${m.id}: 柱の間隔を確かめられない`);
+    // 建物の範囲 = 外側の柱の中心を結んだ範囲、基壇の範囲の内側におさまる
+    const b = scene.planes.find((p) => p.id === "building"), k = scene.planes.find((p) => p.id === "kidan");
+    ok(!!b && near(b.w, scene.width) && near(b.d, scene.depth), `${m.id}: 建物の範囲が柱の並びと合わない`);
+    ok(!!k && k.w > b.w && k.d > b.d, `${m.id}: 基壇の範囲が建物の範囲より小さい`);
+    ok(outer.every((c) => near(Math.abs(c.x), scene.width / 2) || near(Math.abs(c.z), scene.depth / 2)), `${m.id}: 外側の柱が建物の範囲のふちにない`);
+    ok(inner.length > 0 && inner.every((c) => Math.abs(c.x) < scene.width / 2 && Math.abs(c.z) < scene.depth / 2), `${m.id}: 身舎の柱の位置`);
+    // 報告書の数値（facts.json）と同じ値を使っているか
+    if (m.id === "media_kondo_columns_3d") {
+      ok(scene.columns.length === 28 && inner.length === 10, `${m.id}: 柱28本・身舎の柱10本になっていない`);
+      ok(near(model.grid.bay_x, data.factMap.fact_kondo_bay.value.number) && near(model.grid.bay_z, data.factMap.fact_kondo_bay.value.number), `${m.id}: 柱間が fact_kondo_bay と違う`);
+      ok(data.factMap.fact_kondo_kidan_ew.object.startsWith(String(k.w) + "ｍ") && data.factMap.fact_kondo_kidan_ns.object.startsWith(String(k.d) + "ｍ"), `${m.id}: 基壇の大きさが facts と違う`);
+      ok(model.column.diameter >= 0.45 && model.column.diameter <= 0.6, `${m.id}: 柱の太さが報告書の推定（45cm～60cm）の外`);
+      ok(model.basis.some((x) => x.item === "柱の高さ" && x.from === "assumed") && model.basis.some((x) => x.item === "身舎の柱の高さ" && x.from === "assumed"), `${m.id}: 柱の高さが「このアプリでの設定」と書かれていない`);
+    }
+    // 見え方：南から真横に見ると、東が右・上が上。身舎の柱の頭は外側の柱の1.2倍の高さに来る
+    const v = Object.assign(C.defaultView(model), { az: 0, el: 0 });
+    const P = (x, y, z) => C.project(v, 400, 400, x, y, z);
+    ok(P(1, 0, 0).x > P(-1, 0, 0).x && P(0, 2, 0).y < P(0, 0, 0).y, `${m.id}: 向きが逆`);
+    ok(P(0, 0, -3).depth > P(0, 0, 3).depth, `${m.id}: 南から見て北が奥になっていない`);
+    ok(near((P(0, 0, 0).y - P(0, v.height * scene.innerRatio, 0).y) / (P(0, 0, 0).y - P(0, v.height, 0).y), 1.2), `${m.id}: 描いたときの高さの比`);
+    const e = Object.assign(C.defaultView(model), { az: 90, el: 0 });
+    ok(C.project(e, 400, 400, 0, 0, -1).x > C.project(e, 400, 400, 0, 0, 1).x, `${m.id}: 東から見て北が右になっていない`);
+    ok(C.directionName(0) === "南" && C.directionName(90) === "東" && C.directionName(180) === "北" && C.directionName(270) === "西", `${m.id}: 方角の名前`);
+  }
+}
 
 // ───────── 3. 言い回しに史実が混ざっていないか ─────────
 section("language.json に史実が混ざっていないか");

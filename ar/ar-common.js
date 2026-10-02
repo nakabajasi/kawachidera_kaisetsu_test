@@ -31,6 +31,7 @@
 
   /** サイトの根から JSON を読む。file:// などで読めないときは null */
   async function loadJSON(path) {
+    if (location.protocol === "file:") return null; // 直接開いたときは fetch が使えない（loadBundle を使う）
     try {
       const res = await fetch(path, { cache: "no-cache" });
       if (!res.ok) return null;
@@ -38,8 +39,20 @@
     } catch (e) { return null; }
   }
 
+  /** fetch が使えないとき（file:// で開いたときなど）に、data/data.bundle.js から同じデータを読む */
+  function loadBundle(path, name) {
+    return new Promise((resolve) => {
+      if (root.__HERITAGE_DATA__) { resolve(root.__HERITAGE_DATA__[name] || null); return; }
+      const s = document.createElement("script");
+      s.src = path;
+      s.onload = () => resolve((root.__HERITAGE_DATA__ && root.__HERITAGE_DATA__[name]) || null);
+      s.onerror = () => resolve(null);
+      document.head.appendChild(s);
+    });
+  }
+
   window.addEventListener("pagehide", stopCamera);
   document.addEventListener("visibilitychange", () => { if (document.hidden) stopCamera(); });
 
-  root.HeritageAR = { startCamera, stopCamera, loadJSON };
+  root.HeritageAR = { startCamera, stopCamera, loadJSON, loadBundle };
 })(window);
