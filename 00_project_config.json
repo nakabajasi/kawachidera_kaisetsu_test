@@ -1,0 +1,25 @@
+{
+  "project_id": "kawachidera",
+  "site_id": "site_kawachidera_haiji_ato",
+  "site_name": "河内寺廃寺跡",
+  "site_category": "古代寺院跡（国指定史跡）",
+  "primary_source_title": "第１期史跡整備事業に伴う国指定史跡河内寺廃寺跡発掘調査報告書（東大阪市 2022）",
+  "output_language": "ja",
+  "target_platform": "GitHub Pages",
+  "features": {
+    "overview": true,
+    "map": true,
+    "dialogue": true,
+    "gallery": true,
+    "viewer3d": true,
+    "camera": true,
+    "ar": true,
+    "quiz": true
+  },
+  "rules": {
+    "no_unsourced_historical_completion": true,
+    "preserve_source_pages": true,
+    "separate_fact_and_interpretation": true,
+    "separate_fact_and_language": true
+  }
+}

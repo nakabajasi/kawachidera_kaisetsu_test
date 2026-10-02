@@ -1,0 +1,1044 @@
+{
+  "_about": "AIだけで確定すべきでない事項の一覧。頁は印刷頁（page）と PDF 通し頁（pdf_page）。",
+  "generated_for": "source_report_2022",
+  "conflicts": [
+    {
+      "id": "conflict_01",
+      "item": "第29次調査の期間",
+      "reason": "本文47頁は「平成29年10月22日から平成30年３月31日」、第3表（9頁）は「平成30年10月22日～平成31年3月31日」。38頁は第29次を平成30（2018）年度とする。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 47,
+          "pdf_page": 61
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 9,
+          "pdf_page": 23
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 38,
+          "pdf_page": 52
+        }
+      ],
+      "fact_ids": [
+        "fact_excavation_29_period_text",
+        "fact_excavation_29_period_table"
+      ],
+      "handling": "両方を facts に記録。対話では使っていない"
+    },
+    {
+      "id": "conflict_02",
+      "item": "金堂基壇の盛土を観察した調査次",
+      "reason": "第5章第1節（73頁）は「2014年8月に第26次発掘調査」。第3表では2014年7～8月は第22次で、第26次は平成27年11月の立会調査。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 73,
+          "pdf_page": 87
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 9,
+          "pdf_page": 23
+        }
+      ],
+      "handling": "facts には入れていない"
+    },
+    {
+      "id": "conflict_03",
+      "item": "座標系の記載",
+      "reason": "凡例2は「国土座標系第Ⅴ系（日本測地系）」、第5章第1節第1図（73頁）は「第VI系」。図の枠の座標値（X=-148444 など）を緯度経度に直すには、系と測地系の確定が必要。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 9,
+          "locator": "凡例2"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 73,
+          "pdf_page": 87
+        }
+      ],
+      "handling": "緯度経度は入力していない（spots.json はすべて null）"
+    },
+    {
+      "id": "conflict_04",
+      "item": "講堂基壇の想定高さ",
+      "reason": "本文（25・27・113頁）は「0.6～0.7ｍ」、第10表（116頁）は「想定高さ0.6ｍ(20尺)」。尺の換算も合わない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 27,
+          "pdf_page": 41
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 116,
+          "pdf_page": 130
+        }
+      ],
+      "fact_ids": [
+        "fact_kodo_height_assumed",
+        "fact_kodo_height_table10"
+      ],
+      "handling": "対話・クイズでは本文の値を使う"
+    },
+    {
+      "id": "conflict_05",
+      "item": "東西回廊の高低差",
+      "reason": "第3章（38頁）は「１ｍ程度」、第6章（113頁）は「約1.4ｍ」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 38,
+          "pdf_page": 52
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        }
+      ],
+      "fact_ids": [
+        "fact_kairo_level_diff_ch3",
+        "fact_kairo_level_diff_ch6"
+      ],
+      "handling": "対話では第3章の値を使う"
+    },
+    {
+      "id": "conflict_06",
+      "item": "軒丸瓦の型式数",
+      "reason": "第4章（55頁）は「10型式…ＫＷＭ１～10」、第5章第5節（93頁）は「９種類…ＫＷＭ１～９」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 93,
+          "pdf_page": 107
+        }
+      ],
+      "fact_ids": [
+        "fact_nokimaru_types",
+        "fact_nokimaru_types_ch5"
+      ],
+      "handling": "対話では第4章の値を使う"
+    },
+    {
+      "id": "conflict_07",
+      "item": "軒瓦の出土点数",
+      "reason": "ＫＷＭ２：第7表（70頁）86点、第5章第5節（103頁）66点＋時期不明19点。ＫＷＨ２：第8表（71頁）54点、同第2表（103頁）53点。ＫＷＨ３：59点と57点。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 70,
+          "pdf_page": 84
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 71,
+          "pdf_page": 85
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 103,
+          "pdf_page": 117
+        }
+      ],
+      "fact_ids": [
+        "fact_kwm2_count_table",
+        "fact_kwm2_count_ch5",
+        "fact_kwh2_count_table",
+        "fact_kwh2_count_ch5"
+      ],
+      "handling": "集計時点の違いの可能性があるが、報告書に説明はない"
+    },
+    {
+      "id": "conflict_08",
+      "item": "軒平瓦の型式数とＫＷＨ10",
+      "reason": "「17型式」（58頁）とあるが、ＫＷＨ10は欠番（59頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 58,
+          "pdf_page": 72
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 59,
+          "pdf_page": 73
+        }
+      ],
+      "fact_ids": [
+        "fact_nokihira_types",
+        "fact_kwh10_vacant"
+      ]
+    },
+    {
+      "id": "conflict_09",
+      "item": "文献の年",
+      "reason": "『河内寺廃寺跡発掘調査報告書』が54・92頁では2007、69頁では2011。田中卓の文献が91頁本文で1966、92頁文献一覧で1967。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 54,
+          "pdf_page": 68
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 69,
+          "pdf_page": 83
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 91,
+          "pdf_page": 105
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 92,
+          "pdf_page": 106
+        }
+      ],
+      "handling": "sources.json は2007として記録し、注記した"
+    },
+    {
+      "id": "conflict_10",
+      "item": "史跡追加指定の時期",
+      "reason": "8頁は「平成28年度に史跡指定」、38頁は「平成29年に…追加指定」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 8,
+          "pdf_page": 22
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 38,
+          "pdf_page": 52
+        }
+      ]
+    },
+    {
+      "id": "conflict_11",
+      "item": "第4図の凡例の年",
+      "reason": "第4図（10頁）の凡例は「18次（2010）」。第3表（9頁）では第18次は平成21年1月。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 10,
+          "pdf_page": 24
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 9,
+          "pdf_page": 23
+        }
+      ]
+    },
+    {
+      "id": "conflict_12",
+      "item": "平瓦Ⅲ類の時期",
+      "reason": "Ⅲ－２類は本文（65頁）「平安時代」、第9表（72頁）「奈良時代」。Ⅲ－１類は本文「奈良時代後期」、第9表「奈良時代」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 65,
+          "pdf_page": 79
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 72,
+          "pdf_page": 86
+        }
+      ],
+      "handling": "facts には入れていない"
+    },
+    {
+      "id": "conflict_13",
+      "item": "瓦工人の移動先",
+      "reason": "第5章第4節（88頁）は「河内寺廃寺から久米寺へと移動した」、第5章第5節（103頁）と第6節（108頁）は「藤原宮の瓦製作のため大和へ」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 88,
+          "pdf_page": 102
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 103,
+          "pdf_page": 117
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 108,
+          "pdf_page": 122
+        }
+      ],
+      "fact_ids": [
+        "fact_workers_moved",
+        "fact_workers_early_moved"
+      ],
+      "handling": "執筆者を明示して両方を記録"
+    },
+    {
+      "id": "conflict_14",
+      "item": "創建期の瓦の年代",
+      "reason": "第5章第3節（84頁）はＫＷＭ２－ＫＷＨ２を「680年をやや先行する時期」、第5章第5節（93頁）と第6章（113頁）は「７世紀第４四半期」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 84,
+          "pdf_page": 98
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 93,
+          "pdf_page": 107
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        }
+      ],
+      "fact_ids": [
+        "fact_kwm2_kwh2_date_tanizaki",
+        "fact_kwm2_date_q4",
+        "fact_kwm2_set_date_ch6"
+      ],
+      "handling": "執筆者を明示して両方を記録"
+    },
+    {
+      "id": "conflict_15",
+      "item": "土石流の発生時期の書き方",
+      "reason": "23頁「14世紀代」、46頁「13世紀代後半～14世紀初め…同時期かそれ以前」、53頁「13世紀後半から14世紀代」、114頁「13世紀末から14世紀前半」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 46,
+          "pdf_page": 60
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        }
+      ],
+      "fact_ids": [
+        "fact_dosekiryu_date_p23",
+        "fact_dosekiryu_date_p46",
+        "fact_dosekiryu_date_p53",
+        "fact_dosekiryu_date_ch6"
+      ],
+      "handling": "対話・年表では第6章の書き方を使い、ほかは「もっと詳しく」で示す"
+    },
+    {
+      "id": "conflict_16",
+      "item": "寺域北方の石列と前身流路の距離",
+      "reason": "39頁「北石列の北1.8ｍ」、48頁「約2.3ｍ北側」、53頁「約2.1ｍ南方」。39頁は第28次、48頁は第29次の調査区で、測った位置が違う可能性がある。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 39,
+          "pdf_page": 53
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 48,
+          "pdf_page": 62
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67
+        }
+      ],
+      "handling": "facts には入れていない"
+    }
+  ],
+  "uncertain_information": [
+    {
+      "id": "uncertain_01",
+      "item": "伽藍配置の確からしさ",
+      "reason": "1頁は「四天王寺式伽藍配置をとるものと推定されてきた」、113頁は「四天王寺式伽藍配置をとる」と断定。塔跡は未検出（117頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131
+        }
+      ],
+      "fact_ids": [
+        "fact_layout_type_ch1",
+        "fact_layout_type_ch6",
+        "fact_to_not_detected"
+      ],
+      "handling": "対話では「推定」の書き方を使い、塔が未検出であることを続けて示す"
+    },
+    {
+      "id": "uncertain_02",
+      "item": "金堂の屋根の形",
+      "reason": "23頁は「入母屋造と考えられる」、113頁は「入母屋造の屋根をもつ建物が建築された」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        }
+      ],
+      "fact_ids": [
+        "fact_kondo_roof",
+        "fact_kondo_roof_ch6"
+      ],
+      "handling": "対話では「考えられる」を使う"
+    },
+    {
+      "id": "uncertain_03",
+      "item": "金堂基壇南辺の奈良時代の拡張",
+      "reason": "15頁は「拡張された」、114頁は「拡張されたとの報告がある」、第10表（116頁）は「拡張か。」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 15,
+          "pdf_page": 29
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 116,
+          "pdf_page": 130
+        }
+      ],
+      "fact_ids": [
+        "fact_kondo_nara_ext_ch3",
+        "fact_kondo_nara_ext_ch6"
+      ],
+      "handling": "年表では114頁の書き方を使う"
+    },
+    {
+      "id": "uncertain_04",
+      "item": "金堂基壇の掘込地業",
+      "reason": "18頁「行われなかった可能性がある」、21頁「版築や掘込地業を行わず」、78頁（松田）「判断するのはむずかしい」。自然堆積層上面の標高も18頁25.6ｍ、75頁約25.4ｍ。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 18,
+          "pdf_page": 32
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 21,
+          "pdf_page": 35
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 75,
+          "pdf_page": 89
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 78,
+          "pdf_page": 92
+        }
+      ],
+      "fact_ids": [
+        "fact_kondo_build_method",
+        "fact_kondo_horikomi_possible",
+        "fact_kondo_horikomi_matsuda"
+      ],
+      "handling": "対話では三つを並べて示す"
+    },
+    {
+      "id": "uncertain_05",
+      "item": "講堂の建物と倒壊",
+      "reason": "建物は24頁が断定、113頁が「推定するが、礎石はすべて失われている」。倒壊は114頁が断定、第10表（116頁）が「倒壊か。」。回廊も同じ。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 24,
+          "pdf_page": 38
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 116,
+          "pdf_page": 130
+        }
+      ],
+      "fact_ids": [
+        "fact_kodo_plan",
+        "fact_kodo_plan_ch6",
+        "fact_kodo_collapsed",
+        "fact_kodo_collapsed_table10",
+        "fact_kairo_collapsed"
+      ],
+      "handling": "建物は「推定」を使う。倒壊は第6章本文の断定を使っている。弱い書き方に合わせるか判断が必要"
+    },
+    {
+      "id": "uncertain_06",
+      "item": "金堂基壇の高さの「約」",
+      "reason": "11頁は「約1.5ｍ（５尺）」、21・113頁は「1.5ｍ（5尺）」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 21,
+          "pdf_page": 35
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        }
+      ],
+      "fact_ids": [
+        "fact_kondo_kidan_height"
+      ],
+      "handling": "「約」つきで記録"
+    },
+    {
+      "id": "uncertain_07",
+      "item": "創建に関わった氏族",
+      "reason": "河内直（連）説（1・90頁）、中臣氏関与の仮説（91頁）、複数氏族による造営（91・113–114頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 90,
+          "pdf_page": 104
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 91,
+          "pdf_page": 105
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        }
+      ],
+      "fact_ids": [
+        "fact_clan_kawachi_leading",
+        "fact_clan_nakatomi_proposed",
+        "fact_clan_fujisawa",
+        "fact_clan_not_conclusive",
+        "fact_clan_nakatomi_hypothesis",
+        "fact_clan_multiple",
+        "fact_clan_ch6"
+      ],
+      "handling": "対話では複数の見方として並べる"
+    },
+    {
+      "id": "uncertain_08",
+      "item": "郡衙との関係",
+      "reason": "皿池遺跡は「河内郡衙跡の有力な推定地」（4頁）。一方、郡家関連遺構は未検出で前提は立証されていない（90頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 4,
+          "pdf_page": 18
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 90,
+          "pdf_page": 104
+        }
+      ],
+      "fact_ids": [
+        "fact_saraike_gunga",
+        "fact_site_adjacent_gunga",
+        "fact_gunga_no_remains"
+      ]
+    },
+    {
+      "id": "uncertain_09",
+      "item": "土石流と廃絶",
+      "reason": "従来は土石流で廃絶と考えてきた（46・115頁）。本報告は「廃絶の原因になったとまでは断定できない」（115頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 46,
+          "pdf_page": 60
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 115,
+          "pdf_page": 129
+        }
+      ],
+      "fact_ids": [
+        "fact_dosekiryu_old_view",
+        "fact_dosekiryu_not_conclusive"
+      ],
+      "handling": "旧説と本報告の見解を順に示す"
+    },
+    {
+      "id": "uncertain_10",
+      "item": "中世仏堂と近世の建物",
+      "reason": "中世仏堂の平面は二案（23頁）、近世の建物の屋根も二案（117頁）。法灯を継いだかは遺構から確認できない（115頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 23,
+          "pdf_page": 37
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 115,
+          "pdf_page": 129
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131
+        }
+      ],
+      "fact_ids": [
+        "fact_chusei_butsudo_option_a",
+        "fact_chusei_butsudo_option_b",
+        "fact_kinsei_roof_option_a",
+        "fact_kinsei_roof_option_b",
+        "fact_kinsei_hoto_unknown"
+      ]
+    },
+    {
+      "id": "uncertain_11",
+      "item": "時期の用語",
+      "reason": "凡例3は飛鳥時代を7世紀中頃まで、白鳳時代を7世紀中頃からとする。一方「飛鳥時代後期」が7世紀第3四半期のＫＷＭ１に使われ、113頁の見出しは「飛鳥時代後期（白鳳期）」。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 9,
+          "locator": "凡例3"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 55,
+          "pdf_page": 69
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        }
+      ],
+      "fact_ids": [
+        "fact_period_def_asuka",
+        "fact_period_def_hakuho",
+        "fact_kwm1_period"
+      ],
+      "handling": "報告書の用語をそのまま使い、言い換えていない"
+    }
+  ],
+  "missing_information": [
+    {
+      "id": "missing_01",
+      "item": "緯度・経度",
+      "reason": "報告書抄録にも本文にも記載がない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 203,
+          "locator": "報告書抄録"
+        }
+      ],
+      "handling": "site.json と spots.json はすべて null。現地マップは模式図で表示"
+    },
+    {
+      "id": "missing_02",
+      "item": "塔・中門・僧房・食堂",
+      "reason": "塔跡は未検出（117頁）。中門は推定地のみ（第2・5図）。僧房や食堂などの遺構は未検出（113頁）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 113,
+          "pdf_page": 127
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131
+        }
+      ],
+      "fact_ids": [
+        "fact_to_not_detected",
+        "fact_sobo_not_detected"
+      ],
+      "handling": "マップでは推定地として破線で示す。中門には解説の fact がない"
+    },
+    {
+      "id": "missing_03",
+      "item": "存続時の寺院名",
+      "reason": "当時の呼び名は不明（例言6）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 8,
+          "locator": "例言6"
+        }
+      ],
+      "fact_ids": [
+        "fact_temple_name_unknown"
+      ]
+    },
+    {
+      "id": "missing_04",
+      "item": "名称の読み",
+      "reason": "報告書に読みがあるのは「河内寺廃寺跡（かわちでらはいじあと）」と小字「河内寺（こんで（て）ら）」だけ。金堂・講堂などの用語や人名・他の遺跡名の読みは報告書にない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 1,
+          "pdf_page": 15
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 203,
+          "locator": "報告書抄録"
+        }
+      ],
+      "handling": "entities.json の reading は2件のみ。検索用の別名（こんどう 等）は一般的な読みを aliases に入れている"
+    },
+    {
+      "id": "missing_05",
+      "item": "現地の説明板・見学路・復元表示の位置",
+      "reason": "史跡公園の整備内容（説明板の位置、遺構表示の方法）は本報告書に記載がない。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 7,
+          "pdf_page": 21
+        }
+      ],
+      "handling": "spots.json は遺構単位。現地の見学地点は未設定"
+    },
+    {
+      "id": "missing_06",
+      "item": "画像・3Dモデル・音声",
+      "reason": "公開用の画像、3Dモデル、音声ファイルは含めていない。",
+      "source_refs": [],
+      "handling": "images/ には作図した模式図のみ。models/ と audio/ は空。読み上げは端末の音声合成を使う"
+    },
+    {
+      "id": "missing_07",
+      "item": "既往調査（第1～21次）の詳細",
+      "reason": "本報告書は第22・24・28・29・31次調査の報告。第11次など既往調査は要約だけで、詳細は東大阪市教育委員会2007ほかによる。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ],
+      "fact_ids": [
+        "fact_report_scope"
+      ]
+    }
+  ],
+  "copyright_review": [
+    {
+      "id": "copyright_01",
+      "item": "報告書の図・写真・図版",
+      "reason": "報告書掲載の図、写真、図版、復元図（第31図）は、転載の可否と条件が不明のため複製していない。media.json には題名・頁・内容だけを記録した（availability: not_included）。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 5,
+          "locator": "巻頭写真"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 13,
+          "pdf_page": 27
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 22,
+          "pdf_page": 36
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 117,
+          "pdf_page": 131
+        }
+      ],
+      "media_ids": [
+        "media_frontispiece_kondo",
+        "media_frontispiece_park",
+        "media_photo_s30",
+        "media_fig02",
+        "media_fig04",
+        "media_fig05",
+        "media_fig06",
+        "media_fig13",
+        "media_fig31",
+        "media_plate01",
+        "media_plate16",
+        "media_plate24",
+        "media_plate26",
+        "media_plate65"
+      ],
+      "suggested_action": "東大阪市（文化財課）に利用条件を確認し、許諾が得られたものから images/ に置いて media.json の file と availability を書き換える"
+    },
+    {
+      "id": "copyright_02",
+      "item": "3Dデータ",
+      "reason": "金堂跡の三次元写真測量データ、ＫＷＭ２と丸瓦の３Ｄデータの存在が報告書から分かるが、所在と公開の可否は未確認。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": null,
+          "pdf_page": 5,
+          "locator": "巻頭写真"
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 96,
+          "pdf_page": 110
+        }
+      ],
+      "media_ids": [
+        "media_model_kondo_sfm",
+        "media_model_kwm2"
+      ]
+    },
+    {
+      "id": "copyright_03",
+      "item": "原文抜粋（quote）",
+      "reason": "facts.json の quote は報告書本文の短い抜粋（出典明示）。公開時に引用の範囲として扱えるか、発行者の方針を確認する。画面には通常表示せず、debug 表示と出典画面でのみ示す。",
+      "source_refs": [],
+      "suggested_action": "不要なら facts.json から quote を除いても動作する"
+    },
+    {
+      "id": "copyright_04",
+      "item": "本アプリで作図した模式図",
+      "reason": "伽藍配置の模式図と金堂の柱配置図は、報告書の数値と図（第2・5図）を参考に新たに作図した。位置関係は概略。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 11,
+          "pdf_page": 25
+        }
+      ],
+      "media_ids": [
+        "media_plan_schematic",
+        "media_kondo_columns"
+      ],
+      "suggested_action": "報告書の図の翻案にあたるかどうかを含め、発行者に確認する"
+    }
+  ],
+  "human_review": [
+    {
+      "id": "human_01",
+      "item": "facts 全件の確認",
+      "reason": "facts.json の261件は機械的に抽出した。原文抜粋が該当頁にあることは照合済みだが、主語・述語・目的語への分け方と、status（事実／解釈／推定／仮説／不明）の分類は人の確認が必要。",
+      "source_refs": [],
+      "suggested_action": "?debug=true で各文の fact_id と頁を見ながら確認する"
+    },
+    {
+      "id": "human_02",
+      "item": "status の分類の基準",
+      "reason": "調査で直接確認した記録を fact、復元や算出の値を estimate、根拠にもとづく執筆者の判断を interpretation、検証が済んでいない提案を hypothesis とした。年代づけや建物の復元は、断定の文でも interpretation にしている。",
+      "source_refs": []
+    },
+    {
+      "id": "human_03",
+      "item": "模式図の位置関係",
+      "reason": "現地マップの模式図は、建物の大きさを報告書の数値に合わせ、位置と間隔は第2・5・13・14図の読み取りと本文の距離（講堂北辺と南石列の間 約９ｍなど）から概略で置いた。史跡指定範囲の南の境も概略。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 3,
+          "pdf_page": 17
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 12,
+          "pdf_page": 26
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 54,
+          "pdf_page": 68
+        }
+      ],
+      "suggested_action": "測量図をもとに spots.json の schematic を直すか、許諾後に第2図を画像マップとして使う"
+    },
+    {
+      "id": "human_04",
+      "item": "土石流の範囲の表示",
+      "reason": "マップでは金堂と講堂の間を帯で示した。本文（53頁）の「金堂と講堂の間を流れ…」によるが、範囲の形は概略。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 53,
+          "pdf_page": 67
+        }
+      ],
+      "fact_ids": [
+        "fact_dosekiryu_route"
+      ]
+    },
+    {
+      "id": "human_05",
+      "item": "講堂・回廊の倒壊の書き方",
+      "reason": "対話は第6章本文の断定（114頁）を使う。第10表は「倒壊か。」。どちらに合わせるか決める。",
+      "source_refs": [
+        {
+          "source_id": "source_report_2022",
+          "page": 114,
+          "pdf_page": 128
+        },
+        {
+          "source_id": "source_report_2022",
+          "page": 116,
+          "pdf_page": 130
+        }
+      ],
+      "fact_ids": [
+        "fact_kodo_collapsed",
+        "fact_kodo_collapsed_table10"
+      ]
+    },
+    {
+      "id": "human_06",
+      "item": "IDのローマ字",
+      "reason": "entities.json の ID は一般的な読みで付けた（kondo、kodo、kairo など）。人名や他の遺跡名（西郡廃寺 nishigori、客坊廃寺 kyakubo など）の読みは報告書で確認できていない。",
+      "source_refs": [],
+      "suggested_action": "読みが違う場合は ID を置き換える（全 JSON を一括置換）"
+    },
+    {
+      "id": "human_07",
+      "item": "クイズの誤答",
+      "reason": "誤答は、報告書のほかの箇所の値（別の建物の規模など）か、報告書が退けた案を使った。「講堂」「中門」「回廊」「寄棟造」「法隆寺式伽藍配置」など、根拠の fact を持たない誤答もある（choice_fact_ids が null のもの）。",
+      "source_refs": [],
+      "suggested_action": "出題の難しさと表現を確認する"
+    },
+    {
+      "id": "human_08",
+      "item": "対話の言い回し",
+      "reason": "回答文は facts の値を language.json の言い回しに差し込んで作る。不自然な日本語がないか、?debug=true で確認する。",
+      "source_refs": []
+    },
+    {
+      "id": "human_09",
+      "item": "報告書の公開ページへのリンク",
+      "reason": "出典画面から全国遺跡報告総覧（https://sitereports.nabunken.go.jp/132311）へリンクしている。外部への通信はこのリンクを押したときだけ。",
+      "source_refs": [],
+      "suggested_action": "リンク先とリンクの可否を確認する"
+    },
+    {
+      "id": "human_10",
+      "item": "カメラ機能の実機確認",
+      "reason": "記念フレーム撮影と柱配置の重ね表示は、iPhone Safari と Android Chrome の実機では未確認（https 上でのみ動く）。",
+      "source_refs": [],
+      "suggested_action": "GitHub Pages に置いてから実機で確認する"
+    }
+  ]
+}
