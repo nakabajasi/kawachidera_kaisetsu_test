@@ -1,0 +1,36 @@
+/* AR・カメラ画面の見た目（本体の css/style.css とは別に、この2画面だけで使う） */
+:root { --paper: #141b1e; --ink: #eef0ea; --ink-2: #a3b3af; --line: #36454c; --accent: #74c4b0; --accent-ink: #0f1a1c; --tan: #e39079;
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Noto Sans CJK JP", Meiryo, sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--gothic); font-size: 15px; line-height: 1.7; display: flex; flex-direction: column; }
+a { color: var(--accent); }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 14px; padding-top: max(8px, env(safe-area-inset-top)); border-bottom: 1px solid var(--line); }
+.bar h1 { font-family: var(--mincho); font-size: 16px; margin: 0; font-weight: 600; }
+.bar a { font-size: 14px; white-space: nowrap; }
+.stage { position: relative; flex: 1; min-height: 0; background: #000; overflow: hidden; touch-action: none; }
+.stage video, .stage img.shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage img.shot { object-fit: contain; }
+.intro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; background: var(--paper); }
+.intro p { margin: 0; max-width: 30em; color: var(--ink-2); }
+.intro .err { color: var(--tan); }
+.btn { border: 0; border-radius: 4px; background: var(--accent); color: var(--accent-ink); padding: 11px 20px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn--line { background: transparent; color: var(--ink); border: 1px solid var(--ink-2); }
+.panel { padding: 10px 14px calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.panel .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.panel label { display: grid; grid-template-columns: 5.5em 1fr; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-2); }
+.panel input[type=range] { width: 100%; accent-color: var(--accent); }
+.panel .cap { margin: 0; font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
+/* 記念フレーム */
+.frame { position: absolute; inset: 0; pointer-events: none; }
+.frame::before { content: ""; position: absolute; inset: 14px; border: 1.5px solid rgba(255,255,255,0.92); }
+.frame__title { position: absolute; top: 30px; right: 28px; font-family: var(--mincho); font-weight: 600; font-size: clamp(26px, 8vw, 40px); line-height: 1.16; color: #fff; text-shadow: 0 0 6px rgba(0,0,0,0.75), 0 0 2px rgba(0,0,0,0.9); }
+.frame__title span { display: block; text-align: center; }
+.frame__date { position: absolute; left: 28px; bottom: 26px; font-size: 13px; letter-spacing: 0.1em; color: #fff; text-shadow: 0 0 4px rgba(0,0,0,0.9); }
+/* 重ね表示 */
+.overlay { position: absolute; left: 50%; top: 50%; width: 70%; transform-origin: center; pointer-events: auto; cursor: grab; user-select: none; -webkit-user-drag: none; }
+.overlay.is-white { filter: invert(1); }
